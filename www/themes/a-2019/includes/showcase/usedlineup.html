@@ -1,0 +1,67 @@
+<div class="container">
+
+	<!-- all model -->
+	<form class="all-model" autocomplete="off">
+		<div class="all-model-content clearfix">
+			<h1 style="width: 100%"><?=$page->header?></h1>
+			<?php
+			$classes = $mySQL->get("
+			SELECT
+				ClassID,class,side,front,gb_sitemap.name AS name,COUNT(ClassID) AS cnt
+			FROM gb_showcase
+			CROSS JOIN gb_lineup ON gb_showcase.LineupID=gb_lineup.PageID
+			CROSS JOIN gb_classes USING(ClassID)
+			CROSS JOIN gb_sitemap ON gb_showcase.CategoryID = gb_sitemap.PageID
+			WHERE
+				gb_showcase.language LIKE {str} AND
+				status LIKE 'available' AND
+				subtemplate LIKE 'used'
+			GROUP BY class
+			ORDER BY gb_lineup.SortID",
+			USER_LANG);
+
+			while(!empty($classes)): $lineups=[]?>
+			<ul class="family">
+				<?for($i=0;$i<3;$i++) if(count($classes)): $lineups[] = array_shift($classes)?>
+				<li>
+					<a href="<?=LANG_INDEX?>/<?=$lineups[$i]['name']?>">
+						<img src="<?=$lineups[$i]['side']?>" data-side="<?=$lineups[$i]['side']?>" data-front="<?=$lineups[$i]['front']?>">
+						<span><?=$wordlist->{$lineups[$i]['class']}?> (<?=$lineups[$i]['cnt']?>)</span>
+					</a>
+				</li>
+				<?else: break; endif?>
+			</ul>
+			<?endwhile?>
+
+			<script>
+			(function(form){
+				form.onchange=function(event){
+					form.onreset();
+					var lbl = form.querySelector("label[for='"+event.target.id+"']");
+						lbl.classList.add("opened");
+					var img = lbl.firstElementChild;
+						img.onmouseout=
+						img.onmouseover=null;
+				}
+				form.onreset=function(){
+					form.querySelectorAll("label.opened").forEach(function(lbl){
+						lbl.classList.remove("opened");
+						var img = lbl.firstElementChild;
+							img.src = img.dataset.side;
+							img.onmouseover=function(){
+								img.src = img.dataset.front;
+								img.onmouseout=function(){img.src = img.dataset.side}
+							}
+					});
+				}
+				form.querySelectorAll("li>label>img").forEach(function(img){
+					img.onmouseover=function(){
+						img.src = img.dataset.front;
+						img.onmouseout=function(){img.src = img.dataset.side}
+					}
+				});
+			})(document.currentScript.parentNode)
+		</script>
+		</div>
+	</form>
+</div>

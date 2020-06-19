@@ -1,0 +1,268 @@
+<div class="container container--wide">
+
+	<!-- swiper -->
+	<div class="swiper swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-q8-home.jpg" class="lazy">
+				<div>
+					<p class="slogan">Audi Q8</p>
+					<p class="subslogan"><?=$wordlist->{"slider subslogan 1"}?></p>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-q8" class="btn primary white l"><?=$wordlist->{'learn more'}?></a>
+					<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 1'}?>" class="btn secondary white l"><?=$wordlist->buy?></a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-s6-limousine.jpg" class="lazy">
+				<div class="r">
+					<p class="slogan">Audi S6 limousine</p>
+					<p class="subslogan"><?=$wordlist->{"slider subslogan 3"}?></p>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-s6-limousine" class="btn primary white l"><?=$wordlist->{'learn more'}?></a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-s7-sportback.jpg" class="lazy">
+				<div>
+					<p class="slogan">Audi S7 Sportback</p>
+					<p class="subslogan"><?=$wordlist->{"slider subslogan 4"}?></p>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-s7-sportback" class="btn primary white l"><?=$wordlist->{'learn more'}?></a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-q5-home.jpg" class="lazy">
+				<div class="r">
+					<p class="slogan">Audi Q5</p>
+					<p class="subslogan"><?=$wordlist->{"slider subslogan 2"}?></p>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-q5" class="btn primary white l"><?=$wordlist->{'learn more'}?></a>
+					<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 2'}?>"  class="btn secondary white l"><?=$wordlist->buy?></a>
+				</div>
+			</div>
+		</div>
+
+		<!-- add pagination -->
+		<div class="swiper-pagination"></div>
+	</div>
+
+	<!-- selecting -->
+	<div class="selecting">
+		<span><?=$wordlist->availability?></span>
+
+		<!-- choose -->
+		<div class="selecting__choose">
+			<span>Модель</span>
+
+			<!-- model -->
+			<div class="selecting__choose--model">
+				<ul>
+					<li data-value="3" data-rate="4,2 - 6,7" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 3'}?>">A4 Limousine</li>
+					<li data-value="1" data-rate="6,6 - 6,8" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 4'}?>">A4 allroad quattro</li>
+					<li data-value="13" data-rate="4,4 - 7,3" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 5'}?>">A7 Sportback</li>
+					<li data-value="20" data-rate="5,6 - 7,9" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 6'}?>">A8</li>
+					<li data-value="3" data-rate="4,4 - 6,7" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 7'}?>">Q2</li>
+					<li data-value="14" data-rate="5,4 - 7,5" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 2'}?>">Q5</li>
+					<li data-value="8" data-rate="6,5 - 7,0" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 8'}?>">SQ7</li>
+					<li data-value="14" data-rate="6,4 - 9,1" data-link="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 1'}?>">Q8</li>
+				</ul>
+				<span>A4 Limousine</span>
+			</div>
+		</div>
+
+		<!-- link -->
+		<a class="selecting__link btn text white s" href="<?=LANG_INDEX?>/<?=$wordlist->{'link bay 3'}?>"><span>3</span>&nbsp;&nbsp; авто
+		</a>
+	</div>
+	<div>
+		<p><?=$wordlist->{"fuel consumption"}?>: <span>4,2 - 6,7</span> л / 100 км</p>
+	</div>
+
+	<!-- cars carousel on the home page -->
+	<div id="carousel" class="carousel">
+
+		<!-- tabs -->
+		<div class="carousel__tabs">
+			<button class="carousel__tabs--model active">Mодель</button>
+			<button class="carousel__tabs--body">Кузов</button>
+		</div>
+
+		<!-- models item -->
+		<div class="carousel__item carousel__item--models active">
+			<button>
+				<svg viewBox="0 0 24 24">
+					<path d="M9.704 18L9 17.29l5.127-5.087-5.122-5.08.704-.71 5.83 5.79L9.7 18" fill-rule="evenodd"></path>
+				</svg>
+			</button>
+			<button>
+				<svg viewBox="0 0 24 24">
+					<path d="M9.704 18L9 17.29l5.127-5.087-5.122-5.08.704-.71 5.83 5.79L9.7 18" fill-rule="evenodd"></path>
+				</svg>
+			</button>
+
+			<!-- wrapper -->
+			<div class="carousel__wrapper">
+				<div class="slider">
+					<?$lineup = $mySQL->get("SELECT class, side, front FROM gb_classes GROUP BY class");
+					foreach($lineup as $vehicle):?>
+					<a href="#carousel" class="slide wow fade-in-carousel" data-model="<?=$vehicle['class']?>">
+						<img src="<?=$vehicle['side']?>" alt="Audi <?=$vehicle['class']?> side">
+						<img src="<?=$vehicle['front']?>" alt="Audi <?=$vehicle['class']?> front">
+						<span>Audi <?=$vehicle['class']?></span>
+					</a>
+					<?endforeach?>
+        </div>
+			</div>
+
+			<!-- content -->
+			<div class="carousel__content"></div>
+		</div>
+
+		<!-- bodies item -->
+		<div class="carousel__item carousel__item--bodies">
+			<button>
+				<svg viewBox="0 0 24 24">
+					<path d="M9.704 18L9 17.29l5.127-5.087-5.122-5.08.704-.71 5.83 5.79L9.7 18" fill-rule="evenodd"></path>
+				</svg>
+			</button>
+			<button>
+				<svg viewBox="0 0 24 24">
+					<path d="M9.704 18L9 17.29l5.127-5.087-5.122-5.08.704-.71 5.83 5.79L9.7 18" fill-rule="evenodd"></path>
+				</svg>
+			</button>
+
+			<!-- wrapper -->
+			<div class="carousel__wrapper">
+				<div class="slider">
+					<a class="slide wow fade-in-carousel" data-body="Sportwagen">
+						<img src="https://img.audi-kiev.com.ua/data/catalog/sportwagen-1.png" alt="Audi Sportwagen back">
+						<img src="https://img.audi-kiev.com.ua/data/catalog/sportwagen-2.png" alt="Audi Sportwagen front">
+						<span>Sportwagen</span>
+					</a>
+					<?$lineup = $mySQL->get("SELECT body, back, front FROM gb_classes GROUP BY body");
+					foreach($lineup as $vehicle):?>
+					<a class="slide wow fade-in-carousel" data-body="<?=$vehicle['body']?>">
+						<img src="<?=$vehicle['back']?>" alt="Audi <?=$vehicle['body']?> back">
+						<img src="<?=$vehicle['front']?>" alt="Audi <?=$vehicle['body']?> front">
+						<span><?=$vehicle['body']?></span>
+					</a>
+					<?endforeach?>
+				</div>
+			</div>
+
+			<!-- content -->
+			<div class="carousel__content"></div>
+		</div>
+	</div>
+
+	<!-- blocks -->
+	<div class="blocks">
+		<div class="row row--grid">
+			<div class="column column--35">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-a6-home.jpg" class="lazy">
+				<div>
+					<h2 class="blocks__title"><?=$wordlist->new?> Audi A6 Limousine</h2>
+					<span class="blocks__subtitle"><?=$wordlist->{'block 2'}?></span>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-a6-limousine" class="btn secondary white m"><?=$wordlist->{'learn more'}?></a>
+				</div>
+			</div>
+		   <div class="column column--65">
+				<img data-src="https://img.audi-kiev.com.ua/data/main/audi-a7-home.jpg" class="lazy">
+				<div>
+					<h2 class="blocks__title"><?=$wordlist->new?> Audi A7</h2>
+					<span class="blocks__subtitle"><?=$wordlist->{'block 1'}?></span>
+					<a href="<?=LANG_INDEX?>/modelnyy-ryad/audi-a7-sportback" class="btn secondary white m"><?=$wordlist->{'learn more'}?></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- tiles -->
+	<div class="tiles">
+		<h1 class="tiles__title"><?=$wordlist->acky?></h1>
+		<h2 class="tiles__subtitle"><?=$wordlist->dealer?></h2>
+		<div class="row row--grid">
+			<div class="column column--33">
+				<a href="<?=LANG_INDEX?>/novi-avtomobili-audi">
+					<img data-src="https://img.audi-kiev.com.ua/data/main/new-audi.jpg" class="lazy">
+					<h3><?=$wordlist->{'title 2'}?></h3>
+					<span><?=$wordlist->{'description 2'}?></span>
+				</a>
+				<a href="<?=LANG_INDEX?>/novi-avtomobili-audi" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+			</div>
+			<div class="column column--33">
+				<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 4'}?>">
+					<img data-src="https://img.audi-kiev.com.ua/data/main/audi-banner-1.jpg" class="lazy">
+					<h3><?=$wordlist->{'title 4'}?></h3>
+					<span><?=$wordlist->{'description 4'}?></span>
+				</a>
+				<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 4'}?>" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+			</div>
+			<div class="column column--33">
+				<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 5'}?>">
+					<img data-src="https://img.audi-kiev.com.ua/data/preview/news.jpg" class="lazy">
+					<h3><?=$wordlist->{'title 5'}?></h3>
+					<span><?=$wordlist->{'description 5'}?></span>
+				</a>
+				<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 5'}?>" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- map -->
+	<div class="map">
+		<div class="row row--grid">
+			<div>
+				<h3>Автосалон <?=$wordlist->acky?></h3>
+				<span><?=$wordlist->map?></span>
+				<div class="map--double">
+					<div>
+	          <span><?=$wordlist->{"sales department"}?>:</span>
+	          <a href="tel:+380445369292">+38 044 536 92 92</a>
+	          <a href="mailto:sales@audi-yug.com.ua">sales@audi-yug.com.ua</a>
+					</div>
+					<div>
+	          <span><?=$wordlist->{"service department"}?>:</span>
+	          <a href="tel:+380445369229">+38 044 536 92 29</a>
+	          <a href="mailto:service@audi-yug.com.ua">service@audi-yug.com.ua</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div id="map"></div>
+				<a href="https://www.google.com.ua/maps/dir/''/ауди+центр+киев+юг/@50.399124,30.5445253,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x40d4ce5102781b5b:0xa4c9857c088021e7!2m2!1d30.6145649!2d50.399145" class="btn text s" target="_blank" rel="nofollow noopener"><?=$wordlist->route?></a>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpTfzEfoNeVlnJhNyZCHOlMSEl5BrFyUQ"></script>
+				<script src="https://audi-kiev.com.ua/themes/a-2019/scripts/map.min.js"></script>
+			</div>
+		</div>
+	</div>
+
+	<!-- tiles -->
+	<div class="tiles">
+		<h3 class="tiles__subtitle"><?=$wordlist->social?></h3>
+		<div class="row row--grid">
+			<div class="column column--33">
+				<a href="https://www.facebook.com/audiyug/photos/a.634031266666279/2182840225118701" target="_blank">
+					<img data-src="https://scontent.fdnk1-2.fna.fbcdn.net/v/t1.0-9/53869290_2116409688428422_1392995088233136128_o.jpg?_nc_cat=107&_nc_ht=scontent.fdnk1-2.fna&oh=c07c78eb03b5aa5dad02b318a71ace76&oe=5D3FAD1B" class="lazy">
+					<h3>Audi Q8 - найновіший автомобіль бренду на сьогоднішній день</h3>
+					<span>Однак і на цю модель вже діє кілька спеціальних пропозицій. Ви можете отримати вагому цінову перевагу при покупці позашляховика. Скористайтеся цим! Деталі: +380 44 536 92 92.</span>
+					<div class="facebook"></div>
+				</a>
+			</div>
+			<div class="column column--33">
+				<a href="https://www.instagram.com/p/BuJpNztHcp7/" target="_blank">
+					<img data-src="https://instagram.fdnk1-1.fna.fbcdn.net/vp/4a8fec62b64b9b5a2e4997ed3b15692a/5D3F1D6A/t51.2885-15/e35/51875586_639727486464294_8690392823851323578_n.jpg?_nc_ht=instagram.fdnk1-1.fna.fbcdn.net" class="lazy">
+					<h3>Новий Audi RS 5 Sportback</h3>
+					<span>Культовий спортивний автомобіль Audi RS 5 вперше в версії Sportback – цей седан не має аналогів і прямих конкурентів. Завітай на Дніпровську набережну, 16-В до офіційного дилера Audi в Україні - Ауді Центр Київ Юг і ми забезпечено тебе враженнями.</span>
+					<div class="instagram"></div>
+				</a>
+			</div>
+			<div class="column column--33">
+				<a href="https://www.youtube.com/watch?v=SKC227tm52U" target="_blank">
+					<iframe height="330" src="https://www.youtube-nocookie.com/embed/SKC227tm52U?showinfo=0&controls=0&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<h3>Новини Audi Q8</h3>
+					<span>Новий Audi Q8 - пропонує розумну технологію з дванадцятьма ультразвуковими датчиками, шістьма камерами, віртуальним кокпітом і подвійними сенсорними екранами. Максимум інформації про новинку – на YouTube каналі офіційного дилера Audi Центр Київ Юг!</span>
+					<div class="youtube"></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/themes/<?=THEME?>/scripts/carousel.js"></script>

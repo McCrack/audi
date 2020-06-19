@@ -1,0 +1,816 @@
+.header {
+  width: 100%;
+  z-index: 99;
+  background-color: $white;
+
+  > .container:first-of-type {
+    display: flex;
+  }
+
+  &--blog {
+    background-color: $black;
+    min-height: 70px;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    @include media(phone) {
+      min-height: 50px;
+    }
+  }
+
+  &__substrate {
+    transition: $time * 2 $time;
+
+    .container {
+      position: relative;
+      display: flex;
+      height: 100%;
+    }
+
+    &--close {
+      @extend %close;
+      animation: fade-in-down-reverse $time forwards;
+    }
+  }
+
+  &__cars {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background-color: $white;
+    transition: $time * 2 $time;
+
+    input {
+      &:checked {
+        + div {
+          animation: fade-in-down $time * 2 $time * 2 forwards;
+          height: calc(100% - 170px);
+          pointer-events: auto;
+          z-index: 1;
+        }
+
+        ~ .header__substrate {
+          transition: $time * 2;
+          padding: 100px 0 70px;
+          box-shadow: $shadow;
+
+          .header__substrate--close {
+            animation: fade-in-down $time * 2 $time * 2 forwards;
+          }
+        }
+      }
+
+      + div {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+        animation: fade-in-down-reverse $time forwards;
+        padding: 100px 0 70px;
+        width: 100%;
+
+        .container {
+          display: flex;
+        }
+      }
+    }
+
+    &--list {
+      width: 100%;
+      display: grid;
+      position: relative;
+
+      li {
+        display: flex;
+
+        &:last-of-type a {
+          border-bottom: 0;
+        }
+
+        > a {
+          border-bottom: 1px solid $border-color;
+          font-family: $extended-normal;
+          padding: 14px 115px 14px 16px;
+          width: calc(35% - 147px);
+          position: relative;
+          line-height: 20px;
+          font-size: em(14);
+          display: flex;
+          color: $black;
+
+          &:hover {
+            background-color: $grey-05;
+            border-bottom-color: $grey-05;
+            border-top: 1px solid $grey-05;
+            margin-top: -1px;
+          }
+
+          img {
+            position: absolute;
+            margin: 4px 0;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+
+    &--info {
+      position: absolute;
+      display: none;
+      width: 65%;
+      right: 0;
+      top: 0;
+
+      > img {
+        width: 100%;
+        object-fit: cover;
+        max-height: 280px;
+        margin-bottom: 25px;
+      }
+
+      > div {
+        box-sizing: border-box;
+        padding-left: 30px;
+        height: 30%;
+
+        a {
+          @include transition($time);
+          font-family: $extended-bold;
+          margin-bottom: 20px;
+          line-height: 61px;
+          font-size: em(39);
+
+          &.text {
+            &::after {
+              padding: 6px;
+              margin-left: 20px;
+            }
+
+            &:focus::after,
+            &:hover::after {
+              margin-left: 25px;
+            }
+          }
+
+          &:focus,
+          &:hover {
+            color: $dark-grey;
+          }
+        }
+
+        p:first-of-type {
+          font-size: em(15);
+          line-height: 15px;
+          margin-bottom: 27px;
+          font-family: $extended-bold;
+        }
+
+        p:not(:first-of-type) {
+          font-size: em(14);
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .sitemap {
+    &--header {
+      transition: $time * 2 $time;
+      background-color: $white;
+      position: absolute;
+      visibility: hidden;
+      z-index: -9;
+      width: 100%;
+      padding: 0;
+      top: 0;
+
+      a:not(.sitemap__title):not(.sitemap__language) {
+        position: relative;
+        font-size: em(14);
+        transition: $time;
+
+        &:hover span {
+          color: $red;
+        }
+      }
+
+      li:not(:last-of-type) {
+        margin-bottom: 6px;
+      }
+
+      img {
+        width: 100%;
+        margin-top: 30px;
+
+        @include media(phone) {
+          display: none;
+        }
+      }
+
+      .sitemap__block:first-of-type .sitemap__title {
+        @include media(phone) {
+          &:first-of-type {
+            border-bottom: 1px solid $grey-15;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      &.opened {
+        visibility: visible;
+        box-shadow: $shadow;
+        padding: 100px 0 70px;
+
+        @include media(phone) {
+          padding: 60px 0 70px;
+          transition: 0s;
+        }
+
+        @include media(tablet) {
+          transition: $time * 2;
+        }
+
+        .container,
+        .header__substrate--close {
+          animation: fade-in-down $time * 2 $time forwards;
+        }
+      }
+
+      .container {
+        animation: fade-in-down-reverse $time forwards;
+        opacity: 0;
+      }
+    }
+
+    &__navigation {
+      margin-top: 30px;
+      width: 100%;
+      float: left;
+
+      @include media(phone) {
+        display: none;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+
+      span {
+        color: $black;
+        transition: $time;
+
+        &:hover {
+          color: $red;
+        }
+      }
+
+      &--icon {
+        @include inline-block;
+
+        &.key {
+          @include sprite(key, header);
+        }
+
+        &.special {
+          @include sprite(special, header);
+        }
+
+        &.service {
+          @include sprite(service, header);
+        }
+
+        &.contacts {
+          @include sprite(contacts, header);
+        }
+
+        + span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .menu {
+    float: left;
+    padding: 25px 0;
+    padding-left: 5px;
+    position: relative;
+    background-color: $white;
+
+    @include media(phone) {
+      align-items: center;
+      display: flex;
+      height: 50px;
+      padding: 0;
+      width: 80%;
+    }
+
+    @include media(tablet) {
+      width: calc(94% - 5px);
+    }
+
+    @include media(laptop) {
+      width: calc(81% - 5px);
+    }
+
+    div,
+    label {
+      font-family: $extended-normal;
+      transition: $time;
+      font-size: em(15);
+      cursor: pointer;
+      color: $black;
+
+      @include media(tablet) {
+        &:hover {
+          color: $red;
+
+          span {
+            background: $red;
+          }
+        }
+      }
+
+      &:first-child {
+        @include media(phone) {
+          margin-right: 0;
+        }
+
+        @include media(tablet) {
+          margin-right: 15px;
+        }
+
+        @include media(laptop) {
+          margin-right: 25px;
+        }
+      }
+
+      &:not(:first-child) {
+        @include media(tablet) {
+          margin: 0 6px;
+        }
+
+        @include media(laptop) {
+          margin: 0 7px;
+        }
+      }
+
+      &.selected {
+        color: $red;
+
+        span {
+          background: $red;
+        }
+      }
+    }
+
+    div {
+      @include inline-block;
+      padding-left: 24px;
+      position: relative;
+
+      span {
+        position: absolute;
+        background: $black;
+        transition: $time;
+        height: 1px;
+        width: 16px;
+        left: 0;
+
+        &:nth-child(1) {
+          transform-origin: left center;
+          top: 5px;
+        }
+
+        &:nth-child(2) {
+          transform-origin: left center;
+          top: 9px;
+        }
+
+        &:nth-child(3) {
+          transform-origin: left center;
+          top: 13px;
+        }
+      }
+    }
+
+    label {
+      @include media(phone) {
+        display: none;
+      }
+
+      &.selected {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .logo {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    @include media(phone) {
+      padding: 0;
+      width: 20%;
+    }
+
+    @include media(tablet) {
+      margin-right: 5px;
+      width: 6%;
+    }
+
+    @include media(laptop) {
+      margin-right: 0;
+      width: 19%;
+    }
+
+    a {
+      background: url('../images/logo-black.png') left no-repeat;
+      background-size: 85px;
+      position: absolute;
+      right: 0;
+
+      @include media(phone) {
+        background-size: contain;
+        position: relative;
+        height: 50px;
+        width: 100%;
+      }
+
+      @include media(tablet) {
+        background-size: contain;
+        position: relative;
+        height: 21px;
+        width: 100%;
+      }
+
+      @include media(laptop) {
+        height: auto;
+      }
+
+      span {
+        padding-left: 98px;
+        font-size: em(13);
+        display: none;
+
+        @include media(laptop) {
+          display: block;
+        }
+
+        &:first-of-type {
+          color: $red;
+          font-family: $extended-bold;
+        }
+        &:last-of-type {
+          color: $black;
+          font-family: $extended-normal;
+        }
+      }
+    }
+
+    &--blog {
+      align-items: center;
+      margin-left: 2.5%;
+      position: inherit;
+      display: flex;
+      padding: 0;
+
+      @include media(phone) {
+        z-index: 9;
+        width: 75%;
+      }
+
+      a {
+        background: url('../images/logo-white.png') center no-repeat;
+        background-size: contain;
+        position: relative;
+        min-height: 70px;
+        width: 85px;
+
+        @include media(phone) {
+          min-height: 50px;
+        }
+      }
+
+      span {
+        color: $white;
+        display: none;
+        font-size: em(20);
+        line-height: 32px;
+        margin-left: 15px;
+        font-family: $bold;
+
+        @include media(laptop) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .burger {
+    width: 30px;
+    height: 18px;
+    transform: rotate(0deg);
+    transition: $time * 2 ease-in-out;
+    position: absolute;
+    cursor: pointer;
+    z-index: 9999;
+    right: 2.5%;
+    top: 25px;
+
+    @include media(phone) {
+      top: 16px;
+    }
+
+    span {
+      @include border-radius(50px);
+      transition: $time ease-in-out;
+      transform: rotate(0deg);
+      background: $white;
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 100%;
+      opacity: 1;
+      left: 0;
+
+      &:nth-child(1) {
+        transform-origin: left center;
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        transform-origin: left center;
+        top: 8px;
+      }
+
+      &:nth-child(3) {
+        transform-origin: left center;
+        top: 16px;
+      }
+    }
+
+    + div {
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      height: auto;
+      padding-top: 70px;
+      position: absolute;
+      background-color: $black;
+      min-height: calc(100vh - 70px);
+      animation: fade-blog-menu $time * 2 forwards;
+
+      @include media(phone) {
+        min-height: calc(100vh - 50px);
+        padding-top: 50px;
+      }
+
+      ul:first-of-type {
+        margin: 0 auto;
+        opacity: 0;
+
+        @include media(phone) {
+          width: 100%;
+        }
+
+        @include media(tablet) {
+          width: 90%;
+        }
+
+        @include media(laptop) {
+          width: 85%;
+        }
+
+        li {
+          width: calc(33.333333% - 20px);
+          overflow: hidden;
+          margin: 10px;
+          float: left;
+
+          @include media(phone) {
+            width: calc(50% - 10px);
+            margin: 5px;
+          }
+
+          &:nth-of-type(1) span {
+            background-image: url('../images/home-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(2) span {
+            background-image: url('../images/car-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(3) span {
+            background-image: url('../images/time-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(4) span {
+            background-image: url('../images/apps-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(5) span {
+            background-image: url('../images/velocity-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(6) span {
+            background-image: url('../images/discussion-icon.svg');
+            background-repeat: no-repeat;
+          }
+
+          a {
+            color: $white;
+            display: grid;
+            font-size: em(24);
+            line-height: 36px;
+            text-align: center;
+            grid-row-gap: 30px;
+            padding: 45px 30px 35px;
+            background-color: $grey-90;
+            transition: all .2s cubic-bezier(.75, .02, .5, 1);
+
+            @include media(phone) {
+              line-height: 24px;
+              font-size: em(12);
+              padding: 10px;
+              grid-row-gap: 0;
+            }
+
+            &:hover {
+              transform: scale(1.1);
+              background-color: #262626;
+            }
+
+            span {
+              @include inline-block;
+              transform: scale(1.5);
+              margin: 0 auto;
+              height: 48px;
+              width: 48px;
+
+              @include media(phone) {
+                transform: scale(.8);
+              }
+            }
+          }
+        }
+
+        + ul {
+          opacity: 0;
+          margin: 2em auto;
+          text-align: center;
+          width: calc(85% - 20px);
+
+          @include media(phone) {
+            width: calc(100% - 10px);
+            margin: 1.2em auto;
+          }
+
+          &::after,
+          &::before {
+            content: '';
+            width: 100%;
+            height: 2px;
+            display: block;
+            background-color: $dark-grey;
+          }
+
+          &::before {
+            margin-bottom: 1em;
+          }
+
+          &::after {
+            margin-top: 1em;
+          }
+
+          li {
+            line-height: 44px;
+
+            @include media(phone) {
+              line-height: 22px;
+            }
+
+            a {
+              color: #999;
+              font-size: em(18);
+              line-height: 30px;
+              font-family: $normal;
+              transition: color $time linear,border $time linear;
+
+              &:hover {
+                color: #ccc;
+              }
+            }
+          }
+
+          + div {
+            opacity: 0;
+            text-align: center;
+
+            a {
+              color: #999;
+              font-size: em(16);
+              line-height: 24px;
+              font-family: $bold;
+              position: relative;
+              text-transform: uppercase;
+              transition: color $time linear,border $time linear;
+
+              &:hover {
+                color: $white;
+              }
+
+              &:first-of-type {
+                margin-right: 20px;
+
+                &::after {
+                  top: 3px;
+                  width: 2px;
+                  height: 80%;
+                  right: -13px;
+                  background: $white;
+                  position: absolute;
+                  content: '';
+                }
+              }
+
+              &.selected {
+                border-bottom: 2px solid $white;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+
+      .container {
+        display: grid;
+
+        @include media(phone) {
+          width: calc(100% - 5%);
+        }
+      }
+    }
+
+    &.opened {
+      span {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+          left: 5px;
+          top: -1px;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          width: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          left: 5px;
+          top: 20px;
+        }
+      }
+
+      + div {
+        opacity: 1;
+        padding-top: 100px;
+        visibility: visible;
+        animation: fade-in $time * 2;
+        min-height: calc(100vh - 100px);
+
+        @include media(phone) {
+          min-height: calc(100vh - 60px);
+          padding-top: 60px;
+        }
+
+        ul:first-of-type {
+          animation: fade-in-down $time * 2 $time forwards;
+
+          + ul {
+            animation: fade-in-down $time * 2 $time * 1.25 forwards;
+
+            + div {
+              animation: fade-in-down $time * 2 $time * 1.5 forwards;
+            }
+          }
+        }
+      }
+    }
+  }
+}

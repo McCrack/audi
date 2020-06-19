@@ -1,0 +1,81 @@
+<article id="default" class="default">
+	<div class="container container--medium">
+		<div>
+			<p class="slogan wow fade-in-left" data-wow-delay="1s"><?=$page->header?></p>
+		</div>
+		<img src="<?=$page->preview?>" alt="<?=$page->header?>" title="<?=$page->header?>" class="wow fade-in">
+
+		<?$childs = $mySQL->get("SELECT PageID,name,header,description,preview FROM gb_sitemap CROSS JOIN gb_static USING(PageID) WHERE parent LIKE {str} AND published & 2 AND language LIKE {str} ORDER BY SortID", $page->{$customizer['submenu']},USER_LANG)?>
+
+		<!-- black line -->
+		<div class="main__black">
+			<div class="container">
+				<nav>
+					<li>
+						<?if ($customizer['submenu']=="name"):?>
+						<span class="selected"><?=$wordlist->review?></span>
+						<?else:?>
+						<a href="<?=LANG_INDEX?>/<?=$page->parent?>"><?=$wordlist->review?></a>
+						<?endif?>
+					</li>
+					<?foreach($childs as $itm):?>
+					<li>
+						<a <?if($itm['name']==ROOT):?>class="selected"<?else:?>href="<?=LANG_INDEX?>/<?=$itm['name']?>"<?endif?>><?=$itm['header']?></a>
+					</li>
+					<?endforeach?>
+
+					<!-- more button -->
+					<li class="main__black--more">
+						<span><?=$wordlist->more?></span>
+					</li>
+				</nav>
+			</div>
+		</div>
+		<div class="container">
+
+			<!-- overview -->
+			<div class="default__overview wow fade-in-up" data-wow-delay="1.25s">
+				<div class="row row--grid">
+					<div class="column column--65">
+						<?=$page->getContent()?>
+
+						<!-- tiles -->
+					  <div class="tiles tiles--double">
+			    		<?foreach($childs as $itm) if($itm['PageID']!=$page->PageID):?>
+							<div>
+								<a href="<?=LANG_INDEX?>/<?=$itm['name']?>">
+									<img data-src="<?=$itm['preview']?>" alt="<?=$itm['header']?>" class="lazy">
+									<h3><?=$itm['header']?></h3>
+								</a>
+								<a href="<?=LANG_INDEX?>/<?=$itm['name']?>" class="btn text s"><?=$wordlist->{"learn more"}?></a>
+							</div>
+							<?endif?>
+					  </div>
+			  	</div>
+			  	<div class="column column--25">
+
+			  		<!-- tiles -->
+					  <div class="tiles tiles--double">
+					  	<div class="column column--100">
+				        <div>
+				          <img data-src="https://img.audi-kiev.com.ua/data/preview/contacts/2.jpg" class="lazy">
+				          <h3><?=$wordlist->acky?></h3>
+				          <span><?=$wordlist->{"sales department"}?>:</span>
+				          <a href="tel:+380445369292">+38 044 536 92 92</a>
+				          <a href="mailto:sales@audi-yug.com.ua">sales@audi-yug.com.ua</a>
+				        </div>
+				        <div>
+				          <span><?=$wordlist->{"service department"}?>:</span>
+				          <a href="tel:+380445369229">+38 044 536 92 29</a>
+				          <a href="mailto:service@audi-yug.com.ua">service@audi-yug.com.ua</a>
+				        </div>
+				        <a href="https://www.google.com.ua/maps/dir/''/ауди+центр+киев+юг/@50.399124,30.5445253,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x40d4ce5102781b5b:0xa4c9857c088021e7!2m2!1d30.6145649!2d50.399145" class="btn text s" target="_blank" rel="nofollow noopener"><?=$wordlist->route?></a>
+			          <a href="<?=LANG_INDEX?>/<?=$wordlist->{'contacts link'}?>" class="btn text s"><?=$wordlist->сontacts?></a>
+						  </div>
+					  </div>
+			  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

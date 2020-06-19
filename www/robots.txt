@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /xhr/
+
+Host: https://audi-kiev.com.ua/
+Sitemap: https://audi-kiev.com.ua/sitemap.xml
+Sitemap: https://audi-kiev.com.ua/images_sitemap.xml

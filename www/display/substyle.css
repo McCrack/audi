@@ -1,0 +1,229 @@
+@font-face{
+	font-family:'iconset';
+	src: local('iconset'), url(/content/display/icons/fonts/iconset.ttf);
+}
+@font-face {
+	font-family: AudiNormal;
+	src: url(../fonts/audi-type-extended-normal.woff);
+}
+
+@font-face {
+	font-family: AudiBold;
+	src: url(../fonts/audi-type-extended-bold.woff);
+}
+
+body{
+	margin:0;
+	font-family: iconset, AudiNormal;
+}
+
+
+/*********************************/
+
+#first-slide h1{
+	font-size:3.0vw;
+}
+#first-slide h2{
+	font-size:2.2vw;
+	letter-spacing:8px;
+}
+#last-slide h1{
+	padding:0 3%;
+	font-size:2.2vw;
+	text-align-last:left;
+}
+#last-slide p{
+	padding:0 4%;
+	font-size:1.2vw;
+	letter-spacing:2px;
+	text-align:left;
+}
+
+#what-you-estimate h2{
+	font-size:2.3vw;
+	letter-spacing:3px;
+}
+
+#showroom h1,
+#maintenance h1{
+	font-size:1.6vw;
+	letter-spacing:3px;
+}
+#showroom h2,
+#maintenance h2{
+	font-size:1.2vw;
+}
+
+/*********************************/
+
+
+.slider{
+	overflow:hidden;
+	scroll-snap-type:mandatory;
+    scroll-snap-points-x:repeat(100%);
+}
+#first-slide{
+	background-size:cover;
+	background-image:url(/content/display/1_1.jpg)
+}
+#last-slide{
+	background-size:cover;
+	background-image:url(/content/display/5_5.jpg);
+}
+#h-slider{
+	font-size:0;
+	width:100%;
+	height:100vh;
+	white-space:nowrap;
+
+	background-size:auto 100%;
+	background-position:center;
+	background-attachment:local;
+	background-image:url(/content/display/fullslide.jpg);
+	transition:background-position 0.3s ease;
+}
+
+#v-slider{
+	height:100vh;
+}
+#v-slider>.slide{
+	width:100%;
+	height:100vh;
+}
+#v-slider>.slide>.subslide{
+	width:41%;
+	height:100vh;
+	padding-top:12%;
+	box-sizing:border-box;
+
+	background-color:white;
+}
+#h-slider>.slide{
+	width:100%;
+	height:100vh;
+	display:inline-block;
+	text-align-last:justify;
+
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+#h-slider>.slide>.subslide{
+	height:100vh;
+	font-size:1vw;
+	vertical-align:top;
+	display:inline-block;
+	text-align:center;
+	text-align-last:center;
+}
+#what-you-estimate>.subslide{
+	width:33%;
+	padding-top:20%;
+	text-align:center;
+	text-align-last:center;
+	box-sizing:border-box;
+}
+#showroom>.subslide,
+#maintenance>.subslide{
+	width:50%;
+	padding-top:6%;
+	box-sizing:border-box;
+}
+
+/**********************************/
+
+.btn,
+input.btn+span{
+	cursor:pointer;
+	display:inline-block;
+	box-sizing:border-box;
+	box-shadow:10px 10px 4px -8px rgba(0,0,0,0.5);
+}
+
+.btn.quality-of-service{
+	padding:20px 0;
+	text-align:center;
+}
+.btn.quality-evaluation{
+	visibility:hidden;
+	margin-right:-14px;
+}
+.btn.quality-evaluation+span{
+	width:6vw;
+	color:white;
+	border-radius:5px;
+	text-align:center;
+	font:32px/3.0 AudiBold;
+	background:linear-gradient(to top, #555, #AAA);
+}
+.btn.quality-evaluation:hover+span,
+.btn.quality-evaluation:checked+span{
+	background:linear-gradient(to top, #D01550, #F43B60);
+}
+
+input.btn{
+	visibility:hidden;
+}
+input.departament.btn+span{
+	color:#444;
+	width:200px;
+	border-radius:3px;
+	background-color:#F0F0F0;
+	font:bold 1.4vw/2.8 AudiNormal;
+	background:linear-gradient(to top, #EAEAEA, #FFF);
+}
+.btn.tel{
+	width:88px;
+	color:white;
+	margin:4px 0;
+	font-size:20px;
+	line-height:3.6;
+	background-color:#444;
+	background:linear-gradient(to top, #222, #444);
+}
+
+.btn.send{
+	color:white;
+	width:280px;
+	padding:16px 0;
+	border-width:0;
+	font:15px iconset, AudiNormal;
+	background:linear-gradient(to top, #15B050, #3BD460);
+}
+.btn.send:hover,
+.btn.tel:hover,
+input.btn+span:hover,
+input.btn:checked+span{
+	color:white;
+	background:linear-gradient(to top, #D01550, #F43B60);
+}
+
+.phone>input{
+	width:280px;
+	padding:10px;
+	margin:10px 0;
+	font-size:20px;
+	text-align:center;
+	box-sizing:border-box;
+	border:1px solid #888;
+}
+
+/**********************************/
+
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+
+/**********************************/
+
+h1{
+	margin:10px 0;
+	font-family:AudiBold;
+}
+h2{
+	margin:0;
+	font-family:AudiNormal;
+}

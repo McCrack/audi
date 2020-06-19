@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="<?=USER_LANG?>">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<title><?=$page->title?></title>
+		<meta name="description" content="<?=$page->description?>">
+
+		<meta property="og:url" content="<?=$page->canonical?>">
+    	<meta property="og:title" content="<?=$page->header?>">
+    	<meta property="og:type" content="website">
+    	<meta property="og:description" content="<?=$page->description?>">
+    	<meta property="og:site_name" content="<?=$page->SiteName?>">
+
+    	<?$preview = getimagesize($page->preview)?>
+    	<meta property="og:image" content="<?=$page->preview?>">
+    	<meta property="og:image:type" content="<?=$preview['mime']?>">
+    	<meta property="og:image:height" content="<?=$preview[1]?>">
+    	<meta property="og:image:width" content="<?=$preview[0]?>">
+
+		<?foreach($page->languageset as $lang=>$lnk):?>
+    	<link hreflang="<?=$lang?>" href="<?=$lnk?>" rel="alternate">
+    	<?endforeach?>
+    	<link hreflang="x-default" href="<?=$page->x_default?>" rel="alternate">
+    	<link rel="canonical" href="<?=$page->canonical?>">
+
+    	<!-- FONTS -->
+    	<style>
+    	<?foreach(array_map("pathinfo", glob("fonts/*.{otf,ttf,woff}", GLOB_BRACE)) as $file):?>
+    	@font-face{
+      	font-family:'<?=str_replace("-", " ", $file['filename'])?>';
+      	src:url(/<?=($file['dirname']."/".$file['basename'])?>) format('<?=[
+        	"otf"=>"opentype",
+        	"ttf"=>"truetype",
+        	"woff"=>"woff"
+      	][$file['extension']]?>');
+    	}
+    	<?endforeach?>
+    	</style>
+
+		<!-- styles -->
+		<style>
+			@import "/themes/<?=THEME?>/styles/desktop.css";
+			@import "/themes/<?=THEME?>/styles/libs.min.css";
+		</style>
+
+		<!-- scripts -->
+		<script src="/xhr/wordlist/<?=USER_LANG?>?d[0]=main" charset="utf-8" defer></script>
+		<script src="/themes/<?=THEME?>/scripts/main.min.js"></script>
+		<script src="/js/C-Lab.js"></script>
+		<script>
+			var PageID = "<?=$page->PageID?>";
+			var LANGUAGE = "<?=USER_LANG?>";
+			new function(){
+		    var analytics = this;
+				analytics.timer = Date.now();
+				analytics.XHR = new XMLHttpRequest();
+				analytics.XHR.open("POST", "/xhr/analytics/"+(session.open() ? 1 : 0), false);
+				analytics.XHR.setRequestHeader("Content-Type", "application/json");
+				window.onbeforeunload = function(){
+					var params = {
+						"PageID":PageID,
+						"input":analytics.timer,
+						"output":Date.now()
+					}
+					analytics.XHR.send(JSON.stringify(params));
+				}
+			}
+		</script>
+
+		<!-- MICRODATA -->
+		<?foreach($page->schemes as $schema):?>
+		<script type="application/ld+json"><?=stripcslashes(JSON::encode($schema))?></script>
+		<?endforeach?>
+
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-WCRCKZ3');</script>
+		<!-- End Google Tag Manager -->
+
+	</head>
+	<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCRCKZ3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+		<div class="wrapper">
+
+			<!-- header -->
+			<header class="header header--blog">
+
+				<!-- logotype -->
+				<div class="logo logo--blog">
+					<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 5'}?>"></a>
+					<span>Audi Блог</span>
+				</div>
+
+				<!-- burger -->
+				<div class="burger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div>
+					<div class="container">
+						<ul>
+							<li>
+								<a href="<?=LANG_INDEX?>/">
+									<span></span>
+									<?=$wordlist->home?>
+								</a>
+							</li>
+							<?$categories = $mySQL->get("SELECT name,header FROM gb_sitemap WHERE {prp} AND language LIKE {str}",
+
+							$categories,USER_LANG);
+							foreach($categories as $category):?>
+							<li>
+								<a href="<?=(LANG_INDEX.'/'.$category['name'])?>">
+									<span></span>
+									<?=$category['header']?>
+								</a>
+							</li>
+							<?endforeach?>
+						</ul>
+						<ul>
+							<li>
+								<a href="<?=LANG_INDEX?>/<?=$wordlist->{'link 5'}?>"><?=$wordlist->news?></a>
+							</li>
+							<li>
+								<a href="<?=LANG_INDEX?>/<?=$wordlist->{'history link'}?>"><?=$wordlist->history?></a>
+							</li>
+						</ul>
+						<div>
+						<?foreach($page->languageset as $lang=>$lnk):?>
+	  						<a <?if($lang==USER_LANG):?>class="selected"<?endif?> href="<?=$lnk?>"><?=$lang?></a>
+	  					<?endforeach?>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- main -->
+			<main class="main">
+
+				<!-- include template -->
+				<?include_once "includes/".$page->template.".html" ?>
+			</main>
+
+			<!-- footer -->
+			<footer class="footer footer--blog">
+
+		    <!-- footer navigation -->
+		    <div class="footer__navigation">
+	        <div class="container">
+
+	          <!-- navigation -->
+	          <div class="navigation">
+
+	          	<!-- news -->
+	          	<?if($page->type=="post"):?>
+	          	<div class="navigation__news">
+	          		<p class="navigation__title">Актуальні новини</p>
+	          		<?for($i=0; $i<3; $i++):?>
+	          		<a href="<?=(LANG_INDEX.'/'.translite($feed[$i]['header']).'-'.$feed[$i]['PageID'])?>">
+	          			<img src="<?=$feed[$i]['preview']?>">
+	          			<span><?=$feed[$i]['header']?></span>
+	          		</a>
+	          		<?endfor?>
+	          	</div>
+	          	<?endif?>
+
+	            <!-- social -->
+	            <div class="navigation__social">
+	          		<p class="navigation__title">Audi в соціальних мережах</p>
+	              <a href="https://www.facebook.com/audiyug" target="_blank"></a>
+	              <a href="https://www.youtube.com/user/audiyug" target="_blank"></a>
+	              <a href="https://www.instagram.com/audi_kiev_yug/" target="_blank"></a>
+	            </div>
+	          </div>
+	        </div>
+		    </div>
+
+		    <!-- footer bottom -->
+		    <div class="footer__bottom">
+		    	<div class="container">
+
+		    		<!-- news -->
+		    		<div class="news">
+		          <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 1'}?>"><?=$wordlist->news?></a>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 2'}?>">Audi exclusive</a>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 3'}?>"><?=$wordlist->career?></a>
+              <a href="/pravova-informatsiya" class="disabled" rel="nofollow"><?=$wordlist->{'legal information'}?></a>
+              <script>
+                  document.currentScript.parentNode.onclick = function() {
+                      openBox("pravova-informatsiya", "xhr/boxfather/content/" + LANGUAGE);
+                  }
+              </script>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 4'}?>"><?=$wordlist->warranty?></a>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 5'}?>">Кредит</a>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 6'}?>"><?=$wordlist->leasing?></a>
+              <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 7'}?>"><?=$wordlist->{'сorporate programs'}?></a>
+	          </div>
+
+		        <!-- copyright -->
+		        <span class="copyright">© <?=date("Y")?> AUDI YUG. Все права защищены</span>
+	        </div>
+		    </div>
+			</footer>
+		</div>
+	</body>
+</html>

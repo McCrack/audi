@@ -1,0 +1,98 @@
+<div class="container container--wide">
+	<img src="<?=$page->cover?>" alt="<?=$page->model?>" title="<?=$page->model?>" class="wow fade-in">
+	<div>
+		<p class="slogan wow fade-in-left" data-wow-delay="1s"><?=$page->model?></p>
+	</div>
+
+	<!-- black line -->
+	<div class="main__black">
+		<div class="container">
+			<nav>
+				<li>
+					<a href="#" class="selected"><?=$wordlist->review?></a>
+				</li>
+			</nav>
+		</div>
+	</div>
+
+	<!-- overview -->
+	<div class="model__overview wow fade-in-up" data-wow-delay="1.25s">
+		<?=$page->getContent()?>
+
+  	<!-- modal window -->
+  	<div id="size" class="modal">
+			<div class="container">
+				<a href="javascript:hide()" class="modal__close"></a>
+				<div class="tabs">
+					<input id="modal-1" type="radio" name="modal" checked="">
+					<label for="modal-1"><?=$wordlist->{'review side'}?></label>
+					<input id="modal-2" type="radio" name="modal">
+					<label for="modal-2"><?=$wordlist->{'review top'}?></label>
+					<input id="modal-3" type="radio" name="modal">
+					<label for="modal-3"><?=$wordlist->{'review front'}?></label>
+					<section id="modal-1">
+						<img src="https://img.audi-kiev.com.ua/data/lineup/<?=strtolower($page->class)?>/<?=$page->ModelID?>/size-1.jpg" alt="Новий автомобіль <?=$page->model?> огляд збоку" title="Новий автомобіль <?=$page->model?> огляд збоку фото">
+					</section>
+					<section id="modal-2">
+						<img src="https://img.audi-kiev.com.ua/data/lineup/<?=strtolower($page->class)?>/<?=$page->ModelID?>/size-2.jpg" alt="Новий автомобіль <?=$page->model?> огляд збоку" title="Новий автомобіль <?=$page->model?> огляд збоку фото">
+					</section>
+					<section id="modal-3">
+						<img src="https://img.audi-kiev.com.ua/data/lineup/<?=strtolower($page->class)?>/<?=$page->ModelID?>/size-3.jpg" alt="Новий автомобіль <?=$page->model?> огляд збоку" title="Новий автомобіль <?=$page->model?> огляд збоку фото">
+					</section>
+				</div>
+			</div>
+		</div>
+		<div class="model__overview--slider wow fade-in-up">
+			<div class="swiper-container gallery-top">
+				<div class="swiper-wrapper">
+					<?foreach($mediaset as $img):?>
+					<div class="swiper-slide">
+						<img src="<?=$img['url']?>" alt="<?=$img['description']?>">
+					</div>
+					<?endforeach?>
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<div class="swiper-container gallery-thumbs">
+				<div class="swiper-wrapper">
+					<?foreach($mediaset as $img):?>
+					<div class="swiper-slide" style="background-image:url(<?=$img['url']?>)"></div>
+					<?endforeach?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <!-- tiles -->
+  <div class="tiles lineup">
+    <div class="row row--grid">
+      <div class="column column--33">
+        <a href="#modal" data-name="test">
+          <img src="<?=$page->cover?>" alt="<?=$page->model?>" title="<?=$page->model?>" class="lazy">
+          <h3>Тест-драйв Audi</h3>
+          <span><?=$wordlist->{'description 1'}?></span>
+        </a>
+        <a href="#modal" data-name="test" class="btn text s"><?=$wordlist->{'test drive'}?></a>
+      </div>
+      <div class="column column--33">
+        <a href="<?=LANG_INDEX?>/novi-avtomobili-audi">
+					<img data-src="https://img.audi-kiev.com.ua/data/main/new-audi.jpg" alt="<?=$page->model?>" title="<?=$page->model?>" class="lazy">
+          <h3><?=$wordlist->{'title 2'}?></h3>
+          <span><?=$wordlist->{'description 2'}?></span>
+        </a>
+        <a href="<?=LANG_INDEX?>/novi-avtomobili-audi" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+      </div>
+      <div class="column column--33">
+        <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 3'}?>">
+          <img data-src="https://img.audi-kiev.com.ua/data/preview/finansovye-uslugi-audi/main_slider.jpg" alt="<?=$page->model?>" title="<?=$page->model?>" class="lazy">
+          <h3><?=$wordlist->{'title 3'}?></h3>
+          <span><?=$wordlist->{'description 3'}?></span>
+        </a>
+        <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 3'}?>" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/themes/<?=THEME?>/scripts/sticky.min.js"></script>
+<script src="/themes/<?=THEME?>/scripts/video-scroll.js"></script>

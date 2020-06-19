@@ -1,0 +1,193 @@
+<div class="container">
+
+	<!-- all model -->
+	<div class="all-model">
+		<div class="all-model-content clearfix">
+			<h1><?=$wordlist->lineup?> Audi</h1>
+			<div id="tool-bar-id" class="tool-bar">
+				<a id="filter-to-result" href="#"><?=$wordlist->reset?></a>
+				<div class="tool-bar-toggle">
+					<a id="toggle-list" class="tool-bar-toggle-list" href="#"></a>
+					<a id="toggle-grid" class="tool-bar-toggle-grid active" href="#"></a>
+				</div>
+			</div>
+			<div class="model-aside">
+				<ul class="model-aside-filter-bar">
+					<li class="model-aside-filter-bar-accordeon active">
+						<a href="#"><?=$wordlist->group?><span class="active"></span></a>
+						<ul class="model-aside-filter-bar-accordeon-panel">
+							<?
+							$lineup['g-tron']=[];
+							$lineup['RS']=[];
+							foreach($lineup as $family => $vehicles):?>
+							<li class="model-series-checkbox">
+								<div class="model-aside-filter-bar-accordeon-panel-box"></div>
+								<p><?=$family?></p>
+							</li>
+							<?endforeach?>
+						</ul>
+					</li>
+					<li class="model-aside-filter-bar-accordeon paddings">
+						<a href="#">Тип кузова<span></span></a>
+						<ul class="model-aside-filter-bar-accordeon-type">
+							<?
+							$bodies = $mySQL->getGroup("SELECT body FROM gb_lineup CROSS JOIN gb_classes USING(ClassID) GROUP BY body ORDER BY SortID")['body'];
+							foreach($bodies as $body):?>
+							<li class="model-type-checkbox"><div class="model-aside-filter-bar-accordeon-panel-box"></div><p><?=$body?></p></li>
+							<?endforeach?>
+						</ul>
+					</li>
+					<li class="model-aside-filter-bar-accordeon clearfix paddings">
+						<a href="#"><?=$wordlist->{'selling price'}?><span></span></a>
+						<ul>
+							<div class="model-aside-filter-bar-accordeon-price clearfix">
+								<span><?=$wordlist->from?></span>
+
+								<!-- delete if no use active state-->
+								<select class="model-aside-select-min">
+									<option><?=$wordlist->select?></option>
+									<option value="800000">800 000 грн.</option>
+									<option value="1100000">1 100 000 грн.</option>
+									<option value="1200000">1 200 000 грн.</option>
+									<option value="1400000">1 400 000 грн.</option>
+									<option value="1600000">1 600 000 грн.</option>
+									<option value="1700000">1 700 000 грн.</option>
+									<option value="1900000">1 900 000 грн.</option>
+									<option value="2200000">2 200 000 грн.</option>
+									<option value="2300000">2 300 000 грн.</option>
+
+								</select>
+							</div>
+							<div class="model-aside-filter-bar-accordeon-price clearfix">
+								<span>до</span>
+								<select class="model-aside-select-max">
+									<option><?=$wordlist->select?></option>
+									<option value="1100000">1 100 000 грн.</option>
+									<option value="1200000">1 200 000 грн.</option>
+									<option value="1400000">1 400 000 грн.</option>
+									<option value="1600000">1 600 000 грн.</option>
+									<option value="1700000">1 700 000 грн.</option>
+									<option value="1900000">1 900 000 грн.</option>
+									<option value="2200000">2 200 000 грн.</option>
+									<option value="2300000">2 300 000 грн.</option>
+									<option value="2500000">2 500 000 грн.</option>
+								</select>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="all-model-content-main">
+				<ul>
+
+					<!-- <?foreach($lineup as $family => $vehicles):?>
+					<li class="all-model-content-main-car-temporary list display ">
+						<a href="#">
+							<img src="<?=$vehicle['side']?>">
+						</a>
+						<a class="all-model-content-main-car-details" href="#"><?=$family?></a>
+					</li>
+					<?endforeach?>  -->
+
+					<li class="all-model-content-main-car-temporary list display ">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a1-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A1</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a3-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A3</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a4-avant-2018-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A4</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a5-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A5</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a6-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A6</a>
+					</li>
+	                    <li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a7-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A7</a>
+					</li>
+	                    <li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-a8-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">A8</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-q2-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">Q2</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-q3-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">Q3</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-q5-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">Q5</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-q7-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">Q7</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-q8-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">Q8</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-tt-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">TT</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-r8-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">R8</a>
+					</li>
+					<li class="all-model-content-main-car-temporary list display">
+						<a href="#">
+							<img src="https://img.audi-kiev.com.ua/data/catalog/audi-e-tron-1.png">
+						</a>
+						<a class="all-model-content-main-car-details" href="#">e-tron</a>
+					</li>
+				</ul>
+				<ul id="listing2">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var PAGE_LANGUAGE = "<?=$lang?>";
+</script>
+<script src="/themes/<?=THEME?>/scripts/all-model.js"></script>

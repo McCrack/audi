@@ -1,0 +1,36 @@
+{
+    "@context":"http://schema.org",
+    "@type":"Organization",
+    "name":"Audi Kiev",
+    "url":"https://audi-kiev.com.ua",
+    "logo":{
+        "@type":"ImageObject",
+        "url":"ttps://audi-kiev.com.ua/logo.png",
+        "width":"180px",
+        "height":"180px"
+    },
+    "email":"sales@audi-yug.com.ua",
+    "sameAs":[
+        "https://www.facebook.com/audiyug",
+        "https://www.instagram.com/audi_kiev_yug/"
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "02095, Київ, Україна",
+        "streetAddress": "Дніпровська набережна 16-В,"
+    },
+    "contactPoint" : [
+        {
+            "@type":"ContactPoint",
+            "telephone":"+38-044-536-9292",
+            "contactType":"sales",
+            "areaServed":"UA"
+        },
+        {
+            "@type":"ContactPoint",
+            "telephone":"+38-044-536-9229",
+            "contactType":"customer service",
+            "areaServed":"UA"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+<article class="feed">
+	<img src="//img.audi-kiev.com.ua/data/preview/audi-news.jpg" alt="">
+	<h1 class="feed__title"><?=$page->context?></h1>
+	<div id="feed" class="container container--wide">
+		<?foreach($feed as $post): $lastpost=$post['created'];?>
+		<div class="feed__preview">
+			<img src="<?=$post['preview']?>" alt="<?=$post['header']?>">
+
+			<!-- inner hood -->
+			<div class="feed__inner">
+				<p class="feed__preview--header"><?=$post['header']?></p>
+				<p class="feed__preview--subheader"><?=$post['subheader']?></p>
+			</div>
+			<a href="<?=(LANG_INDEX.'/'.translite($post['header']).'-'.$post['PageID'])?>" data-id="<?=$post['PageID']?>">
+
+				<!-- outer -->
+				<div class="feed__outer">
+
+					<!-- header -->
+					<div class="feed__outer--header">
+						<p class="feed__preview--header"><?=$post['header']?></p>
+						<p class="feed__preview--subheader"><?=$post['subheader']?></p>
+					</div>
+
+					<!-- footer -->
+					<div class="feed__outer--footer">
+						<span><?=date("d.m.Y", $post['created'])?></span>
+						<button href="<?=(LANG_INDEX.'/'.translite($post['header']).'-'.$post['PageID'])?>" class="btn secondary white s"><?=$wordlist->{'learn more'}?></button>
+					</div>
+				</div>
+			</a>
+		</div>
+		<?endforeach?>
+	</div>
+	<div class="container">
+
+		<!-- more news button -->
+		<button id="more" class="btn primary black l">
+			<?=$wordlist->{"more news"}?>
+			<script>
+			var OFFSET = <?=$limit?>;
+			(function(btn){
+				btn.onclick=function(){
+					XHR.push({
+						addressee:"/xhr/feed/<?=USER_LANG?>/"+OFFSET,
+						onsuccess:function(response){
+							OFFSET += <?=$limit?>;
+							document.querySelector("#feed").innerHTML+=response;
+						}
+					});
+				}
+			})(document.currentScript.parentNode)
+			</script>
+		</button>
+	</div>
+</article>

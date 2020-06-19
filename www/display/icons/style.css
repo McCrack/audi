@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'iconset';
+  src:  url('fonts/iconset.eot?a8phzg');
+  src:  url('fonts/iconset.eot?a8phzg#iefix') format('embedded-opentype'),
+    url('fonts/iconset.ttf?a8phzg') format('truetype'),
+    url('fonts/iconset.woff?a8phzg') format('woff'),
+    url('fonts/iconset.svg?a8phzg#iconset') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconset' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-skip-back:before {
+  content: "\e050";
+}
+.icon-skip-forward:before {
+  content: "\e056";
+}
+.icon-check:before {
+  content: "\e116";
+}
+.icon-cross:before {
+  content: "\e117";
+}
+.icon-delete:before {
+  content: "\e119";
+}
+

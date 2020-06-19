@@ -1,0 +1,2463 @@
+AddDefaultCharset utf-8
+
+#Options +Includes
+
+
+Addtype font/opentype .otf
+Addtype font/truetype .ttf
+AddOutputFilterByType DEFLATE font/opentype font/truetype
+
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+
+AddType application/x-httpd-php .php
+
+<FilesMatch "\.(ttf|otf|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
+
+#  mod_rewrite
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ![^\/]$
+RewriteRule ^(.*)\/\/$ /$1 [R=301,L]
+
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+#RewriteRule ^index\.html$ / [R=301,L]
+
+RewriteRule ^home$ / [L,R=301]
+
+# models
+RewriteRule ^audi-a1-sportback-2018$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-sq5$ https://audi-kiev.com.ua/modelnyy-ryad/audi-sq5 [L,R=301]
+
+RewriteRule ^audi-a4-avant-g-tron$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-avant-g-tron [L,R=301]
+
+RewriteRule ^audi-q3$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^audi-sq2$ https://audi-kiev.com.ua/modelnyy-ryad/audi-sq2 [L,R=301]
+
+RewriteRule ^audi-q2$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q2 [L,R=301]
+
+RewriteRule ^audi-r8-spyder-rws$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-spyder-v10-quattro [L,R=301]
+
+RewriteRule ^audi-q8$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q8 [L,R=301]
+
+RewriteRule ^audi-a6-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a6-limousine [L,R=301]
+
+RewriteRule ^audi-a6-limousine-2018$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a6-limousine [L,R=301]
+
+RewriteRule ^audi-q5$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q5 [L,R=301]
+
+RewriteRule ^audi-q7$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^audi-sq7-tdi$ https://audi-kiev.com.ua/modelnyy-ryad/audi-sq7-tdi [L,R=301]
+
+RewriteRule ^audi-tt-rs-roadster$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tt-rs-roadster [L,R=301]
+
+RewriteRule ^audi-q7-e-tron-quattro$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^audi-e-tron-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-e-tron-sportback-concept [L,R=301]
+
+RewriteRule ^audi-rs7-sportback-perfomance$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^audi-tt-roadster$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tt-roadster [L,R=301]
+
+RewriteRule ^audi-tt-rs-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tt-rs-coupe [L,R=301]
+
+RewriteRule ^audi-a3-sportback-g-tron$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-sportback-g-tron [L,R=301]
+
+RewriteRule ^audi-a8-l$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a8-l [L,R=301]
+
+RewriteRule ^audi-s5-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s5-sportback [L,R=301]
+
+RewriteRule ^audi-a3-sportback-e-tron$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-sportback [L,R=301]
+
+RewriteRule ^audi-r8-coupe-rws$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-coupe-v10-quattro [L,R=301]
+
+RewriteRule ^audi-s6-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^audi-tt-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tt-coupe [L,R=301]
+
+RewriteRule ^audi-a1-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-r8-coupe-plus$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-coupe-v10-quattro [L,R=301]
+
+RewriteRule ^audi-s3-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s3-limousine [L,R=301]
+
+RewriteRule ^audi-a5-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a5-sportback [L,R=301]
+
+RewriteRule ^audi-rs6-avant-perfomance$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^audi-rs-q3-perfomance$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^audi-r8-spyder$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-spyder-v10-quattro [L,R=301]
+
+RewriteRule ^audi-rs4-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-rs4-avant [L,R=301]
+
+RewriteRule ^audi-rs-q3$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^audi-a5-cabriolet$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a5-cabriolet [L,R=301]
+
+RewriteRule ^audi-a6-allroad-quattro$ https://audi-kiev.com.ua/modelnyy-ryad/ [L,R=301]
+
+RewriteRule ^audi-a6-allroad-quattro$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a6-allroad-quattro [L,R=301]
+
+RewriteRule ^audi-a3$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-limousine [L,R=301]
+
+RewriteRule ^audi-a8$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a8 [L,R=301]
+
+RewriteRule ^audi-a1$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-e-tron$ https://audi-kiev.com.ua/modelnyy-ryad/audi-e-tron [L,R=301]
+
+RewriteRule ^audi-a3-cabriolet$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-cabriolet [L,R=301]
+
+RewriteRule ^audi-rs3-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-rs3-sportback [L,R=301]
+
+RewriteRule ^audi-a5-sportback-g-tron$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a5-sportback-g-tron [L,R=301]
+
+RewriteRule ^audi-s6-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s6-limousine [L,R=301]
+
+RewriteRule ^audi-r8-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-coupe-v10-quattro [L,R=301]
+
+RewriteRule ^audi-s3-cabriolet$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s3-cabriolet [L,R=301]
+
+RewriteRule ^audi-novyy-a7-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^audi-a7-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^audi-a4-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-limousine [L,R=301]
+
+RewriteRule ^audi-s4-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s4-limousine [L,R=301]
+
+RewriteRule ^audi-tts-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tts-coupe [L,R=301]
+
+RewriteRule ^audi-a5-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a5-coupe [L,R=301]
+
+RewriteRule ^audi-rs3-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-rs3-limousine [L,R=301]
+
+RewriteRule ^audi-r8-spyder-plus$ https://audi-kiev.com.ua/modelnyy-ryad/audi-r8-spyder-v10-quattro [L,R=301]
+
+RewriteRule ^audi-a4-limousine-2019$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-limousine [L,R=301]
+
+RewriteRule ^audi-e-tron-quattro-concept$ https://audi-kiev.com.ua/modelnyy-ryad/audi-e-tron-sportback-concept [L,R=301]
+
+RewriteRule ^audi-s7-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-allroad-quattro [L,R=301]
+
+RewriteRule ^audi-a3-limousine$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-limousine [L,R=301]
+
+RewriteRule ^audi-tts-roadster$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tts-roadster [L,R=301]
+
+RewriteRule ^audi-rs-5-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-rs5-coupe [L,R=301]
+
+RewriteRule ^audi-s1-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-s1$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-rs5-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-rs5-sportback [L,R=301]
+
+RewriteRule ^audi-a4-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-avant [L,R=301]
+
+RewriteRule ^audi-a4-avant-2019$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a4-avant [L,R=301]
+
+RewriteRule ^audi-a3-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a3-sportback [L,R=301]
+
+RewriteRule ^audi-q2-2019$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q2 [L,R=301]
+
+RewriteRule ^audi-s4-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s4-avant [L,R=301]
+
+RewriteRule ^audi-a6-avant-2018$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a6-avant [L,R=301]
+
+RewriteRule ^audi-s5-coupe$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s5-coupe [L,R=301]
+
+RewriteRule ^audi-s5-cabriolet$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s5-cabriolet [L,R=301]
+
+RewriteRule ^audi-s1$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^audi-s3$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s3-sportback [L,R=301]
+
+RewriteRule ^audi-s3-sportback$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s3-sportback [L,R=301]
+
+RewriteRule ^audi-rs6-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^ru/audi-tts-roadster$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tts-roadster [L,R=301]
+
+RewriteRule ^ru/audi-s7-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^ru/audi-e-tron-quattro-concept$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-e-tron-sportback-concept [L,R=301]
+
+RewriteRule ^ru/audi-a1-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-sq7-tdi [L,R=301]
+
+RewriteRule ^ru/audi-r8-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-coupe-v10-quattro [L,R=301]
+
+RewriteRule ^ru/audi-tt-rs-roadster$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tt-rs-roadster [L,R=301]
+
+RewriteRule ^ru/audi-tt-rs-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tt-rs-coupe [L,R=301]
+
+RewriteRule ^ru/audi-s4-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s4-avant [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-2019$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-limousine [L,R=301]
+
+RewriteRule ^ru/audi-tt-roadster$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tt-roadster [L,R=301]
+
+RewriteRule ^ru/audi-a4-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-avant [L,R=301]
+
+RewriteRule ^ru/audi-a4-avant-2019$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-avant [L,R=301]
+
+RewriteRule ^ru/audi-s4-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s4-limousine [L,R=301]
+
+RewriteRule ^ru/audi-r8-coupe-plus$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-coupe-v10-quattro [L,R=301]
+
+RewriteRule ^ru/audi-rs4-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-rs4-avant [L,R=301]
+
+RewriteRule ^ru/audi-r8-spyder-rws$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-spyder-v10-performance-quattro [L,R=301]
+
+RewriteRule ^ru/audi-novyy-a7-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^ru/audi-rs3-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-rs3-sportback [L,R=301]
+
+RewriteRule ^ru/audi-rs5-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-rs5-sportback [L,R=301]
+
+RewriteRule ^ru/audi-s3$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s3-sportback [L,R=301]
+
+RewriteRule ^ru/audi-s1$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^ru/audi-q3$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^ru/audi-q2$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q2 [L,R=301]
+
+RewriteRule ^ru/audi-q8$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q8 [L,R=301]
+
+RewriteRule ^ru/audi-q7$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/audi-q5$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q5 [L,R=301]
+
+RewriteRule ^ru/audi-rs7-sportback-perfomance$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^ru/audi-s6-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s6-limousine [L,R=301]
+
+RewriteRule ^ru/audi-s5-cabriolet$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s5-cabriolet [L,R=301]
+
+RewriteRule ^ru/audi-s5-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s5-coupe [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-g-tron$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a5-sportback-g-tron [L,R=301]
+
+RewriteRule ^ru/audi-rs3-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-rs3-limousine [L,R=301]
+
+RewriteRule ^ru/audi-a3$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-limousine [L,R=301]
+
+RewriteRule ^ru/audi-a1$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a8$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a8 [L,R=301]
+
+RewriteRule ^ru/audi-s1-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^ru/audi-s3-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s3-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-limousine [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-2018$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-limousine [L,R=301]
+
+RewriteRule ^ru/audi-rs-q3-perfomance$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^ru/audi-rs6-avant-perfomance$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^ru/audi-r8-spyder-plus$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-spyder-v10-performance-quattro [L,R=301]
+
+RewriteRule ^ru/audi-e-tron-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-e-tron [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a7-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a4-avant-g-tron$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-avant-g-tron [L,R=301]
+
+RewriteRule ^ru/audi-a3-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-limousine [L,R=301]
+
+RewriteRule ^ru/audi-rs-q3$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q3 [L,R=301]
+
+RewriteRule ^ru/audi-s5-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s5-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a3-sportback-g-tron$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-sportback-g-tron [L,R=301]
+
+RewriteRule ^ru/audi-tt-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tt-coupe [L,R=301]
+
+RewriteRule ^ru/audi-a8-l$ https://audi-kiev.com.ua/ru/modelnyy-ryad/ [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a5-sportback [L,R=301]
+
+RewriteRule ^ru/audi-s3-cabriolet$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s3-cabriolet [L,R=301]
+
+RewriteRule ^ru/audi-a1-sportback-2018$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a1-sportback [L,R=301]
+
+RewriteRule ^ru/audi-sq2$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-sq2 [L,R=301]
+
+RewriteRule ^ru/audi-sq5$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-sq5 [L,R=301]
+
+RewriteRule ^ru/audi-a6-avant-2018$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-avant [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a5-coupe [L,R=301]
+
+RewriteRule ^ru/audi-q2-2019$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q2 [L,R=301]
+
+RewriteRule ^ru/audi-a3-sportback-e-tron$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a3-sportback$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-sportback [L,R=301]
+
+RewriteRule ^ru/audi-a6-allroad-quattro$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-allroad-quattro [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-limousine [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s3-limousine [L,R=301]
+
+RewriteRule ^ru/audi-rs6-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^ru/audi-s6-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-s6-avant [L,R=301]
+
+RewriteRule ^ru/audi-r8-coupe-rws$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-coupe-v10-performance-quattro [L,R=301]
+
+RewriteRule ^ru/audi-e-tron$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-e-tron [L,R=301]
+
+RewriteRule ^ru/audi-tts-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-tts-coupe [L,R=301]
+
+RewriteRule ^ru/audi-a5-cabriolet$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a5-cabriolet [L,R=301]
+
+RewriteRule ^ru/audi-r8-spyder$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-r8-spyder-v10-performance-quattro [L,R=301]
+
+RewriteRule ^ru/audi-q7-e-tron-quattro$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/audi-a3-cabriolet$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a3-cabriolet [L,R=301]
+
+RewriteRule ^audi-a6-avant$ https://audi-kiev.com.ua/modelnyy-ryad/audi-a6-avant [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a4-allroad-quattro [L,R=301]
+
+RewriteRule ^ru/new-audi-a6-avant-2018$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-avant [L,R=301]
+
+RewriteRule ^ru/audi-rs-5-coupe$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-rs5-coupe [L,R=301]
+
+RewriteRule ^ru/audi-a6-avant$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-a6-avant [L,R=301]
+
+
+
+# Q7 
+
+RewriteRule ^aksesuari-audi-q7$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^eksteryer-audi-q7$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^interyer-audi-q7$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^obladnannya-audi-q7$ https://audi-kiev.com.ua/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/aksessuary-audi-q7$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/interer-audi-q7$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/oborudovanie-audi-q7$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+RewriteRule ^ru/eksterer-audi-q7$ https://audi-kiev.com.ua/ru/modelnyy-ryad/audi-q7 [L,R=301]
+
+
+
+
+
+
+# Pages
+
+RewriteRule ^posluga-trade-in-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/trade-in [L,R=301]
+
+RewriteRule ^spetsialni-propozitsiyi-z-prodazhu-avtomobiliv-vid-avtosalonu-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^servisni-propozytsii-avtosalonu-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/servisni-propozytsii-avtosalonu-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^spetsialni-propozytsii-klientskogo-rozdilu-audi/$ https://audi-kiev.com.ua/spetsialni-propozytsii-klientskogo-rozdilu-audi [L,R=301]
+
+RewriteRule ^finansovi-poslugy-audi/$ https://audi-kiev.com.ua/finansovi-posluhy [L,R=301]
+
+RewriteRule ^kurs-na-minus$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^spetsialna-propozytsiya-na-novi-audi$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^spetsialna-propozytsiya-na-vsi-modeli-audi-2017-nayavnosti$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^znigka-na-avtomobili-audi-q7-audi-q5-audi-a5-coup-audi-a5-sportback-audi-q5$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^znyzhka-na-avtomobili-audi-q7$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^znyzhka-na-servisne-obslugovuvannya-avtomobiliv-audi-starshuh-za-try-roky$ https://audi-kiev.com.ua/znyzhka-na-servisne-obslugovuvannya [L,R=301]
+
+RewriteRule ^nadzvychayni-tsinovi-perevahy-na-audi-a1-ta-audi-a3$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^nadzvychayno-vyhidni-tsiny-na-novi-audi$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^nova-spetsialna-propozytsiya-na-kultovyy-krosover-audi-q7$ https://audi-kiev.com.ua/spetsialni-propozytsiyi [L,R=301]
+
+RewriteRule ^originalni-zapchastiny-audi/$ https://audi-kiev.com.ua/oryhinalni-zapasni-chastyny [L,R=301]
+
+RewriteRule ^oryninalni-amortyzatory/$ https://audi-kiev.com.ua/oryhinalni-amortyzatory [L,R=301]
+
+RewriteRule ^programa-audi-exclusive/$ https://audi-kiev.com.ua/audi-exclusive [L,R=301]
+
+RewriteRule ^programy-dyplomatychnykh-prodazhiv-avtomobiliv-audi$ https://audi-kiev.com.ua/dyplomatychni-prodazhi [L,R=301]
+
+RewriteRule ^test-drayv-avtomobiley-audi$ https://audi-kiev.com.ua/test-drayv [L,R=301]
+
+RewriteRule ^test-drayv-avtomobiliv-audi$ https://audi-kiev.com.ua/test-drayv [L,R=301]
+
+RewriteRule ^ru/audi-prevoskhodstvo-vysokikh-tekhnologiy$ https://audi-kiev.com.ua/ru/audi-prevoskhodstvo-vysokikh-tekhnologi [L,R=301]
+
+RewriteRule ^ru/chrezvychaynye-tsenovye-preimushchestva-na-audi-a1-i-audi-a3$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/cpetsialnoe-predlozhenie-na-vse-modeli-audi-2017-v-nalichii$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/novoe-spetsialnoe-predlozhenie-na-kultovyy-krossover-audi-q7$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/skidka-na-avtomobili-audi-a5-coupe-a5-sportback-q5-q7$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/skidka-na-avtomobili-audi-q7$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/kurs-na-minus$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/neveroyatno-vygodnye-tseny-na-novye-avtomobili-audi$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/spetsialnoe-predlozhenie-na-novye-audi$ https://audi-kiev.com.ua/ru/spetsialnye-predlozheniya-po-prodazhe-avtomobiley-ot-avtosalona-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/test-drayv-avtomobiley-audi$ https://audi-kiev.com.ua/ru/test-drayv [L,R=301]
+
+RewriteRule ^ru/zapis-na-servisnoe-obsluzhivanie-avtomobiley-audi$ https://audi-kiev.com.ua/ru/servis-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/finansovye-uslugi-audi/$ https://audi-kiev.com.ua/ru/finansovye-uslugi-audi [L,R=301]
+
+RewriteRule ^ru/neveroyatno-vygodnye-tseny-na-novye-avtomobili-audi$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+
+
+
+
+# News
+
+RewriteRule ^garantiya-4-roky-abo-120000-km-probigu-na-vsi-novi-audi$ https://audi-kiev.com.ua/harantiya-na-4-roky-abo-120-000-km-probihu-na-novi-avtomobili-audi-77 [L,R=301]
+
+RewriteRule ^ru/garantiya-4-goda-ili-120000-km-probega-na-vse-novye-audi$ https://audi-kiev.com.ua/ru/garantiya-na-4-goda-ili-120-000-km-probega-na-novye-avtomobili-audi-78 [L,R=301]
+
+RewriteRule ^nova-liniyka-nadpotuzhnych-dvyguniv-dlya-audi-q7$ https://audi-kiev.com.ua/nova-liniyka-nadpotuzhnykh-dvyhuniv-dlya-audi-q7-63 [L,R=301]
+
+RewriteRule ^ru/novaya-lineyka-sverkhmoshchnykh-dvigateley-dlya-audi-q7$ https://audi-kiev.com.ua/ru/novaya-lineyka-sverhmoshchnyh-dvigateley-dlya-audi-q7-64 [L,R=301]
+
+RewriteRule ^audi-pidklyuchaetsya-do-merezhi-svitloforiv-u-ssha$ https://audi-kiev.com.ua/audi-pidklyuchayetsya-do-merezhi-svitloforiv-v-ssha-79 [L,R=301]
+
+RewriteRule ^ru/audi-podklyuchaetsya-k-seti-svetoforov-v-ssha$ https://audi-kiev.com.ua/ru/audi-podklyuchaetsya-k-seti-svetoforov-v-ssha-80 [L,R=301]
+
+RewriteRule ^novi-audi-a5-i-audi-s5-coupe$ https://audi-kiev.com.ua/novi-audi-a5-ta-s5-coupe-81 [L,R=301]
+
+RewriteRule ^ru/novye-audi-a5-i-audi-s5-coupe$ https://audi-kiev.com.ua/ru/novye-audi-a5-i-s5-coupe-82 [L,R=301]
+
+RewriteRule ^premiera-kontseptu-audi-q8$ https://audi-kiev.com.ua/dovhoochikuvana-premyera-kontseptu-audi-q8-u-detroyti-83 [L,R=301]
+
+RewriteRule ^ru/premera-kontsepta-audi-q8$ https://audi-kiev.com.ua/ru/dolgozhdannaya-premera-kontsepta-audi-q8-84 [L,R=301]
+
+RewriteRule ^noviy-audi-sq5-z-dvygunom-3-0-tfsi$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^ru/novyy-audi-sq5-s-dvigatelem-3-0-tfsi$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^novi-audi-a5-i-audi-s5-cabriolet$ https://audi-kiev.com.ua/novi-audi-a5-i-s5-cabriolet-vidchuyte-zadovolennya-vid-vodinnya-87 [L,R=301]
+
+RewriteRule ^ru/novye-audi-a5-i-audi-s5-cabriolet$ https://audi-kiev.com.ua/ru/novye-avtomobili-audi-a5-i-audi-s5-cabriolet-88 [L,R=301]
+
+RewriteRule ^kompaniya-audi-vstanovyla-noviy-rekord-prodazhiv$ https://audi-kiev.com.ua/kompaniya-audi-vstanovyla-novyy-rekord-prodazhiv-89 [L,R=301]
+
+RewriteRule ^ru/kompaniya-audi-ustanovila-novyy-rekord-prodazh$ https://audi-kiev.com.ua/ru/kompaniya-audi-ustanavlivaet-novye-rekordy-90 [L,R=301]
+
+RewriteRule ^innovatsiyi-audi-tekhnologiya-chastkovogo-matuvannya-farbovanykh-poverkhon$ https://audi-kiev.com.ua/matuvannya-symvoliv-na-lako-farboviy-poverkhni-sposib-indyvidualizatsiyi-vid-audi-91 [L,R=301]
+
+RewriteRule ^ru/audi-osushchestvlyaet-vytravlivanie-simvolov-na-kraske$ https://audi-kiev.com.ua/ru/innovatsii-audi-tehnologiya-chastichnogo-matirovaniya-okrashennyh-poverhnostey-92 [L,R=301]
+
+RewriteRule ^zustrich-kultury-ta-tekhnolohiy-audi-na-berlinale$ https://audi-kiev.com.ua/audi-na-berlinskomu-mizhnarodnomu-kinofestyvali-dialoh-mystetstva-ta-suchasnykh-tekhnolohiy-93 [L,R=301]
+
+RewriteRule ^ru/vstrecha-kultury-i-tekhnologiy-audi-na-berlinale$ https://audi-kiev.com.ua/ru/vstrecha-kultury-i-tehnologiy-audi-na-berlinale-94 [L,R=301]
+
+RewriteRule ^krossover-audi-q2-otrimav-zoloto-na-konkursi-german-design-award$ https://audi-kiev.com.ua/audi-q2-zavoyuvav-zoloto-na-konkursi-german-design-award-95 [L,R=301]
+
+RewriteRule ^ru/krossover-audi-q2-poluchil-zoloto-na-konkurse-german-design-award$ https://audi-kiev.com.ua/ru/audi-q2-zavoyuvav-zoloto-na-konkursi-german-design-award-96 [L,R=301]
+
+RewriteRule ^noviy-dvigun-ta-virazniy-zovnishniy-viglyad-onovlennya-audi-rs3-sportback$ https://audi-kiev.com.ua/onovlenyy-audi-rs-3-sportback-osnashchenyy-novym-dvyhunom-ta-bilsh-vyraznoyu-zovnishnistyu-97 [L,R=301]
+
+RewriteRule ^ru/novyy-dvigatel-i-vyrazitelnyy-eksterer-obnovlenie-audi-rs-3-sportback$ https://audi-kiev.com.ua/ru/novyy-dvigatel-i-bolee-vyrazitelnyy-vneshniy-vid-obnovlenie-audi-rs-3-sportback-98 [L,R=301]
+
+RewriteRule ^zaklyuchnyy-test-drayv-audi-pered-svitovoyu-premyeroyu-v-sezoni-dtm$ https://audi-kiev.com.ua/zaklyuchnyy-test-drayv-audi-pered-svitovoyu-premyeroyu-v-sezoni-dtm-99 [L,R=301]
+
+RewriteRule ^ru/zaklyuchitelniy-test-drayv-audi-pered-mirovoy-premeroy-v-sezone-dtm$ https://audi-kiev.com.ua/ru/zaklyuchitelnyy-test-drayv-audi-pered-mirovoy-premeroy-v-sezone-dtm-100 [L,R=301]
+
+RewriteRule ^brend-audi-posiv-pershe-misce-v-amerikanskomu-reitingu-brendiv$ https://audi-kiev.com.ua/brend-audi-posiv-pershe-mistse-v-amerykanskomu-reytynhu-brendiv-101 [L,R=301]
+
+RewriteRule ^ru/brend-audi-zanyal-pervoe-mesto-v-amerikanskom-reytinge-brendov$ https://audi-kiev.com.ua/ru/brend-audi-zanyal-pervoe-mesto-v-amerikanskom-reytinge-brendov-102 [L,R=301]
+
+RewriteRule ^audi-na-zhenevskomu-avtosaloni$ https://audi-kiev.com.ua/audi-na-zhenevskomu-avtosaloni-sportyvni-perspektyvy-104 [L,R=301]
+
+RewriteRule ^ru/audi-na-genevskom-avtosalone-sportivnie-perspektivi$ https://audi-kiev.com.ua/ru/audi-na-zhenevskom-avtosalone-sportivnye-perspektivy-105 [L,R=301]
+
+RewriteRule ^absolyutno-novii-audi-rs-5-coupe$ https://audi-kiev.com.ua/absolyutno-noviy-audi-rs-5-coupe-106 [L,R=301]
+
+RewriteRule ^ru/absolyutno-noviy-audi-rs-5-coupe$ https://audi-kiev.com.ua/ru/absolyutno-novyy-audi-rs-5-coupe-107 [L,R=301]
+
+RewriteRule ^audi-rs-5-dtm-na-trasi-dlya-peregoniv$ https://audi-kiev.com.ua/efektnyy-vyhlyad-novykh-avtomobiliv-audi-rs-5-dtm-108 [L,R=301]
+
+RewriteRule ^ru/effektniy-vid-novih-avtomobiley-audi-rs-5-dtm$ https://audi-kiev.com.ua/ru/effektnyy-vid-novyh-avtomobiley-audi-rs-5-dtm-109 [L,R=301]
+
+RewriteRule ^zgoda-mizh-audi-ta-porsche$ https://audi-kiev.com.ua/zhoda-mizh-audi-ta-porsche-110 [L,R=301]
+
+RewriteRule ^ru/soglasie-megdu-audi-i-porsche$ https://audi-kiev.com.ua/ru/soglasie-mezhdu-audi-i-porsche-111 [L,R=301]
+
+RewriteRule ^audi-a8-space-frame-z-unikalnimi-materialami$ https://audi-kiev.com.ua/audi-a8-space-frame-z-unikalnymy-materialamy-112 [L,R=301]
+
+RewriteRule ^ru/audi-a8-space-frame-s-unikalnimi-materialami$ https://audi-kiev.com.ua/ru/audi-a8-space-frame-s-unikalnymi-materialami-113 [L,R=301]
+
+RewriteRule ^audi-rozshiryuye-modelnyy-ryad-q8-q4$ https://audi-kiev.com.ua/audi-q8-ta-q4-114 [L,R=301]
+
+RewriteRule ^ru/audi-q8-i-q4$ https://audi-kiev.com.ua/ru/audi-q8-i-q4-115 [L,R=301]
+
+RewriteRule ^koncept-audi-e-tron-sportback$ https://audi-kiev.com.ua/kontsept-audi-e-tron-sportback-116 [L,R=301]
+
+RewriteRule ^ru/kontsept-audi-e-tron-sportback$ https://audi-kiev.com.ua/ru/kontsept-kar-audi-e-tron-sportback-117 [L,R=301]
+
+RewriteRule ^audi-naiinnovaciinishii-brend-v-2017-roci$ https://audi-kiev.com.ua/audi-nayinnovatsiynishyy-brend-v-2017-rotsi-118 [L,R=301]
+
+RewriteRule ^ru/audi-innovatsionniy-brend-v-2017-godu$ https://audi-kiev.com.ua/ru/audi-innovatsionnyy-brend-v-2017-godu-119 [L,R=301]
+
+RewriteRule ^istorychni-modeli-audi-vyydut-na-trasy-yevropy$ https://audi-kiev.com.ua/istorychni-modeli-audi-vyydut-na-trasy-yevropy-120 [L,R=301]
+
+RewriteRule ^ru/istoricheskie-modeli-audi-viydut-na-trassi-evropi$ https://audi-kiev.com.ua/ru/istoricheskie-modeli-audi-vyydut-na-trassy-evropy-121 [L,R=301]
+
+RewriteRule ^misyatsekhid-audi-lunar-quattro-debyutuye-u-filmi-ridli-skotta-chuzhyy-zapovit$ https://audi-kiev.com.ua/misyatsekhid-audi-lunar-quattro-debyutuye-u-filmi-ridli-skotta-122 [L,R=301]
+
+RewriteRule ^ru/lunohod-audi-lunar-quattro-debyutiruet-v-filme-ridli-skotta-chugoy-zaveshchanie$ https://audi-kiev.com.ua/ru/lunohod-audi-lunar-quattro-debyutiruet-v-filme-ridli-skotta-123 [L,R=301]
+
+RewriteRule ^05-2017-noviy-audi-rs-5-dtm-prinosit-audi-chergovu-peremogu-v-serii-dtm-2017$ https://audi-kiev.com.ua/novyy-audi-rs-5-prynosyt-audi-cherhovu-peremohu-v-seriyi-dtm-2017-124 [L,R=301]
+
+RewriteRule ^ru/05-2017-novyy-audi-rs-5-prinosit-audi-ocherednuyu-pobedu-v-serii-dtm-2017$ https://audi-kiev.com.ua/ru/novyy-audi-rs-5-prinosit-audi-ocherednuyu-pobedu-v-serii-dtm-2017-125 [L,R=301]
+
+RewriteRule ^05-2017-chotyry-titulovani-kluby-pryymut-uchast-v-turniri-audi-cup$ https://audi-kiev.com.ua/chotyry-tytulovani-kluby-pryymut-uchast-v-turniri-audi-cup-126 [L,R=301]
+
+RewriteRule ^ru/05-2017-tshetyre-titulovannyh-kluba-primut-uchastiye-v-turnire-audi-cup$ https://audi-kiev.com.ua/ru/chetyre-titulovannyh-kluba-primut-uchastie-v-turnire-audi-cup-127 [L,R=301]
+
+RewriteRule ^dtm-audi-i-vbolivalniki-rozshgrili-lauzits$ https://audi-kiev.com.ua/dtm-audi-i-vbolivalnyky-rozihrily-lauzyts-128 [L,R=301]
+
+RewriteRule ^ru/dtm-audi-i-bolelshchiki-razogreli-lauzits$ https://audi-kiev.com.ua/ru/dtm-audi-i-bolelshchiki-razogreli-lauzits-129 [L,R=301]
+
+RewriteRule ^vodiy-audi-lukas-di-grassi-trima-natovp-v-napruzi$ https://audi-kiev.com.ua/vodiy-audi-lukas-di-hrassi-trymaye-natovp-v-napruzi-130 [L,R=301]
+
+RewriteRule ^ru/voditel-audi-lukas-di-grassi-dergit-tolpu-v-napryagenii$ https://audi-kiev.com.ua/ru/voditel-audi-lukas-di-grassi-derzhit-tolpu-v-napryazhenii-131 [L,R=301]
+
+RewriteRule ^trofeyi-dlya-mignarodnih-klintiv-audi$ https://audi-kiev.com.ua/trofeyi-dlya-mizhnarodnykh-kliyentiv-audi-132 [L,R=301]
+
+RewriteRule ^ru/trofei-dlya-megdunarodnih-klientov-audi$ https://audi-kiev.com.ua/ru/trofei-dlya-mezhdunarodnyh-klientov-audi-133 [L,R=301]
+
+RewriteRule ^integrovaniy-android-u-audi-q8-sport-concept$ https://audi-kiev.com.ua/intehrovanyy-android-u-audi-q8-sport-concept-134 [L,R=301]
+
+RewriteRule ^ru/integrirovanniy-android-v-audi-q8-sport-concept$ https://audi-kiev.com.ua/ru/intehrovanyy-android-u-audi-q8-sport-concept-135 [L,R=301]
+
+RewriteRule ^audi-rs-3-lms-tcr$ https://audi-kiev.com.ua/peremoga-audi-rs-3-lms-tcr-136 [L,R=301]
+
+RewriteRule ^ru/audi-rs-3-lms-tcr$ https://audi-kiev.com.ua/ru/pobeda-audi-rs-3-lms-tcr-137 [L,R=301]
+
+RewriteRule ^yuvileyna-vistavka-v-muzeyi-audi-mobile-revolyutsiya-60-rokiv-dviguna-ngu-vankelya$ https://audi-kiev.com.ua/yuvileyna-vystavka-v-muzeyi-audi-mobile-138 [L,R=301]
+
+RewriteRule ^ru/yubileynaya-vistavka-v-muzee-audi-mobile-revolyutsiya-60-let-dvigatelya-ngu-vankelya$ https://audi-kiev.com.ua/ru/yubileynaya-vystavka-v-muzee-audi-mobile-139 [L,R=301]
+
+RewriteRule ^nagorodi-dlya-audi-z-bereznya-po-traven-2017-roku$ https://audi-kiev.com.ua/nagorodi-dlya-audi-z-bereznya-po-traven-2017-roku-140 [L,R=301]
+
+RewriteRule ^ru/nagradi-dlya-audi-s-marta-po-may-2017-goda$ https://audi-kiev.com.ua/ru/nagrady-dlya-audi-s-marta-po-may-2017-goda-141 [L,R=301]
+
+RewriteRule ^vodiy-audi-rene-rast-baga-shchob-yogo-mriya-zbulasya$ https://audi-kiev.com.ua/vodiy-audi-rene-rast-bazhaye-shchob-yoho-mriya-zbulasya-142/ [L,R=301]
+
+RewriteRule ^ru/voditel-audi-rene-rast-gelaet-chtobi-ego-mechta-sbilas$ https://audi-kiev.com.ua/ru/voditel-audi-rene-rast-zhelaet-chtoby-ego-mechta-sbylas-143 [L,R=301]
+
+RewriteRule ^dtm-lauzitsring-audi-sport-kotiruvannya$ https://audi-kiev.com.ua/dtm-lauzitsrinh-audi-sport-kotyruvannya-144 [L,R=301]
+
+RewriteRule ^ru/dtm-lauzitsring-kotirovki-audi-sport$ https://audi-kiev.com.ua/ru/dtm-lauzitsrinh-audi-sport-kotyruvannya-145 [L,R=301]
+
+RewriteRule ^audi-odergala-dvodenni-peremogi-na-avtosporti$ https://audi-kiev.com.ua/audi-oderzhala-dvodenni-peremohy-na-avtosporti-147 [L,R=301]
+
+RewriteRule ^ru/audi-odergivaet-dvuhdnevnie-pobedi-na-avtosporte$ https://audi-kiev.com.ua/ru/audi-oderzhivaet-dvuhdnevnye-pobedy-na-avtosporte-148 [L,R=301]
+
+RewriteRule ^audi-ogoloshu-ukrayinski-tsini-na-noviy-rs-5-coupe$ https://audi-kiev.com.ua/audi-tsentr-kyyiv-yuh-ofitsiynyy-dyler-audi-v-ukrayini-oholoshuye-tsiny-na-novyy-rs-5-coupe-149 [L,R=301]
+
+RewriteRule ^ru/audi-obyavlyaet-ukrainskie-tseni-na-noviy-rs-5-coupe$ https://audi-kiev.com.ua/ru/audi-obyavlyaet-ukrainskie-tseny-na-novyy-rs-5-coupe-150 [L,R=301]
+
+RewriteRule ^novu-audi-a8-pokagut-u-filmi-lyudina-pavuk-povernennya-dodomu$ https://audi-kiev.com.ua/novu-audi-a8-pokazhut-u-filmi-lyudyna-pavuk-povernennya-dodomu-151 [L,R=301]
+
+RewriteRule ^ru/novuyu-audi-a8-pokagut-v-filme-chelovek-pauk-vozvrashchenie-domoy-21-06-2017$ https://audi-kiev.com.ua/ru/novuyu-audi-a8-pokazhut-v-filme-chelovek-pauk-vozvrashchenie-domoy-152 [L,R=301]
+
+RewriteRule ^v-ochikuvanni-novoyi-audi-a8-pro-perevagi-elektrifikatsiyi-avto$ https://audi-kiev.com.ua/v-ochikuvanni-novoyi-audi-a8-pro-perevahy-elektryfikatsiyi-avto-153 [L,R=301]
+
+RewriteRule ^ru/v-ogidanii-novoy-audi-a8-o-preimushchestvah-elektrifikatsii-modeli-21-06-2017$ https://audi-kiev.com.ua/ru/v-ozhidanii-novoy-audi-a8-o-preimushchestvah-elektrifikatsii-modeli-154 [L,R=301]
+
+RewriteRule ^audi-r8-spyder-v10-plus-noviy-riven-dinamichnosti-ta-svobodi$ https://audi-kiev.com.ua/audi-r8-spyder-v10-plus-novyy-riven-dynamichnosti-ta-svobody-155 [L,R=301]
+
+RewriteRule ^ru/audi-r8-spyder-v10-plus-noviy-uroven-dinamichnosti-i-svobodi$ https://audi-kiev.com.ua/ru/audi-r8-spyder-v10-plus-novyy-uroven-dinamichnosti-i-svobody-156 [L,R=301]
+
+RewriteRule ^viznacheni-uchasniki-audi-cup-2017$ https://audi-kiev.com.ua/vyznacheni-uchasnyky-audi-cup-2017-157 [L,R=301]
+
+RewriteRule ^ru/opredeleni-uchastniki-audi-cup-2017$ https://audi-kiev.com.ua/ru/opredeleny-uchastniki-audi-cup-2017-158 [L,R=301]
+
+RewriteRule ^kieler-woche-2017-proyde-za-pidtrimki-audi$ https://audi-kiev.com.ua/kieler-woche-2017-proyde-za-pidtrymky-audi-159 [L,R=301]
+
+RewriteRule ^ru/kieler-woche-2017-proydyot-pri-poddergke-audi$ https://audi-kiev.com.ua/ru/kieler-woche-2017-proydet-pri-podderzhke-audi-160 [L,R=301]
+
+RewriteRule ^noviy-audi-a8-stav-golovnim-gostem-premri-spider-man-homecoming$ https://audi-kiev.com.ua/novyy-audi-a8-stav-holovnym-hostem-premyery-spider-man-homecoming-161 [L,R=301]
+
+RewriteRule ^ru/noviy-audi-a8-stal-glavnim-gostem-premeri-spider-man-homecoming$ https://audi-kiev.com.ua/ru/novyy-audi-a8-stal-glavnym-gostem-premery-spider-man-homecoming-162 [L,R=301]
+
+RewriteRule ^oglyad-audi-rs5-coupe-2017-golovniy-konkurent-bmw-m4-i-amg-c-63$ https://audi-kiev.com.ua/ohlyad-audi-rs5-coupe-2017-holovnyy-konkurent-bmw-m4-i-mercedes-c63-amg-165 [L,R=301]
+
+RewriteRule ^ru/obzor-audi-rs5-coupe-2017-glavniy-konkurent-bmw-m4-i-amg-c-63$ https://audi-kiev.com.ua/ru/obzor-audi-rs5-coupe-2017-glavnyy-konkurent-bmw-m4-i-mercedes-c63-amg-166 [L,R=301]
+
+RewriteRule ^5-tsilindroviy-dvigun-audi-25-tfsi-znovu-krashchiy-v-sviti$ https://audi-kiev.com.ua/5-tsylindrovyy-dvyhun-audi-2.5-tfsi-znovu-krashchyy-v-sviti-167 [L,R=301]
+
+RewriteRule ^ru/5-tsilindroviy-dvigatel-audi-25-tfsi--snova-luchshiy-v-mire$ https://audi-kiev.com.ua/ru/5-tsilindrovyy-dvigatel-audi-2.5-tfsi-snova-luchshiy-v-mire-168 [L,R=301]
+
+RewriteRule ^glava-audi-sport-suv-seriyi-rs-ma-dlya-nas-bilshiy-prioritet-nig-noviy-r8$ https://audi-kiev.com.ua/hlava-audi-sport-suv-seriyi-rs-maye-dlya-nas-bilshyy-priorytet-nizh-novyy-r8-169 [L,R=301]
+
+RewriteRule ^ru/glava-audi-sport-suv-serii-rs-imeet-dlya-nas-bolshiy-prioritet-chem-novaya-r8$ https://audi-kiev.com.ua/ru/glava-audi-sport-suv-serii-rs-imeet-dlya-nas-bolshiy-prioritet-chem-novyy-r8-170 [L,R=301]
+
+RewriteRule ^futbolisti-reala-ta-barseloni-vibrali-novi-avto-vid-audi$ https://audi-kiev.com.ua/futbolisty-reala-ta-barselony-vybraly-novi-avto-vid-audi-171 [L,R=301]
+
+RewriteRule ^ru/futbolisti-reala-i-barseloni-vibrali-novie-avto-ot-audi$ https://audi-kiev.com.ua/ru/futbolisty-reala-i-barselony-vybrali-novye-avto-ot-audi-172 [L,R=301]
+
+RewriteRule ^translyatsiya-svitovoyi-premri-audi-a8-z-audi-summit-2017$ https://audi-kiev.com.ua/translyatsiya-svitovoyi-premyery-audi-a8-z-audi-summit-2017-173 [L,R=301]
+
+RewriteRule ^ru/translyatsiya-mirovoy-premeri-audi-a8-s-audi-summit-2017$ https://audi-kiev.com.ua/ru/translyatsiya-mirovoy-premery-audi-a8-s-audi-summit-2017-174 [L,R=301]
+
+RewriteRule ^intervyu-c-markom-lihte-shef-dizayner-audi-pro-noviy-sedan-a8$ https://audi-kiev.com.ua/intervyu-iz-markom-likhte-shef-dyzayner-audi-pro-novyy-sedan-a8-175 [L,R=301]
+
+RewriteRule ^ru/intervyu-c-markom-lihte-shef-dizayner-audi-o-novom-sedane-a8$ https://audi-kiev.com.ua/ru/intervyu-c-markom-lihte-shef-dizayner-audi-o-novom-sedane-a8-176 [L,R=301]
+
+RewriteRule ^noviy-audi-sq5-tfsi-vidchuyte-sportivniy-drayv$ https://audi-kiev.com.ua/novyy-audi-sq5-tfsi-vidchuyte-sportyvnyy-drayv-177 [L,R=301]
+
+RewriteRule ^ru/noviy-audi-sq5-tfsi-oshchutite-sportivniy-drayv$ https://audi-kiev.com.ua/ru/novyy-audi-sq5-tfsi-oshchutite-sportivnyy-drayv-178 [L,R=301]
+
+RewriteRule ^novyy-avtomobil-audi-a8-2017-maybutnye-premium-klasu$ https://audi-kiev.com.ua/novyy-audi-a8-maybutnye-avtomobiliv-premium-klasu-179 [L,R=301]
+
+RewriteRule ^ru/novyy-avtomibil-audi-a8-2017-budushcheye-premium-klassa$ https://audi-kiev.com.ua/ru/novyy-audi-a8-budushchee-avtomobiley-premium-klassa-180 [L,R=301]
+
+RewriteRule ^audi-vipustili-novi-tyuning-paketi-dlya-audi-r8-i-audi-tt$ https://audi-kiev.com.ua/audi-vypustyly-novi-tyuninh-pakety-dlya-audi-r8-i-audi-tt-181 [L,R=301]
+
+RewriteRule ^ru/audi-vipustili-novie-tyuning-paketi-dlya-audi-r8-i-audi-tt$ https://audi-kiev.com.ua/ru/audi-vypustili-novye-tyuning-pakety-dlya-audi-r8-i-audi-tt-182 [L,R=301]
+
+RewriteRule ^podorozh-po-meksitsi-na-novomu-q5$ https://audi-kiev.com.ua/hotovyy-do-bud-yakykh-umov-podorozh-po-meksytsi-na-novomu-q5-183 [L,R=301]
+
+RewriteRule ^ru/puteshestvie-po-meksike-na-novom-q5$ https://audi-kiev.com.ua/ru/gotov-ko-vsemu-puteshestvie-po-meksike-na-novom-q5-184 [L,R=301]
+
+RewriteRule ^vitrimana-bezdogannist-oglyad-audi-s5-coupe$ https://audi-kiev.com.ua/vytrymana-bezdohannist-ohlyad-audi-s5-coupe-185 [L,R=301]
+
+RewriteRule ^ru/vidergannaya-bezuprechnost-obzor-audi-s5-coupe$ https://audi-kiev.com.ua/ru/vyderzhannaya-bezuprechnost-obzor-audi-s5-coupe-187 [L,R=301]
+
+RewriteRule ^audi-a3-sportback-oglyad-aristokratichnogo-hetchbeka-versiyi-2017$ https://audi-kiev.com.ua/audi-a3-sportback-ohlyad-arystokratychnoho-khetchbeka-versiyi-2017-186 [L,R=301]
+
+RewriteRule ^ru/audi-a3-sportback-obzor-aristokratichnogo-hetchbeka-versii-2017$ https://audi-kiev.com.ua/ru/audi-a3-sportback-ohlyad-arystokratychnoho-khetchbeka-versiyi-2017-188 [L,R=301]
+
+RewriteRule ^molodiy-ta-provokatsiyniy-noviy-audi-q2$ https://audi-kiev.com.ua/olodyy-ta-provokatsiynyy-novyy-audi-q2-189 [L,R=301]
+
+RewriteRule ^ru/molodoy-i-provokatsionniy-noviy-audi-q2$ https://audi-kiev.com.ua/ru/molodoy-i-provokatsionnyy-novyy-audi-q2-190 [L,R=301]
+
+RewriteRule ^sota-rs3-lms-v-zoloti-audi-sport-vidznachili-uspih-gonochnogo-sedana$ https://audi-kiev.com.ua/sota-rs3-lms-v-zoloti-audi-sport-vidznachyly-uspikh-honochnoho-sedana-191 [L,R=301]
+
+RewriteRule ^ru/sotaya-rs3-lms-v-zolote-audi-sport-otmetili-uspeh-gonochnogo-sedana$ https://audi-kiev.com.ua/ru/sotaya-rs3-lms-v-zolote-audi-sport-otmetili-uspeh-gonochnogo-sedana-192 [L,R=301]
+
+RewriteRule ^v-pikovoyi-formi-noviy-audi-a5$ https://audi-kiev.com.ua/v-pikovoyi-formi-novyy-audi-a5-193 [L,R=301]
+
+RewriteRule ^ru/v-pikovoy-forme-noviy-audi-a5$ https://audi-kiev.com.ua/ru/v-pikovoy-forme-novyy-audi-a5-194 [L,R=301]
+
+RewriteRule ^audi-tsentr-kiyiv-yug-testuyut-novi-modeli-audi-sport-u-nimechchini$ https://audi-kiev.com.ua/audi-tsentr-kyyiv-yuh-testuyut-novi-modeli-audi-sport-u-nimechchyni-195 [L,R=301]
+
+RewriteRule ^ru/chleni-komandi-audi-tsentr-kiev-yug-testiruyut-novie-modeli-audi-sport-v-germanii$ https://audi-kiev.com.ua/ru/audi-tsentr-kyyiv-yuh-testyruyut-novye-modely-audi-sport-v-hermanyy-196 [L,R=301]
+
+RewriteRule ^audi-spilno-z-tomtom-rozroblya-visokotochni-karti-navigatsiyi$ https://audi-kiev.com.ua/audi-spilno-z-tomtom-rozroblyaye-vysokotochni-karty-navihatsiyi-197 [L,R=301]
+
+RewriteRule ^ru/audi-sovmestno-s-tomtom-razrabativaet-visokotochnie-karti-navigatsii$ https://audi-kiev.com.ua/ru/audi-sovmestno-s-tomtom-razrabatyvaet-vysokotochnye-karty-navigatsii-198 [L,R=301]
+
+RewriteRule ^z-pochatku-2017-roku-audi-group-zarobili-ponad-30-milyardiv-vro$ https://audi-kiev.com.ua/z-pochatku-2017-roku-audi-group-zarobyly-ponad-30-milyardiv-yevro-199 [L,R=301]
+
+RewriteRule ^ru/s-nachala-2017-goda-audi-group-zarabotali-bolee-30-milliardov-evro$ https://audi-kiev.com.ua/ru/s-nachala-2017-goda-audi-group-zarabotali-bolee-30-milliardov-evro-200 [L,R=301]
+
+RewriteRule ^legkist-prostorist-i-tehnologiyi-noviy-audi-q5-v-detalyah$ https://audi-kiev.com.ua/lehkist-prostorist-i-tekhnolohiyi-novyy-audi-q5-v-detalyakh-219 [L,R=301]
+
+RewriteRule ^ru/lyogkiy-prostorniy-i-tehnologichniy-noviy-audi-q5-v-detalyah$ https://audi-kiev.com.ua/ru/legkiy-prostornyy-i-tehnologichnyy-novyy-audi-q5-v-detalyah-220 [L,R=301]
+
+RewriteRule ^bilsh-obmniy-i-sportivniy-yakim-bude-dizayn-novogo-audi-a8$ https://audi-kiev.com.ua/bilsh-obyemnyy-i-sportyvnyy-yakym-bude-dyzayn-novoho-audi-a8-221 [L,R=301]
+
+RewriteRule ^ru/bolee-obyomniy-i-sportivniy-kakim-budet-dizayn-novogo-audi-a8$ https://audi-kiev.com.ua/ru/bolee-obemnyy-i-sportivnyy-kakim-budet-dizayn-novogo-audi-a8-222 [L,R=301]
+
+RewriteRule ^audi-q7-e-tron-quattro-o-podnanni-perevag-eko-vodinnya-z-moglivostyami-komfortnogo-pozashlyahovika$ https://audi-kiev.com.ua/audi-q7-e-tron-quattro-o-poyednanni-perevah-eko-vodinnya-z-mozhlyvostyamy-komfortnoho-pozashlyakhovyka-233 [L,R=301]
+
+RewriteRule ^ru/audi-q7-e-tron-quattro-o-sochetanii-preimushchestv-eko-vogdeniya-s-vozmognostyami-komfortnogo-vnedorognika$ https://audi-kiev.com.ua/ru/audi-q7-e-tron-quattro-o-sochetanii-preimushchestv-eko-vozhdeniya-s-vozmozhnostyami-komfortnogo-vnedorozhnika-234 [L,R=301]
+
+RewriteRule ^ru-frankfurti-predstavleniy-audi-elaine-avtopilot-4-rivnya$ https://audi-kiev.com.ua/u-frankfurti-predstavlenyy-audi-elaine-elektrokar-z-avtopilotom-4-rivnya-502 [L,R=301]
+
+RewriteRule ^ru/vo-frankfurte-predstavlen-audi-elaine-avtopilot-4-urovnya$ https://audi-kiev.com.ua/ru/vo-frankfurte-predstavlen-audi-elaine-elektrokar-s-avtopilotom-4-urovnya-503 [L,R=301]
+
+RewriteRule ^z-aktsentom-na-potugnist-audi-vvodit-novu-sistemu-nazv-modeley$ https://audi-kiev.com.ua/z-aktsentom-na-potuzhnist-audi-vvodyt-novu-systemu-nazv-modeley-504 [L,R=301]
+
+RewriteRule ^ru/s-aktsentom-na-moshchnost-audi-vvodit-novuyu-sistemu-nazvaniy-modeley$ https://audi-kiev.com.ua/ru/s-aktsentom-na-moshchnost-audi-vvodit-novuyu-sistemu-nazvaniy-modeley-505 [L,R=301]
+
+RewriteRule ^kontsept-kar-audi-aicon-maybutn-avtomobiliv-v-interpretatsiyi-audi$ https://audi-kiev.com.ua/kontsept-kar-audi-aicon-maybutnye-avtomobiliv-v-interpretatsiyi-audi-508 [L,R=301]
+
+RewriteRule ^ru/kontsept-kar-audi-aicon-budushchee-avtomobiley-v-interpretatsii-audi$ https://audi-kiev.com.ua/ru/kontsept-kar-audi-aicon-budushchee-avtomobiley-v-interpretatsii-audi-511 [L,R=301]
+
+RewriteRule ^audi-pokazala-na-testah-novitniy-parketnik-sq8-2018$ https://audi-kiev.com.ua/audi-pokazala-na-testakh-novitniy-parketnyk-sq8-2018-512 [L,R=301]
+
+RewriteRule ^ru/audi-pokazala-na-testah-noveyshiy-parketnik-sq8-2018$ https://audi-kiev.com.ua/ru/audi-pokazala-na-testah-noveyshiy-parketnik-sq8-2018-513 [L,R=301]
+
+RewriteRule ^gonka-v-shpilberg-audi-sport-vseryoz-pretendu-na-chempionstvo-v-tsomu-rotsi$ https://audi-kiev.com.ua/honka-v-shpilberhe-audi-sport-vseryoz-pretenduye-na-chempionstvo-v-tsomu-rotsi-515 [L,R=301]
+
+RewriteRule ^ru/gonka-v-shpilberge-audi-sport-vseryoz-pretenduet-na-chempionstvo-v-etom-godu$ https://audi-kiev.com.ua/ru/gonka-v-shpilberge-audi-sport-vserez-pretenduet-na-chempionstvo-v-etom-godu-516 [L,R=301]
+
+RewriteRule ^audi-twin-cup-2017-nimechchina-vigrala-chempionat-svitu-po-servisu$ https://audi-kiev.com.ua/audi-twin-cup-2017-nimechchyna-vyhrala-chempionat-svitu-po-servisu-517 [L,R=301]
+
+RewriteRule ^ru/audi-twin-cup-2017-germaniya-viigrala-chempionat-mira-po-servisu$ https://audi-kiev.com.ua/ru/audi-twin-cup-2017-germaniya-vyigrala-chempionat-mira-po-servisu-518 [L,R=301]
+
+RewriteRule ^u-audi-sport-pryznachenyy-novyy-tekhnichnyy-dyrektor$ https://audi-kiev.com.ua/u-audi-sport-pryznachenyy-novyy-tekhnichnyy-dyrektor-519 [L,R=301]
+
+RewriteRule ^ru/v-audi-sport-naznachen-novyy-tehnicheskiy-direktor$ https://audi-kiev.com.ua/ru/v-audi-sport-naznachen-novyy-tehnicheskiy-direktor-520 [L,R=301]
+
+RewriteRule ^zavod-audi-v-uhorshchyni-podolav-poznachku-v-500-000-avtomobiliv$ https://audi-kiev.com.ua/zavod-audi-v-uhorshchyni-podolav-poznachku-v-500-000-avtomobiliv-521 [L,R=301]
+
+RewriteRule ^ru/zavod-audi-v-vengrii-preodolel-otmetku-v-500-000-avtomobiley$ https://audi-kiev.com.ua/ru/zavod-audi-v-vengrii-preodolel-otmetku-v-500-000-avtomobiley-522 [L,R=301]
+
+RewriteRule ^hravtsi-myunkhenskoyi-bavariyi-otrymaly-novi-audi$ https://audi-kiev.com.ua/hravtsi-myunkhenskoyi-bavari-otrymaly-novi-audi-523 [L,R=301]
+
+RewriteRule ^ru/igroki-myunhenskoy-bavarii-poluchili-novye-audi$ https://audi-kiev.com.ua/ru/igroki-myunhenskoy-bavarii-poluchili-novye-audi-524 [L,R=301]
+
+RewriteRule ^novyy-v8-40-tdi-unikalnyy-dyzelnyy-dvyhun-vid-audi$ https://audi-kiev.com.ua/novyy-v8-4.0-tdi-unikalnyy-dyzelnyy-dvyhun-vid-audi-525 [L,R=301]
+ 
+RewriteRule ^/ru/novyy-v8-40-tdi-unikalnyy-dizelnyy-dvigatel-ot-audi$ https://audi-kiev.com.ua/ru/novyy-v8-4.0-tdi-unikalnyy-dizelnyy-dvigatel-ot-audi-526 [L,R=301]
+
+RewriteRule ^novyy-audi-a7-sportback-2018-ofitsiyna-premyera-19-zhovtnya$ https://audi-kiev.com.ua/novyy-audi-a7-sportback-2018-ofitsiyna-premyera-19-zhovtnya-527 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-a7-sportback-2018-ofitsialnaya-premera-19-oktyabrya$ https://audi-kiev.com.ua/ru/novyy-audi-a7-sportback-2018-ofitsialnaya-premera-19-oktyabrya-528 [L,R=301]
+
+RewriteRule ^audi-a7-sportback-predstavlenyy-ofitsiyno$ https://audi-kiev.com.ua/audi-a7-sportback-predstavlenyy-ofitsiyno-529 [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-predstavlen-ofitsialno$ https://audi-kiev.com.ua/ru/audi-a7-sportback-predstavlen-ofitsialno-530 [L,R=301]
+
+RewriteRule ^audi-prodovzhyt-pidtrymuvaty-kubok-svitu-z-hirskolyzhnoho-sportu$ https://audi-kiev.com.ua/audi-prodovzhyt-pidtrymuvaty-kubok-svitu-z-hirskolyzhnoho-sportu-531 [L,R=301]
+
+RewriteRule ^ru/audi-prodolzhit-podderzhivat-kubok-mira-po-gornolyzhnomu-sportu$ https://audi-kiev.com.ua/ru/audi-prodolzhit-podderzhivat-kubok-mira-po-gornolyzhnomu-sportu-532 [L,R=301]
+
+RewriteRule ^golden-steering-wheel-2017-audi-q5-vyznanyy-krashchym-v-katehoriyi-velyki-krosovery$ https://audi-kiev.com.ua/golden-steering-wheel-2017-audi-q5-vyznanyy-krashchym-v-katehoriyi-velyki-krosovery-533 [L,R=301]
+
+RewriteRule ^ru/golden-steering-wheel-2017-audi-q5-priznan-luchshim-v-kategorii-bolshie-krossovery$ https://audi-kiev.com.ua/ru/golden-steering-wheel-2017-audi-q5-priznan-luchshim-v-kategorii-bolshie-krossovery-534 [L,R=301]
+
+RewriteRule ^audi-otrymala-zvannya-naynadiynishyy-yevropeyskyy-brend-v-ssha$ https://audi-kiev.com.ua/audi-otrymala-zvannya-naynadiynishyy-yevropeyskyy-brend-v-ssha-535 [L,R=301]
+
+RewriteRule ^ru/audi-poluchila-zvanie-samyy-nadezhnyy-evropeyskiy-brend-v-ssha$ https://audi-kiev.com.ua/ru/audi-poluchila-zvanie-samyy-nadezhnyy-evropeyskiy-brend-v-ssha-536 [L,R=301]
+
+RewriteRule ^audi-quality-assurance-pro-te-yak-stezhat-za-yakistyu-vyrobnychoho-protsesu-v-inholshtadti$ https://audi-kiev.com.ua/audi-quality-assurance-pro-te-yak-stezhat-za-yakistyu-vyrobnychoho-protsesu-v-inholshtadti-537 [L,R=301]
+
+RewriteRule ^ru/meropriyatiya-audi-quality-assurance-garantiya-premium-kachestva-avtomobiley$ https://audi-kiev.com.ua/ru/audi-quality-assurance-o-tom-kak-sledyat-za-kachestvom-proizvodstvennogo-protsessa-v-ingolshtadte-538 [L,R=301]
+
+RewriteRule ^futbolisty-real-madryd-otrymaly-novi-avtomobili-vid-audi$ https://audi-kiev.com.ua/futbolisty-real-madryd-otrymaly-novi-avtomobili-vid-audi-539 [L,R=301]
+
+RewriteRule ^ru/futbolisty-real-madrid-poluchili-novye-avtomobili-ot-audi$ https://audi-kiev.com.ua/ru/futbolisty-real-madrid-poluchili-novye-avtomobili-ot-audi-540 [L,R=301]
+
+RewriteRule ^krosover-q7-znovu-v-tsentri-uvahy-futbolisty-barselony-vybraly-audi-na-novyy-sezon$ https://audi-kiev.com.ua/krosover-q7-znovu-v-tsentri-uvahy-futbolisty-barselony-vybraly-audi-na-novyy-sezon-541 [L,R=301]
+
+RewriteRule ^ru/krossover-q7-snova-v-tsentre-vnimaniya-futbolisty-barselony-vybrali-audi-na-novyy-sezon$ https://audi-kiev.com.ua/ru/q7-snova-v-tsentre-vnimaniya-futbolisty-barselony-vybrali-audi-na-novyy-sezon-542 [L,R=301]
+
+RewriteRule ^audi-predstavyla-novyy-proekt-v-sferi-shtuchnoho-intelektu$ https://audi-kiev.com.ua/audi-predstavyla-novyy-proekt-v-sferi-shtuchnoho-intelektu-543 [L,R=301]
+
+RewriteRule ^ru/audi-predstavila-novyy-proekt-v-sfere-iskusstvennogo-intellekta$ https://audi-kiev.com.ua/ru/audi-predstavila-novyy-proekt-v-sfere-iskusstvennogo-intellekta-544 [L,R=301]
+
+RewriteRule ^audi-vzyaly-try-pershykh-mistsya-v-konkursi-auto-trophy-2017$ https://audi-kiev.com.ua/audi-vzyaly-try-pershykh-mistsya-v-konkursi-auto-trophy-2017-545 [L,R=301]
+
+RewriteRule ^ru/audi-vzyali-tri-pervyh-mesta-v-konkurse-auto-trophy-2017$ https://audi-kiev.com.ua/ru/audi-vzyali-tri-pervyh-mesta-v-konkurse-auto-trophy-2017-547 [L,R=301]
+
+RewriteRule ^audi-q7-terytoriya-quattro-test-drive$ https://audi-kiev.com.ua/audi-q7-terytoriya-quattro-548 [L,R=301]
+
+RewriteRule ^ru/audi-q7-territoriya-quattro-test-drive$ https://audi-kiev.com.ua/ru/audi-q7-territoriya-quattro-552 [L,R=301]
+
+RewriteRule ^ohlyad-topovykh-kupe-porivnyalnyy-test-drayv-audi-rs-5-bmw-m4-i-mercedes-amg-c-63$ https://audi-kiev.com.ua/porivnyalnyy-test-drayv-audi-rs-5-bmw-m4-i-mercedes-amg-c-63-553 [L,R=301]
+
+RewriteRule ^ru/smotr-topovyh-kupe-sravnitelnyy-test-drayv-audi-rs-5-bmw-m4-i-mercedes-amg-c-63$ https://audi-kiev.com.ua/ru/sravnitelnyy-test-drayv-audi-rs-5-bmw-m4-i-mercedes-amg-c-63-554 [L,R=301]
+
+RewriteRule ^audi-shukaye-naykrashchyy-stsenariy-dlya-filmu-pro-a6$ https://audi-kiev.com.ua/audi-shukaye-naykrashchyy-stsenariy-dlya-filmu-pro-a6-555 [L,R=301]
+
+RewriteRule ^ru/audi-ishchet-luchshiy-stsenariy-dlya-filma-pro-a6$ https://audi-kiev.com.ua/ru/audi-ishchet-luchshiy-stsenariy-dlya-filma-pro-a6-556 [L,R=301]
+
+RewriteRule ^khodova-chastyna-audi-rs-4-avant-nayvyshchyy-standart-kerovanosti-bezpeky-i-komfortu$ https://audi-kiev.com.ua/khodova-chastyna-audi-rs-4-avant-nayvyshchyy-standart-kerovanosti-bezpeky-i-komfortu-557 [L,R=301]
+
+RewriteRule ^ru/hodovaya-chast-audi-rs-4-avant-vysochayshiy-standart-upravlyaemosti-bezopasnosti-i-komforta$ https://audi-kiev.com.ua/ru/hodovaya-chast-audi-rs-4-avant-vysochayshiy-standart-upravlyaemosti-bezopasnosti-i-komforta-558 [L,R=301]
+
+RewriteRule ^audi-prodovzhuye-partnerstvo-z-nimetskym-kinofestyvalem-berlinale-2018$ https://audi-kiev.com.ua/audi-prodovzhuye-partnerstvo-z-nimetskym-kinofestyvalem-berlinale-559 [L,R=301]
+
+RewriteRule ^ru/audi-prodolzhaet-partnerstvo-s-nemetskim-kinofestivalem-berlinale-2018$ https://audi-kiev.com.ua/ru/audi-prodolzhaet-partnerstvo-s-nemetskim-kinofestivalem-berlinale-560 [L,R=301]
+
+RewriteRule ^eksklyuzyvnyy-propusk-na-svitovu-kinopodiyu-u-audi-berlinale-lounge-2018$ https://audi-kiev.com.ua/eksklyuzyvnyy-propusk-na-svitovu-kinopodiyu-u-audi-berlinale-lounge-561 [L,R=301]
+
+RewriteRule ^ru/eksklyuzivnyy-propusk-na-mirovoe-kinosobytie-v-audi-berlinale-lounge-2018$ https://audi-kiev.com.ua/ru/eksklyuzivnyy-propusk-na-mirovoe-kinosobytie-v-audi-berlinale-lounge-562 [L,R=301]
+
+RewriteRule ^yakym-bude-maybutnye-podorozh-po-krayini-baskiv-na-audi-e-tron-sportback-2018$ https://audi-kiev.com.ua/yakym-bude-maybutnye-podorozh-po-krayini-baskiv-na-audi-e-tron-sportback-563 [L,R=301]
+
+RewriteRule ^ru/kakim-budet-budushchee-puteshestvie-po-strane-baskov-na-audi-e-tron-sportback-2018$ https://audi-kiev.com.ua/ru/kakim-budet-budushchee-puteshestvie-po-strane-baskov-na-audi-e-tron-sportback-564 [L,R=301]
+
+RewriteRule ^audi-pokazali-noviy-reklamniy-rolik-pro-model-rs-4-avant-2018$ https://audi-kiev.com.ua/audi-pokazali-noviy-reklamniy-rolik-pro-model-rs-4-avant-565 [L,R=301]
+
+RewriteRule ^ru/audi-pokazali-novyy-reklamnyy-rolik-o-modeli-rs-4-avant-2018$ https://audi-kiev.com.ua/ru/audi-pokazali-novyy-reklamnyy-rolik-o-modeli-rs-4-avant-566 [L,R=301]
+
+RewriteRule ^svitova-premyera-audi-e-tron-fe04-dlya-formula-e-2018$ https://audi-kiev.com.ua/nova-era-sportyvnykh-honok-audi-pokazala-pershyy-elektrokar-dlya-chempionatu-formula-e-audi-e-tron-fe04-572 [L,R=301]
+
+RewriteRule ^ru/mirovaya-premera-audi-e-tron-fe04-dlya-formula-e-2018$ https://audi-kiev.com.ua/ru/novaya-era-sportivnyh-gonok-audi-pokazala-pervyy-elektrokar-dlya-chempionata-formula-e-audi-e-tron-fe04-573 [L,R=301]
+
+RewriteRule ^svyata-suchasnoyi-muzyky-v-ramkakh-audi-forum-inholshtadt$ https://audi-kiev.com.ua/svyata-suchasnoyi-muzyky-v-ramkakh-audi-forum-inholshtadt-574 [L,R=301]
+
+RewriteRule ^ru/prazdniki-sovremennoy-muzyki-v-ramkakh-audi-forum-ingolshtadt$ https://audi-kiev.com.ua/ru/prazdniki-muzyki-v-ramkah-audi-forum-ingolshtadt-575 [L,R=301]
+
+RewriteRule ^test-drayv-audi-rs-4-avant-v-pivdenniy-ispaniyi-2018$ https://audi-kiev.com.ua/test-drayv-audi-rs-4-avant-v-pivdenniy-ispaniyi-576 [L,R=301]
+
+RewriteRule ^ru/test-drayv-audi-rs-4-avant-v-yuzhnoy-ispanii-2018$ https://audi-kiev.com.ua/ru/test-drayv-audi-rs-4-avant-v-yuzhnoy-ispanii-577 [L,R=301]
+
+RewriteRule ^v-kyyevi-proyshla-ofitsiyna-premyera-audi-a8-vid-audi-tsentr-kyyiv-yuh-2018$ https://audi-kiev.com.ua/maybutnye-ochyma-audi-v-kyyevi-proyshla-ofitsiyna-premyera-audi-a8-vid-audi-tsentr-kyyiv-yuh-578 [L,R=301]
+
+RewriteRule ^ru/v-kieve-proshla-ofitsialnaya-premyera-audi-a8-ot-audi-tsentr-kiev-yug-2018$ https://audi-kiev.com.ua/ru/budushchee-glazami-audi-v-kieve-proshla-ofitsialnaya-premera-audi-a8-ot-audi-tsentr-kiev-yug-579 [L,R=301]
+
+RewriteRule ^novyy-audi-a6-sedan-systemy-tekhnolohiyi-potuzhnist-eksteryer-ta-interyer-2018$ https://audi-kiev.com.ua/novyy-audi-a6-sedan-systemy-tekhnolohiyi-potuzhnist-eksteryer-ta-interyer-582 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-a6-sedan-sistemy-tehnologii-moshchnost-eksterer-i-interer-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a6-sedan-sistemy-tehnologii-moshchnost-eksterer-i-interer-585 [L,R=301]
+
+RewriteRule ^abt-predstavyly-novu-versiyu-audi-rs4-2018$ https://audi-kiev.com.ua/abt-predstavyly-novu-versiyu-audi-rs4-586 [L,R=301]
+
+RewriteRule ^ru/abt-predstavili-novuyu-versiyu-audi-rs4-2018$ https://audi-kiev.com.ua/ru/abt-predstavili-novuyu-versiyu-audi-rs4-587 [L,R=301]
+
+RewriteRule ^audi-tradition-vidkryvaye-festyvalnyy-sezon-2018$ https://audi-kiev.com.ua/audi-tradition-vidkryvaye-festyvalnyy-sezon-2018-588 [L,R=301]
+
+RewriteRule ^ru/audi-tradition-otkryvaet-festivalnyy-sezon-2018$ https://audi-kiev.com.ua/audi-tradition-vidkryvaye-festyvalnyy-sezon-2018-588/ru/audi-tradition-otkryvaet-festivalnyy-sezon-2018-589 [L,R=301]
+
+RewriteRule ^lazernyy-skaner-i-radary-v-novomu-audi-a8-2018$ https://audi-kiev.com.ua/ochi-avtopilota-navishcho-potribni-lazernyy-skaner-i-radary-v-novomu-audi-a8-590 [L,R=301]
+
+RewriteRule ^ru/lazernyy-skaner-i-radary-v-novom-audi-a8-2018$ https://audi-kiev.com.ua/ru/glaza-avtopilota-zachem-nuzhny-lazernyy-skaner-i-radary-v-novom-audi-a8-591 [L,R=301]
+
+RewriteRule ^audi-a6-limousine-golovna-novinka-zhenevskogo-avtosalonu-2018$ https://audi-kiev.com.ua/noviy-sedan-audi-a6-limousine-golovna-novinka-zhenevskogo-avtosalonu-592 [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-glavnaya-novinka-zhenevskogo-avtosalona-2018$ https://audi-kiev.com.ua/ru/novyy-sedan-audi-a6-limousine-glavnaya-novinka-zhenevskogo-avtosalona-593 [L,R=301]
+
+RewriteRule ^konkurs-filmiv-pro-novyy-audi-a6-2018$ https://audi-kiev.com.ua/yak-tse-bulo-konkurs-filmiv-pro-novyy-audi-a6-594 [L,R=301]
+
+RewriteRule ^ru/konkurs-filmov-o-novom-audi-a6-2018$ https://audi-kiev.com.ua/ru/kak-eto-bylo-konkurs-filmov-o-novom-audi-a6-595 [L,R=301]
+
+RewriteRule ^ru-zhenevi-vidbulasya-premyera-elektrychnoho-krosovera-audi-etron-2018$ https://audi-kiev.com.ua/u-zhenevi-vidbulasya-premyera-elektrychnoho-krosovera-audi-e-tron-596 [L,R=301]
+
+RewriteRule ^ru/v-zheneve-sostoyalas-premera-elektricheskogo-krossovera-audi-e-tron-2018$ https://audi-kiev.com.ua/ru/v-zheneve-sostoyalas-premera-elektricheskogo-krossovera-audi-e-tron-597 [L,R=301]
+
+RewriteRule ^audi-tsentr-kyyiv-yuh-i-swissvax-2018$ https://audi-kiev.com.ua/audi-tsentr-kyyiv-yuh-stav-ofitsiynym-dystrybyutorom-brendu-avtokosmetyky-swissvax-598 [L,R=301]
+
+RewriteRule ^ru/audi-tsentr-kiev-yug-i-swissvax-2018$ https://audi-kiev.com.ua/ru/audi-tsentr-kiev-yug-stal-ofitsialnym-distribyutorom-brenda-avtokosmetiki-swissvax-599 [L,R=301]
+
+RewriteRule ^audi-i-airbus-pokazaly-onovlenyy-kontsept-litayuchoho-taksi-popup-2018$ https://audi-kiev.com.ua/audi-i-airbus-pokazaly-onovlenyy-kontsept-litayuchoho-taksi-pop-up-600 [L,R=301]
+
+RewriteRule ^ru/audi-i-airbus-pokazali-obnovlennyy-kontsept-letayushchego-taksi-pop-up-2018$ https://audi-kiev.com.ua/ru/audi-i-airbus-pokazali-obnovlennyy-kontsept-letayushchego-taksi-pop-up-603 [L,R=301]
+
+RewriteRule ^yak-stezhat-za-yakistyu-v-audi-ag-2018$ https://audi-kiev.com.ua/reportazh-yak-stezhat-za-yakistyu-v-audi-ag-601 [L,R=301]
+
+RewriteRule ^ru/kak-sledyat-za-kachestvom-v-audi-ag-2018$ https://audi-kiev.com.ua/ru/reportazh-kak-sledyat-za-kachestvom-v-audi-ag-602 [L,R=301]
+
+RewriteRule ^audi-prezentuvali-rs-5-sportback-2018$ https://audi-kiev.com.ua/audi-prezentuvali-rs-5-sportback-604 [L,R=301]
+
+RewriteRule ^ru/audi-predstavili-rs-5-sportback$ https://audi-kiev.com.ua/ru/audi-predstavili-rs-5-sportback-605 [L,R=301]
+
+RewriteRule ^audi-elektrichniy-kontsept-e-tron-vision-gran-turismo-2018$ https://audi-kiev.com.ua/audi-predstavila-815-silniy-elektrichniy-kontsept-e-tron-vision-gran-turismo-606 [L,R=301]
+
+RewriteRule ^ru/audi-elektricheskiy-kontsept-e-tron-vision-gran-turismo-2018$ https://audi-kiev.com.ua/ru/audi-predstavila-815-silnyy-elektricheskiy-kontsept-e-tron-vision-gran-turismo-607 [L,R=301]
+
+RewriteRule ^noviy-audi-a6-avant-2018$ https://audi-kiev.com.ua/novyy-audi-a6-avant-dyzayn-tekhnolohiyi-komfort-bezpeka-608 [L,R=301]
+
+RewriteRule ^ru/new-audi-a6-avant-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a6-avant-dizayn-tehnologii-komfort-bezopasnost-609 [L,R=301]
+
+RewriteRule ^intelekt-audi-a8-2018$ https://audi-kiev.com.ua/intelekt-audi-a8-shcho-robyt-sedan-nastilky-rozumnym-610 [L,R=301]
+
+RewriteRule ^ru/intellekt-audi-a8-2018$ https://audi-kiev.com.ua/ru/intellekt-audi-a8-chto-delaet-sedan-nastolko-umnym-611 [L,R=301]
+
+RewriteRule ^prototyp-audi-e-tron-v-klittsi-faradeya-2018$ https://audi-kiev.com.ua/nadvysoka-napruha-prototyp-audi-e-tron-v-klittsi-faradeya-612 [L,R=301]
+
+RewriteRule ^ru/prototip-audi-e-tron-v-kletke-faradeya-2018$ https://audi-kiev.com.ua/ru/sverhvysokoe-napryazhenie-prototip-audi-e-tron-v-kletke-faradeya-613 [L,R=301]
+
+RewriteRule ^audi-q5l-predstavlenyy-v-pekini-2018$ https://audi-kiev.com.ua/audi-q5l-pershyy-podovzhenyy-krossover-inholshtadta-predstavlenyy-v-pekini-614 [L,R=301]
+
+RewriteRule ^ru/audi-q5l-predstavlen-v-pekine-2018$ https://audi-kiev.com.ua/ru/audi-q5l-pervyy-udlinennyy-krossover-ingolshtadta-predstavlen-v-pekine-615 [L,R=301]
+
+RewriteRule ^audi-predstavyly-stratehiyu-rozvytku-do-2025-roku-2018$ https://audi-kiev.com.ua/audi-predstavyly-stratehiyu-rozvytku-do-2025-roku-elektrokary-v-prioryteti-616 [L,R=301]
+
+RewriteRule ^ru/audi-predstavili-strategiyu-razvitiya-do-2025-goda-2018$ https://audi-kiev.com.ua/ru/audi-predstavili-strategiyu-razvitiya-do-2025-goda-elektrokary-v-prioritete-617 [L,R=301]
+
+RewriteRule ^prezentatsiya-novoho-suv-q8-2018$ https://audi-kiev.com.ua/audi-provela-slipu-prezentatsiyu-novoho-suv-q8-618 [L,R=301]
+
+RewriteRule ^ru/prezentatsiya-novogo-suv-q8-2018$ https://audi-kiev.com.ua/ru/audi-provela-slepuyu-prezentatsiyu-novogo-suv-q8-619 [L,R=301]
+
+RewriteRule ^audi-rs-4-spilna-poyizdka-1-ho-i-4-ho-pokolin-2018$ https://audi-kiev.com.ua/mynule-i-maybutnye-audi-rs-4-spilna-poyizdka-1-ho-i-4-ho-pokolin-620 [L,R=301]
+
+RewriteRule ^ru/audi-rs-4-sovmestnaya-poezdka-1-go-i-4-go-pokoleniy-2018$ https://audi-kiev.com.ua/ru/proshloe-i-budushchee-audi-rs-4-sovmestnaya-poezdka-1-go-i-4-go-pokoleniy-621 [L,R=301]
+
+RewriteRule ^na-dorozi-v-keyptaun-z-novym-audi-a7-sportback-2018$ https://audi-kiev.com.ua/na-dorozi-v-keyptaun-z-novym-audi-a7-sportback-622 [L,R=301]
+
+RewriteRule ^ru/na-doroge-v-keyptaun-s-novym-audi-a7-sportback-2018$ https://audi-kiev.com.ua/ru/na-doroge-v-keyptaun-s-novym-audi-a7-sportback-624 [L,R=301]
+
+RewriteRule ^test-drayv-navihatsiynoyi-systemy-audi-a8-2018$ https://audi-kiev.com.ua/test-drayv-navihatsiynoyi-systemy-audi-a8-chy-zdatna-vona-perevershyty-lyudskyy-dosvid-623 [L,R=301]
+
+RewriteRule ^ru/test-drayv-navigatsionnoy-sistemy-audi-a8-2018$ https://audi-kiev.com.ua/ru/test-drayv-navigatsionnoy-sistemy-audi-a8-sposobna-li-ona-prevzoyti-chelovecheskiy-opyt-625 [L,R=301]
+
+RewriteRule ^audi-znyaly-serial-z-novym-q8-2018$ https://audi-kiev.com.ua/audi-znyaly-serial-z-novym-q8-v-holovniy-roli-626 [L,R=301]
+
+RewriteRule ^ru/audi-snyali-serial-s-novym-q8-2018$ https://audi-kiev.com.ua/ru/audi-snyali-serial-s-novym-q8-v-glavnoy-roli-627 [L,R=301]
+
+RewriteRule ^nove-oblychchya-simyi-q-krosover-audi-q8-2018$ https://audi-kiev.com.ua/nove-oblychchya-simyi-q-krosover-audi-q8-628 [L,R=301]
+
+RewriteRule ^ru/novoe-litso-semi-q-krossover-audi-q8-2018$ https://audi-kiev.com.ua/ru/novoe-litso-semi-q-krossover-audi-q8-629 [L,R=301]
+
+RewriteRule ^noviy-audi-a1-sportback-2018$ https://audi-kiev.com.ua/novyy-audi-a1-sportback-idealnyy-kompanyon-dlya-miskoho-sposobu-zhyttya-630 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-a1-sportback-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a1-sportback-idealnyy-kompanon-dlya-gorodskogo-obraza-zhizni-631 [L,R=301]
+
+RewriteRule ^audi-ofitsiyno-predstavyla-interyer-prototypu-e-tron-2018$ https://audi-kiev.com.ua/audi-ofitsiyno-predstavyla-interyer-prototypu-e-tron-632 [L,R=301]
+
+RewriteRule ^ru/audi-ofitsialno-predstavili-interer-prototipa-e-tron-2018$ https://audi-kiev.com.ua/ru/audi-ofitsialno-predstavili-interer-prototipa-e-tron-633 [L,R=301]
+
+RewriteRule ^audi-predstavyly-domashnyu-zaryadnu-stantsiyu-dlya-e-tron-2018$ https://audi-kiev.com.ua/audi-predstavyly-domashnyu-zaryadnu-stantsiyu-dlya-e-tron-634 [L,R=301]
+
+RewriteRule ^ru/audi-predstavili-domashnyuyu-zaryadnuyu-stantsiyu-dlya-e-tron-2018$ https://audi-kiev.com.ua/ru/audi-predstavili-domashnyuyu-zaryadnuyu-stantsiyu-dlya-e-tron-635 [L,R=301]
+
+RewriteRule ^novi-audi-a4-i-audi-a4-avant-bestselery-v-svoyiy-pikoviy-formi-2018$ https://audi-kiev.com.ua/novi-audi-a4-i-audi-a4-avant-bestselery-v-svoyiy-pikoviy-formi-636 [L,R=301]
+
+RewriteRule ^ru/novye-audi-a4iaudi-a4avant-bestsellery-vsvoey-pikovoy-forme-2018$ https://audi-kiev.com.ua/ru/novye-audi-a4-i-audi-a4-avant-bestsellery-v-svoey-pikovoy-forme-637  [L,R=301]
+
+RewriteRule ^novyy-audi-q8-flahman-simeystva-q-2018$ https://audi-kiev.com.ua/novyy-audi-q8-flahman-simeystva-q-dostupnyy-do-zamovlennya-638 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-q8-flagman-semeystva-q-2018$ https://audi-kiev.com.ua/ru/novyy-audi-q8-flagman-semeystva-q-dostupen-k-zakazu-639 [L,R=301]
+
+RewriteRule ^novyy-audi-tt-2019-onovlennya-ikony-dyzaynu-2018$ https://audi-kiev.com.ua/novyy-audi-tt-2019-onovlennya-ikony-dyzaynu-640 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-tt-2019-obnovlenie-ikony-dizayna-2018$ https://audi-kiev.com.ua/ru/novyy-audi-tt-2019-obnovlenie-ikony-dizayna-641 [L,R=301]
+
+RewriteRule ^novyy-audi-q3-vsebichna-perevaha-na-trasi-i-bezdorizhzhi-2018$ https://audi-kiev.com.ua/novyy-audi-q3-vsebichna-perevaha-na-trasi-i-bezdorizhzhi-642 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-q3-vsestoronnee-prevoshodstvo-na-trasse-i-bezdorozhe-2018$ https://audi-kiev.com.ua/ru/novyy-audi-q3-vsestoronnee-prevoshodstvo-na-trasse-i-bezdorozhe-643 [L,R=301]
+
+RewriteRule ^testdrayvy-novykh-audi-q8-i-a6-v-avstriyi-vid-audi-tsentr-kyyiv-yuh-2018$ https://audi-kiev.com.ua/test-drayvy-novykh-audi-q8-i-a6-v-avstriyi-vid-audi-tsentr-kyyiv-yuh-644 [L,R=301]
+
+RewriteRule ^ru/testdrayvy-novyh-audi-q8-i-a6-v-avstrii-ot-audi-tsentr-kiev-yug-2018$ https://audi-kiev.com.ua/ru/test-drayvy-novyh-audi-q8-i-a6-v-avstrii-ot-audi-tsentr-kiev-yug-645 [L,R=301]
+
+RewriteRule ^virobnitstvo-novih-audi-q3-2018$ https://audi-kiev.com.ua/v-uhorshchyni-startuvalo-vyrobnytstvo-novykh-audi-q3-646 [L,R=301]
+
+RewriteRule ^ru/proizvodstvo-novyh-audi-q3-2018$ https://audi-kiev.com.ua/ru/v-vengrii-startovalo-proizvodstvo-novyh-audi-q3-647 [L,R=301]
+
+RewriteRule ^vyrobnytstvo-elektrychnyh-krosoveriv-e-tron-2018$ https://audi-kiev.com.ua/audi-zapustili-u-virobnitstvo-elektrichniy-krosover-e-tron-648 [L,R=301]
+
+RewriteRule ^ru/proizvodstvo-elektricheskih-krossoverov-e-tron-2018$ https://audi-kiev.com.ua/ru/audi-zapustili-v-proizvodstvo-elektricheskiy-krossover-e-tron-649 [L,R=301]
+
+RewriteRule ^audi-a6-v-reytynhu-euro-ncap-2018$ https://audi-kiev.com.ua/novyy-audi-a6-otrymav-5-zirok-u-reytynhu-euro-ncap-650 [L,R=301]
+
+RewriteRule ^ru/audi-a6-v-reytinge-euro-ncap-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a6-poluchil-5-zvezd-v-reytinge-euro-ncap-651 [L,R=301]
+
+RewriteRule ^novi-modeli-audi-dlya-hravtsiv-bk-bavariya-myunkhen-2018$ https://audi-kiev.com.ua/novi-modeli-audi-dlya-hravtsiv-bk-bavariya-myunkhen-652 [L,R=301]
+
+RewriteRule ^ru/novye-modeli-audi-dlya-igrokov-bk-bavariya-myunkhen-2018$ https://audi-kiev.com.ua/ru/novye-modeli-audi-dlya-igrokov-bk-bavariya-myunhen-653 [L,R=301]
+
+RewriteRule ^novyy-audi-a6-55-tfsi-velykyy-testdrayv-v-portuhaliyi-2018$ https://audi-kiev.com.ua/novyy-audi-a6-55-tfsi-velykyy-test-drayv-v-portuhaliyi-654 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-a6-55-tfsi-bolshoy-test-drayv-v-portugalii-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a6-55-tfsi-bolshoy-test-drayv-v-portugalii-655 [L,R=301]
+
+RewriteRule ^noviy-audi-a6-avant-universal-2018$ https://audi-kiev.com.ua/novyy-audi-a6-avant-osnovni-kharakterystyky-656 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-a6-avant-universal-2018$ https://audi-kiev.com.ua/ru/novyy-audi-a6-avant-osnovnye-harakteristiki-657 [L,R=301]
+
+RewriteRule ^novyy-audi-etron-postavky-kliyentam-pochnutsya-v-kintsi-2018-roku-2018$ https://audi-kiev.com.ua/novyy-audi-e-ron-postavky-kliyentam-pochnutsya-v-kintsi-2018-roku-658 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-e-tron-postavki-klientam-nachnutsya-v-kontse-2018-goda-2018$ https://audi-kiev.com.ua/ru/novyy-audi-e-tron-postavki-klientam-nachnutsya-v-kontse-2018-goda-663 [L,R=301]
+
+RewriteRule ^audi-anonsuvaly-prohramu-rozvytku-elektrychnoyi-mobilnosti-e-offensive-2018$ https://audi-kiev.com.ua/audi-anonsuvaly-prohramu-rozvytku-elektrychnoyi-mobilnosti-e-offensive-666 [L,R=301]
+
+RewriteRule ^ru/audi-anonsirovali-programmu-razvitiya-elektricheskoy-mobilnosti-e-offensive-2018$ https://audi-kiev.com.ua/ru/audi-anonsirovali-programmu-razvitiya-elektricheskoy-mobilnosti-e-offensive-667 [L,R=301]
+
+RewriteRule ^kontsept-audi-e-tron-gt-hotuyetsya-premyera-v-losandzhelesi-2018$ https://audi-kiev.com.ua/kontsept-audi-e-tron-gt-hotuyetsya-premyera-v-los-andzhelesi-668 [L,R=301]
+
+RewriteRule ^ru/kontsept-audi-e-tron-gt-gotovitsya-premera-v-losandzhelese-2018$ https://audi-kiev.com.ua/ru/kontsept-audi-e-tron-gt-gotovitsya-premera-v-los-andzhelese-669 [L,R=301]
+
+RewriteRule ^testdrayv-elektrychnoho-krosovera-audi-etron-2019-v-arabskykh-emiratakh-2018$ https://audi-kiev.com.ua/test-drayv-elektrychnoho-krosovera-audi-e-tron-2019-v-arabskykh-emiratakh-670 [L,R=301]
+
+RewriteRule ^ru/test-drayv-elektricheskogo-krossovera-audi-e-tron-v-arabskih-emiratah-2018$ https://audi-kiev.com.ua/ru/test-drayv-elektricheskogo-krossovera-audi-e-tron-v-arabskih-emiratah-671 [L,R=301]
+
+RewriteRule ^audi-e-tron-pokazhut-v-davosi-2019$ https://audi-kiev.com.ua/audi-e-tron-2019-pokazhut-na-vsesvitnomu-ekonomichnomu-forumi-v-davosi-672 [L,R=301]
+
+RewriteRule ^ru/audi-e-tron-pokazhut-v-davose-2019$ https://audi-kiev.com.ua/ru/audi-e-tron-2019-pokazhut-na-vsemirnom-ekonomicheskom-forume-v-davose-673 [L,R=301]
+
+RewriteRule ^noviy-audi-tts-2019-dostupniy-dlya-zamovlennya-2019$ https://audi-kiev.com.ua/novyy-audi-tts-2019-dostupnyy-dlya-zamovlennya-terminy-postavky-i-vartist-675 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-tts-2019-dostupen-dlya-zakaza-2019$ https://audi-kiev.com.ua/ru/novyy-audi-tts-2019-dostupen-dlya-zakaza-sroki-postavki-i-stoimost-678 [L,R=301]
+
+RewriteRule ^novyy-audi-sq5-tdi-myttyeva-produktyvnist-zavdyaky-elektrychnomu-kompresoru-2019$ https://audi-kiev.com.ua/novyy-audi-sq5-tdi-myttyeva-produktyvnist-zavdyaky-elektrychnomu-kompresoru-679 [L,R=301]
+
+RewriteRule ^ru/novyy-audi-sq5-tdi-mgnovennaya-proizvoditelnost-blagodarya-elektricheskomu-kompressoru-2019$ https://audi-kiev.com.ua/ru/novyy-audi-sq5-tdi-mgnovennaya-proizvoditelnost-blagodarya-elektricheskomu-kompressoru-680 [L,R=301]
+
+RewriteRule ^audi-q4-etron-kontseptkar-2019$ https://audi-kiev.com.ua/kontsept-kar-audi-q4-e-tron-popovnennya-v-ryadakh-elektromobiliv-681 [L,R=301]
+
+RewriteRule ^ru/audi-q4-etron-concept-2019$ https://audi-kiev.com.ua/ru/kontsept-kar-audi-q4-e-tron-popolnenie-v-ryadah-elektromobiley-684 [L,R=301]
+
+RewriteRule ^atletiko-madrid-vigrav-audi-cup-2017$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^chempionat-svitu-z-rali-krosu-world-rx$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^honochna-seriya-audi-tt-sport-cup$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^honochna-seriya-avtomobiliv-audi-dtm$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^nova-audi-a8-rozmiri-ta-prostir$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^audi-predstavila-noviy-rs4-avant-z-turbovanim-dvigunom$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^shche-bilsh-efektivni-dviguni-z-tehnologiyu-mhev$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^u-frankfurti-predstavleniy-audi-elaine-avtopilot-4-rivnya$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^u-myunheni-proyshli-dva-pivfinali-audi-cup-2017$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^u-zhenevi-vidbulasya-premyera-elektrychnoho-krosovera-audi-etron-2018$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^ru/atletiko-madrid-viigral-audi-cup-2017$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/audi-predstavila-noviy-rs4-avant-s-turbirovannim-dvigatelem$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/chempionat-mira-po-ralli-krossu-world-rx$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/eshchyo-bolee-effektivni-dvigateli-s-tehnologiey-mhev$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/gonochnaya-seriya-audi-tt-sport-cup$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/gonochnaya-seriya-avtomobiley-audi-dtm$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/novaya-audi-a8-razmeri-i-prostranstvo$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/novyy-v8-40-tdi-unikalnyy-dizelnyy-dvigatel-ot-audi$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/v-myunhene-proshli-dva-polufinala-audi-cup-2017$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^ru/forma-podpiski-na-novosti-audi$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+RewriteRule ^forma-podpiski-na-novosti-audi$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^podpiska-na-novosti$ https://audi-kiev.com.ua/novyny-audi [L,R=301]
+
+RewriteRule ^ru/podpiska-na-novosti$ https://audi-kiev.com.ua/ru/novosti-audi [L,R=301]
+
+
+
+
+
+
+
+# novi-avtomobili-audi-v-nayavnostii
+
+RewriteRule ^audi-a1-z-probigom-v-komplektatsiyi-100182-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-122618-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-128705-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-131433-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-20945-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-32693-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a3-z-probigom-v-komplektatsiyi-62308-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-rs-3-limousine-v-komplektatsiyi-382440-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-rs-3-limousine-v-komplektatsiyi-383564-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-rs-3-sportback-v-komplektatsiyi-382439-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-rs3-limousine-v-komplektatsii-382440-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381162-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381848-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381852-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-381596-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a4-allroad-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-381597-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a4-allroad-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a4-allroad-v-komplektatsiyi-381234-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a4-allroad-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a4-allroad-z-probigom-v-komplektatsiyi-7719-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a4-allroad-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a5-cabrio-z-probigom-v-komplektatsiyi-11250-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382574-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-382404-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-z-probigom-v-komplektatsiyi-27177-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-z-probigom-v-komplektatsiyi-29207-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-z-probigom-v-komplektatsiyi-99438-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-allroad-z-probigom-v-komplektatsiyi-66676-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-381142-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-382702-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-382843-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-382846-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-383142-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-limousine-v-komplektatsiyi-383165-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-s-probigom-v-komplektatsii-132176-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-125270-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-126306-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-rs-6-avant-v-komplektatsii-382117-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-162056-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-31250-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-66974-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-70138-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-87147-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-382145-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383685-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383686-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383687-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383689-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383693-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383699-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-383700-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-a7-sportback-z-probigom-v-komplektatsiyi-11382-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-a7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q3-v-komplektatsiyi-381562-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q3-v-komplektatsiyi-382536-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q3-v-komplektatsiyi-382537-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q3-z-probigom-v-komplektatsiyi-111910-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q3-z-probigom-v-komplektatsiyi-78555-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-tt-coupe-v-komplektatsiyi-326189-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-tt-coupe-v-komplektatsiyi-381391-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-tt-z-probigom-v-komplektatsiyi-2266-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-tt-z-probigom-v-komplektatsiyi-9677-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^avtomobili-a6-limousine-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-s8-plus-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381056-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381065-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381087-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381146-v-nayavnosti-v-avtosalons-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381782-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-382038-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-382068-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-380743-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-380835-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-380838-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-380846-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381054-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381056-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381061-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381065-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381115-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381116-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381146-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381148-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381185-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381438-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381782-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382038-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382068-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382709-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382832-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382913-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-382933-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-383025-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-z-probigom-v-komplektatsiyi-65386-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q5-z-probigom-v-komplektatsiyi-74061-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-s5-z-probigom-v-komplektatsiyi-20361-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$  https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq5-v-komplektatsiyi-383552-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$  https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq5-v-komplektatsiyi-383619-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$  https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq5-z-probigom-v-komplektatsiyi-18419-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$  https://audi-kiev.com.ua/avtomobili-audi-q5-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-abt-z-probigom-v-komplektatsiyi-33971-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-380592-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-380840-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-381201-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-381239-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-381429-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-381892-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382011-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382033-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382034-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382063-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382088-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382105-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382110-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382111-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382125-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382126-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382181-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382327-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382625-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382860-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-1563-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-18372-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-18395-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-22267-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-24090-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-28005-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-3314-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-33195-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-610-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382465-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382467-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382468-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382473-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382476-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382477-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382490-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382501-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382506-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382515-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382538-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382558-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382561-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382706-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382858-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382948-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382949-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-382954-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383104-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383115-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383122-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383158-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383181-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383187-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383239-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383241-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-tdi-v-komplektatsiyi-383243-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-v-komplektatsiyi-382467-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-v-komplektatsiyi-382468-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-v-komplektatsiyi-382490-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-sq7-v-komplektatsiyi-382501-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^avtomobili-audi-sq7-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/avtomobili-audi-sq7-tdi-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383583-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383587-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383589-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383592-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383593-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383718-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383721-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383722-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383723-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383725-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383727-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383791-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383792-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383793-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383794-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383795-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^audi-q8-v-komplektatsiyi-383801-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/avtomobili-audi-q8-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug [L,R=301]
+
+RewriteRule ^novi-avtomobili-audi-v-nayavnostii-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsii-381087-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q5-v-komplektatsiyi-381065-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382111-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-sq7-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/a6-limousine-s-probegom-v-komplektatsii-052763-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a1-s-probegom-v-komplektatsii-010291-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a1-s-probegom-v-komplektatsii-100182-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-s-probegom-v-komplektatsii-128705-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-s-probegom-v-komplektatsii-131433-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-s-probegom-v-komplektatsii-20945-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-s-probegom-v-komplektatsii-62308-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-3-limousine-v-komplektatsii-382440-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-3-limousine-v-komplektatsii-383564-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-3-sportback-v-komplektatsii-382439-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs3-limousine-v-komplektatsii-382440-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs3-s-probegom-v-komplektatsii-907054-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs4-s-probegom-v-komplektatsii-900496-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381162-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381848-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381852-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-s-probegom-v-komplektatsii-20361-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-s-probegom-v-komplektatsii-7638-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-tt-coupe-v-komplektatsii-326189-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-tt-coupe-v-komplektatsii-381391-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-tt-s-probegom-v-komplektatsii-2266-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-tt-s-probegom-v-komplektatsii-26886-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-cabrio-s-probegom-v-komplektatsii-11250-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-s-probegom-v-komplektatsii-66993-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-s-probegom-v-komplektatsii-036727-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-s-probegom-v-komplektatsii-27177-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-s-probegom-v-komplektatsii-29207-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-allroad-s-probegom-v-komplektatsii-66676-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-s-probegom-v-komplektatsii-030736-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-v-komplektatsii-381142-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-v-komplektatsii-382843-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-v-komplektatsii-382846-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-v-komplektatsii-383142-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-limousine-v-komplektatsii-383165-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-100536-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-126306-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-132176-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-162056-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-30736-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-31381-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-58505-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-60760-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-63309-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-66938-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-66974-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-87147-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-381596-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-allroad-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-381597-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-allroad-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-s-probegom-v-komplektatsii-44555-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-allroad-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-s-probegom-v-komplektatsii-7719-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-allroad-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-v-komplektatsii-381234-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-allroad-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-381106-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-381725-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-104891-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-129917-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-40700-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-40929-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-6236-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-80725-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-8986-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a4-limousine-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-s-probegom-v-komplektatsii-96071-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-s-probegom-v-komplektatsii-11382-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-382145-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383685-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383686-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383687-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383689-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383693-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383699-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a7-sportback-v-komplektatsii-383700-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a8-l-w12-s-probegom-v-komplektatsii-016970-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a8-quattro-s-probegom-v-komplektatsii-012760-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-a8-s-probegom-v-komplektatsii-16970-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-a8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q3-s-probegom-v-komplektatsii-111910-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q2-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q3-s-probegom-v-komplektatsii-78555-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q2-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q3-v-komplektatsii-381562-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q2-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q3-v-komplektatsii-382536-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q2-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q3-v-komplektatsii-382537-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q2-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-s-probegom-v-komplektatsii-65386-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-s-probegom-v-komplektatsii-74061-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-380743-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-380835-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-380838-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-380846-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381054-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381056-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381061-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381065-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381087-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381115-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381116-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381146-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381148-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381185-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381438-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-381782-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382038-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382068-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382709-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382832-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382913-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-382933-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q5-v-komplektatsii-383025-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq5-v-komplektatsii-383552-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq5-v-komplektatsii-383619-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq5-s-probegom-v-komplektatsii-18419-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-sq5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/avtomobili-audi-q5-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-abt-s-probegom-v-komplektatsii-33971-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382465-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382467-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382468-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382473-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382476-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382477-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382490-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382501-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382506-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382515-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382538-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382558-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382561-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382706-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382858-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382949-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-382954-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383104-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383115-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383158-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383181-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383187-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383239-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383241-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-tdi-v-komplektatsii-383243-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-v-komplektatsii-382467-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-v-komplektatsii-382468-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-v-komplektatsii-382490-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-sq7-v-komplektatsii-382501-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-11208-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-1563-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-18372-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-18395-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-22267-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-24090-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-25208-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-27997-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-28005-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-3314-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-33195-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-610-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-380592-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-380840-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-381201-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-381239-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-381429-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-381892-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382011-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382033-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382034-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382063-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382088-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382105-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382110-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382111-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382125-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382126-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382181-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382327-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382535-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382625-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382860-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-sq7-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/avtomobili-audi-sq7-tdi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383583-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383587-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383589-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383592-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383593-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383718-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383721-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383722-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383723-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383725-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383727-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383791-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383792-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383793-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383794-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383795-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/audi-q8-v-komplektatsii-383801-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/avtomobili-audi-q8-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-s8-plus-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+RewriteRule ^ru/novye-avtomobili-audi-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/novi-avtomobili-audi [L,R=301]
+
+
+
+
+
+
+
+
+# avtomobili-audi-s-probegom
+
+RewriteRule ^audi-a1-sportback-v-komplektatsiyi-326206-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a3-limousine-v-komplektatsiyi-381867-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a3-sportback-v-komplektatsiyi-381868-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-383141-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-383160-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-383303-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-quattro-v-komplektatsiyi-383428-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-v-komplektatsiyi-381596-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-v-komplektatsiyi-381597-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-allroad-z-probigom-v-komplektatsiyi-67446-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-avant-z-probigom-v-komplektatsiyi-107869-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsii-382381-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsii-382543-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsii-382590-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-381435-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-381436-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-382381-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-382543-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-382590-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-59007-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-380602-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-381437-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-381598-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-381804-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-381894-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382099-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382121-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382380-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382408-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-382738-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-coupe-v-komplektatsiyi-383016-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-381277-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-381806-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-381897-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-382075-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-382390-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-382404-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-382616-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsii-382705-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-380622-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-380625-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381093-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381120-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381151-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381277-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381291-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381350-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381806-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-381897-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-382075-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-382390-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-382616-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a5-sportback-v-komplektatsiyi-382705-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-allroad-v-komplektatsii-382092-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-118118-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-20531-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-21233-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-90789-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a8-long-z-probigom-v-komplektatsiyi-2142-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a8-z-probigom-v-komplektatsiyi-1959-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a8-z-probigom-v-komplektatsiyi-34054-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-sline-z-probigom-v-komplektatsiyi-14617-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-380842-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381134-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381482-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381595-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381873-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381888-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-381889-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-382399-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-382457-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-382548-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q2-v-komplektatsiyi-382642-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q3-z-probigom-v-komplektatsiyi-79756-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q5-z-probigom-v-komplektatsiyi-116052-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q5-z-probigom-v-komplektatsiyi-86921-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q5-z-probigom-v-komplektatsiyi-94977-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382057-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382221-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382349-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382425-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382525-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382530-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382667-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382713-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382749-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-382825-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-383028-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-383029-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-383070-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-v-komplektatsiyi-383082-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-4379-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-4397-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-51525-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-54149-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-q7-z-probigom-v-komplektatsiyi-61290-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-rs-6-avant-v-komplektatsiyi-381700-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-rs-6-avant-v-komplektatsiyi-382117-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-rs-7-sportback-performance-v-komplektatsiyi-380241-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-380605-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381246-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381569-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-381722-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-382085-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s3-limousine-v-komplektatsiyi-382211-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s5-coupe-v-komplektatsiyi-380603-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s5-coupe-v-komplektatsiyi-381345-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s5-coupe-v-komplektatsiyi-381433-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s5-coupe-v-komplektatsiyi-381625-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s5-sportback-v-komplektatsiyi-382410-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-s6-z-probigom-v-komplektatsiyi-124510-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a1-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a3-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a4-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a5-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a6-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a7-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-a8-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-q2-z-probigom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-q3-z-probigom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-q3-z-probihom-v-nayavnosti-v-avtosaloni-audy-tsentr-kyiv-yuh/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-q5-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-q7-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-rs6-avant-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-rs7-sportback-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-tt-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-audi-z-probigom-v-nayavnosti/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^avtomobili-z-probihom-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv/$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-30553-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-100536-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a6-z-probigom-v-komplektatsiyi-66938-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a7-sportback-v-komplektatsiyi-382145-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a7-z-probigom-v-komplektatsiyi-11353-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a8-z-probigom-v-komplektatsiyi-12760-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-s-probegom-v-nalichii/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a1-sportback-v-komplektatsii-326206-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-limousine-v-komplektatsii-381867-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a3-sportback-v-komplektatsii-381868-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-383141-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-383160-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-383303-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-quattro-v-komplektatsii-383428-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-s-probegom-v-komplektatsii-67446-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-v-komplektatsii-381596-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-allroad-v-komplektatsii-381597-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-avant-s-probegom-v-komplektatsii-107869-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-381435-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-381436-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-382381-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-382543-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-limousine-v-komplektatsii-382590-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a4-s-probegom-v-komplektatsii-59007-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-380602-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-381437-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-381598-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-381804-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-381894-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382099-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382121-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382380-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382408-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382574-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-382738-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-coupe-v-komplektatsii-383016-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-380622-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-380625-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381093-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381120-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381151-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381277-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381291-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381350-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381806-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-381897-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-382075-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-382390-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-382404-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-382616-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a5-sportback-v-komplektatsii-382705-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-allroad-v-komplektatsii-382092-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-118118-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-20531-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-21233-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a6-s-probegom-v-komplektatsii-90789-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a8-long-s-probegom-v-komplektatsii-2142-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a8-s-probegom-v-komplektatsii-1959-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a8-s-probegom-v-komplektatsii-34054-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-sline-s-probegom-v-komplektatsii-14617-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-380842-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381134-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381482-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381595-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381873-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381888-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-381889-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-382399-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-382457-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-382548-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q2-v-komplektatsii-382642-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q3-s-probegom-v-komplektatsii-79756-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q5-s-probegom-v-komplektatsii-116052-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q5-s-probegom-v-komplektatsii-86921-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q5-s-probegom-v-komplektatsii-94977-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-4379-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-4397-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-51525-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-54149-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-s-probegom-v-komplektatsii-61290-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382057-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382221-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382349-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382425-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382525-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382530-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382667-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382713-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382749-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-382825-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-383028-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-383029-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-383070-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-q7-v-komplektatsii-383082-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-6-avant-v-komplektatsii-381700-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-6-avant-v-komplektatsii-382117-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-rs-7-sportback-performance-v-komplektatsii-380241-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-380605-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381246-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381569-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-381722-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-382085-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s3-limousine-v-komplektatsii-382211-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-coupe-v-komplektatsii-380603-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-coupe-v-komplektatsii-381345-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-coupe-v-komplektatsii-381433-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-coupe-v-komplektatsii-381625-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s5-sportback-v-komplektatsii-382410-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-s6-s-probegom-v-komplektatsii-124510-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a1-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a3-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a4-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a5-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a6-allroad-quattro-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a6-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a7-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-a8-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-q2-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-q3-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-q5-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-q7-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-rs6-avant-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-rs7-sportback-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-audi-tt-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/avtomobili-s-probegom-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug/$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/bentley-flying-spur-s-probegom-v-komplektatsii-088302-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/ferrari-f430-s-probegom-v-komplektatsii-2702-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/jeep-wrangler-s-probegom-v-komplektatsii-000777-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/lamborghini-gallardo-spyder-s-probegom-v-komplektatsii-145-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/mercedes-benz-s500l-s-probegom-v-komplektatsii-446436-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+RewriteRule ^ru/audi-a8-s-probegom-v-komplektatsii-12760-v-nalichii-v-avtosalone-audi-tsentr-kiev-yug$ https://audi-kiev.com.ua/ru/prodazha-avtomobiley-audi [L,R=301]
+
+
+
+
+
+# modelniy-ryad
+
+RewriteRule ^modelnyy-ryad-avtomobiley-audi/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a1/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a3/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a4/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a5/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a6/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a7/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-a8/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-r8/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-q3/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-q5/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-q7/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiley-audi-q8/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelniy-ryad-avtomobiliv-audi/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a3/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a4/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a5/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a6/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a7/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a8/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-e-tron/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-q2/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-q3/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-q5/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-q7/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-r8/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-tt/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-rs/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^modelnyy-ryad-avtomobiliv-audi-a1/$ https://audi-kiev.com.ua/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelnyy-ryad-avtomobiley-audi/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a1/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a3/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a4/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a5/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a6/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a7/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-a8/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-r8/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-q3/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-q5/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-q7/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-q8/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-e-tron/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-q2/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-rs/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^ru/modelniy-ryad-avtomobiley-audi-tt/$ https://audi-kiev.com.ua/ru/modelnyy-ryad [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-381106-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-limousine-v-komplektatsiyi-381725-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-129917-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-6236-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-80725-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^audi-a4-z-probigom-v-komplektatsiyi-8986-v-nayavnosti-v-avtosaloni-audi-tsentr-kyiv-yug$ https://audi-kiev.com.ua/prodazh-avtomobiliv-audi [L,R=301]
+
+RewriteRule ^ru/$ https://audi-kiev.com.ua/ru [L,R=301]
+
+RewriteRule ^test-drayv-avtomobiliv-aud$ https://audi-kiev.com.ua/test-drayv [L,R=301]
+
+RewriteRule ^data/docs/anketa.doc$ https://audi-kiev.com.ua [L,R=301]
+
+RewriteRule ^znyzhka-na-avtomobili-audi-q5-ta-audi-q3$ https://audi-kiev.com.ua [L,R=301]
+
+RewriteRule ^audi-ogoloshu-ukrayinski-tsini-na-noviy-rs-5-coupemod>2019-04-08$ https://audi-kiev.com.ua [L,R=301]
+
+RewriteRule ^zapasni-chastyny-audi$ https://audi-kiev.com.ua/oryhinalni-zapasni-chastyny [L,R=301]
+
+RewriteRule ^ru/zapasnye-chasti-audi$ https://audi-kiev.com.ua/ru/originalnye-zapasnye-chasti-audi [L,R=301]
+
+RewriteRule ^audi-tt-20-years$ https://audi-kiev.com.ua/modelnyy-ryad/audi-tt-20-years [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(xhr)/(.*)$ ajax.php?params=$2 [QSA,NC,L]
+RewriteRule !^(.*)(ajax\.php|\.txt|\.png|\.jpg|\.webmanifest|\.jpeg|\.gif|\.css|\.js|\.ttf|\.otf|\.woff|\.json|\.svg|\.html|\.xml)$ index.php?params=%{REQUEST_URI} [QSA,NC]

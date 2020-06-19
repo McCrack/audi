@@ -1,0 +1,50 @@
+// global variables
+$browser-context: 16;
+$opacity: .75;
+$spacing: 0;
+$time: .3s;
+
+// colors
+$hsla-0: hsla(0, 0%, 100%, 0);
+$hsla-15: hsla(0, 0%, 100%, .15);
+$hsla-20: hsla(0, 0%, 100%, .2);
+$hsla-30: hsla(0, 0%, 100%, .3);
+$hsla-50: hsla(0, 0%, 100%, .5);
+
+$shadow: 0 0 50px rgba(0, 0, 0, .2);
+$highlight: rgba(0, 0, 0, 0);
+$border-color: #d0d3d4;
+$footer-blog: #222;
+$red: #bb0a30;
+$white: #fff;
+$black: #000;
+$dark-grey: #4c4c4c;
+$grey-05: #f2f2f2;
+$grey-10: #e5e5e5;
+$grey-15: #d9d9d9;
+$grey-20: #ccc;
+$grey-30: #b3b3b3;
+$grey-40: #999;
+$grey-60: #666;
+$grey-80: #333;
+$grey-90: #1a1a1a;
+
+$text-shadow: rgba(0, 0, 0, .15);
+$background-50: rgba(0, 0, 0, .5);
+$background-70: rgba(0, 0, 0, .7);
+$background-close-button: #434c53;
+
+
+// media queries
+$phone: 768px;
+$tablet: 1366px;
+$laptop: 1920px;
+$smallest: 320px;
+$container: 100%;
+
+// fonts
+$bold: 'audi type bold';
+$light: 'audi type light';
+$normal: 'audi type normal';
+$extended-bold: 'audi type extended bold';
+$extended-normal: 'audi type extended normal';

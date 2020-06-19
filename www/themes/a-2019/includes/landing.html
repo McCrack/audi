@@ -1,0 +1,13 @@
+<article id="model" class="model">
+	<div class="container container--wide">
+		<img src="<?=$page->preview?>" alt="<?=$page->header?>" title="<?=$page->header?>" class="wow fade-in">
+		<div>
+			<p class="slogan wow fade-in-left" data-wow-delay="1s"><?=$page->header?></p>
+		</div>
+
+		<!-- overview -->
+		<div class="model__overview wow fade-in-up" data-wow-delay="1.25s">
+			<?=$page->getContent()?>
+		</div>
+	</div>
+</article>

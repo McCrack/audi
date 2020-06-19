@@ -1,0 +1,10 @@
+<img src="<?=$page->preview?>" alt="<?=$page->header?>" class="wow fade-in">
+<div class="container">
+	<h1 class="post--title wow fade-in-left" data-wow-delay="1s"><?=$page->header?></h1>
+	<a href="#post" class="post--anchor wow fade-in-up" data-wow-delay="1s"></a>
+</div>
+
+<!-- content -->
+<div id="post" class="post__content wow fade-in-up" data-wow-delay="1.25s">
+	<?=$page->getContent()?>
+</div>

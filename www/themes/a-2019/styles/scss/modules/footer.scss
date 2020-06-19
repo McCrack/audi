@@ -1,0 +1,366 @@
+.footer {
+
+  // on the blog page
+  &--blog {
+    @include media(tablet) {
+      padding-top: 75px;
+    }
+
+    .footer__navigation {
+      background-color: $footer-blog;
+
+      .navigation {
+        padding: 50px 0;
+
+        @include media(phone) {
+          padding: 75px 0 35px;
+        }
+
+        &__social {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 25px 0;
+    background-color: $grey-90;
+
+    @include media(phone) {
+      text-align: center;
+    }
+
+    @include media(tablet) {
+      display: flex;
+    }
+
+    .news {
+      @include media(tablet) {
+        display: flex;
+        float: left;
+      }
+
+      a {
+        color: $grey-30;
+        font-size: em(12);
+        line-height: 18px;
+        font-family: $light;
+        transition: color .3s linear, border .3s linear;
+
+        &:not(:last-of-type) {
+          padding-right: 1.3em;
+
+          @include media(phone) {
+            padding-right: 1em;
+          }
+        }
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+
+    .copyright {
+      color: $grey-30;
+      font-size: em(12);
+      line-height: 18px;
+      font-family: $light;
+
+      @include media(phone) {
+        margin-top: 1em;
+        display: block;
+      }
+
+      @include media(tablet) {
+        float: right;
+      }
+    }
+  }
+
+
+  // footer sitemap
+  .sitemap--footer {
+    padding: 30px 0 60px;
+
+    @include media(phone) {
+      padding: 0;
+    }
+
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: 18px;
+      }
+
+      a {
+        font-size: em(13);
+        line-height: 18px;
+      }
+    }
+
+    .sitemap__title {
+      font-size: em(16);
+      line-height: 24px;
+      font-family: $normal;
+    }
+  }
+
+  // footer navigation
+  &__navigation {
+    background-color: $dark-grey;
+    display: flex;
+
+    .container {
+      position: relative;
+    }
+
+    .navigation {
+      display: flex;
+      padding: 20px 0;
+      justify-content: space-between;
+
+      @include media(phone) {
+        display: grid;
+      }
+
+      &__news {
+        padding-right: 50px;
+        width: 33.33%;
+        display: grid;
+
+        @include media(phone) {
+          width: 100%;
+          padding: 0;
+        }
+
+        a {
+          &:not(:first-of-type) {
+            margin-top: 15px;
+          }
+
+          &:hover span {
+            color: $white;
+          }
+
+          img {
+            width: 70px;
+            float: left;
+            height: 45px;
+            object-fit: cover;
+            margin-right: 10px;
+          }
+
+          span {
+            width: 72%;
+            float: left;
+            font-size: em(12);
+            line-height: 18px;
+            color: $grey-30;
+            font-family: $light;
+            transition: color .3s linear, border .3s linear;
+          }
+        }
+      }
+
+      &__title {
+        color: $white;
+        font-size: em(19);
+        line-height: 28px;
+        margin-bottom: 1em;
+        font-family: $extended-normal;
+
+        @include media(phone) {
+          text-align: center;
+          line-height: 20px;
+          font-size: em(16);
+          margin-top: 1em;
+        }
+      }
+
+      &__menu a {
+        @include inline-block;
+        padding: 0 30px 15px 0;
+        transition: $time;
+        font-size: em(14);
+        color: $white;
+
+        @include media(phone) {
+          padding: 0 18px 18px 0;
+        }
+
+        &:hover {
+          color: $grey-30;
+        }
+      }
+
+      &__social {
+        display: flex;
+        margin-left: 30px;
+        align-items: center;
+
+        @include media(phone) {
+          margin-top: 35px;
+          margin-left: 0;
+        }
+
+        a {
+          @include inline-block;
+          transition: opacity .3s cubic-bezier(.75,.02,.5,1);
+          margin: 0 12.5px;
+
+          &:first-of-type {
+            margin-left: 0;
+          }
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+
+          &[href*="facebook"] {
+            @include sprite(facebook, social);
+          }
+
+          &[href*="youtube"] {
+            @include sprite(youtube, social);
+          }
+
+          &[href*="instagram"] {
+            @include sprite(instagram, social);
+          }
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      color: $white;
+      font-family: $normal;
+      border-top: 1px solid $grey-60;
+      font-size: em(14);
+      padding: 20px 0;
+      width: 100%;
+      float: left;
+
+      @include media(phone) {
+        font-size: em(13);
+        color: $grey-40;
+      }
+
+      span {
+        color: $white;
+
+        @include media(phone) {
+          font-size: em(13);
+          color: $grey-40;
+        }
+      }
+    }
+
+    .clock {
+      position: absolute;
+      bottom: 10.5px;
+      right: 0;
+
+      span {
+        display: none;
+      }
+    }
+
+    &--blocks {
+      display: flex;
+      padding: 35px 0;
+
+      @include media(phone) {
+        @include inline-block;
+        margin-top: 40px;
+        width: 100%;
+      }
+
+      div {
+        width: 16.66%;
+        text-align: center;
+        position: relative;
+
+        @include media(phone) {
+          float: left;
+          width: 50%;
+
+          &:not(:nth-last-child(-n + 2)) {
+            margin-bottom: 30px;
+          }
+
+          &:nth-of-type(even)::after {
+            display: none;
+          }
+        }
+
+        @include media(tablet) {
+          &:last-of-type::after {
+            display: none;
+          }
+        }
+
+        &::after {
+          top: 0;
+          right: 0;
+          width: 1px;
+          content: '';
+          height: 100%;
+          position: absolute;
+          background-color: $grey-60;
+        }
+
+        a {
+          @include inline-block;
+
+          &:hover .icon + span {
+            color: $grey-30;
+          }
+
+          .icon {
+            margin: 0 auto;
+            display: block;
+
+            &.model {
+                @include sprite(model, footer);
+            }
+
+            &.key {
+                @include sprite(key, footer);
+            }
+
+            &.service {
+                @include sprite(service, footer);
+            }
+
+            &.user {
+                @include sprite(user, footer);
+            }
+
+            &.tag {
+                @include sprite(tag, footer);
+            }
+
+            &.mail {
+                @include sprite(mail, footer);
+            }
+
+            + span {
+              display: block;
+              margin-top: 15px;
+              font-family: $normal;
+              transition: $time;
+              font-size: em(14);
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

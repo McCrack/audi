@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="<?=USER_LANG?>">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<title><?=$page->title?></title>
+		<meta name="description" content="<?=$page->description?>">
+
+
+    <meta property="og:url" content="<?=$page->canonical?>">
+    <meta property="og:title" content="<?=$page->header?>">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="<?=$page->description?>">
+    <meta property="og:site_name" content="<?=$page->SiteName?>">
+
+    <?$preview = getimagesize($page->preview)?>
+    <meta property="og:image" content="<?=$page->preview?>">
+    <meta property="og:image:type" content="<?=$preview['mime']?>">
+    <meta property="og:image:height" content="<?=$preview[1]?>">
+    <meta property="og:image:width" content="<?=$preview[0]?>">
+
+		<?foreach($page->languageset as $lang=>$lnk):?>
+    	<link hreflang="<?=$lang?>" href="<?=$lnk?>" rel="alternate">
+    	<?endforeach?>
+    	<link hreflang="x-default" href="<?=$page->x_default?>" rel="alternate">
+    	<link rel="canonical" href="<?=$page->canonical?>">
+
+    	<!-- FONTS -->
+    	<style>
+    	<?foreach(array_map("pathinfo", glob("fonts/*.{otf,ttf,woff}", GLOB_BRACE)) as $file):?>
+    	@font-face{
+      	font-family:'<?=str_replace("-", " ", $file['filename'])?>';
+      	src:url(/<?=($file['dirname']."/".$file['basename'])?>) format('<?=[
+        	"otf"=>"opentype",
+        	"ttf"=>"truetype",
+        	"woff"=>"woff"
+      	][$file['extension']]?>');
+    	}
+    	<?endforeach?>
+    	</style>
+
+		<!-- styles -->
+		<style>
+      @import "/themes/<?=THEME?>/styles/desktop.css";
+      @import "/themes/<?=THEME?>/styles/libs.min.css";
+		</style>
+
+		<!-- scripts -->
+		<script src="/xhr/wordlist/<?=USER_LANG?>?d[0]=main" charset="utf-8" defer></script>
+    <script src="/themes/<?=THEME?>/scripts/main.min.js"></script>
+		<script src="/js/C-Lab.js"></script>
+		<script>
+			var PageID = "<?=$page->PageID?>";
+			var LANGUAGE = "<?=USER_LANG?>";
+			new function(){
+		    var analytics = this;
+				analytics.timer = Date.now();
+				analytics.XHR = new XMLHttpRequest();
+				analytics.XHR.open("POST", "/xhr/analytics/"+(session.open() ? 1 : 0), false);
+				analytics.XHR.setRequestHeader("Content-Type", "application/json");
+				window.onbeforeunload = function(){
+					var params = {
+						"PageID":PageID,
+						"input":analytics.timer,
+						"output":Date.now()
+					}
+					analytics.XHR.send(JSON.stringify(params));
+				}
+			}
+		</script>
+
+		<!-- MICRODATA -->
+		<?foreach($page->schemes as $schema):?>
+		<script type="application/ld+json"><?=stripcslashes(JSON::encode($schema))?></script>
+		<?endforeach?>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCRCKZ3');</script>
+    <!-- End Google Tag Manager -->
+
+	</head>
+	<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCRCKZ3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+		<div class="wrapper">
+
+      <!-- header -->
+			<header class="header">
+        <div class="container wow fade-in-down" data-wow-delay=".5s">
+
+          <!-- menu -->
+          <nav class="menu">
+            <div>
+              <span></span>
+              <span></span>
+              <span></span>
+              <?=$wordlist->menu?>
+            </div>
+            <?$lineup = $mySQL -> getTree("model", "class",
+            "SELECT * FROM gb_lineup CROSS JOIN gb_classes USING(ClassID) CROSS JOIN gb_pages USING(PageID) CROSS JOIN gb_static USING(PageID) WHERE language LIKE {str}
+            ORDER BY SortID", USER_LANG);
+            foreach($lineup as $family => $vehicles):?>
+            <label for="<?=$family?>"><?=$family?></label>
+            <?endforeach?>
+            <label for="RS">RS</label>
+            <label for="g-tron">g-tron</label>
+          </nav>
+
+          <!-- logotype -->
+          <div class="logo">
+            <a href="/">
+              <span>Audi</span>
+              <span><?=$wordlist->cky?></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- header sitemap -->
+        <div class="sitemap sitemap--header">
+          <div class="container">
+
+            <!-- sitemap block -->
+            <div class="sitemap__block">
+              <a href="/" class="sitemap__title"><?=$wordlist->home?></a>
+              <a href="/modelnyy-ryad" class="sitemap__title">
+                <?=$wordlist->lineup?>
+                <img data-src="https://img.audi-kiev.com.ua/data/main/all-modells-audi.jpg" alt="<?=$wordlist->lineup?>" class="lazy">
+              </a>
+              <?foreach($page->languageset as $lang=>$lnk) if($lang==USER_LANG): continue; else:?>
+              <a href="<?=$lnk?>" class="sitemap__language"><?=["uk"=>"ua","ru"=>"ru"][$lang]?></a>
+              <?endif?>
+            </div>
+
+            <!-- sitemap block -->
+            <?foreach($map['root'] as $root):?>
+            <div class="sitemap__block">
+              <a href="<?=(LANG_INDEX.'/'.$root['name'])?>" class="sitemap__title"><?=$root['header']?></a>
+              <ul class="sitemap__list list">
+                <li class="review">
+                  <a href="<?=(LANG_INDEX.'/'.$root['name'])?>"><?=$wordlist->review?></a>
+                </li>
+                <?foreach($map[$root['name']] as $item):?>
+                <li>
+                  <a href="<?=(LANG_INDEX.'/'.$item['name'])?>"><?=$item['header']?></a>
+                </li>
+                <?endforeach?>
+              </ul>
+            </div>
+            <?endforeach?>
+
+            <!-- sitemap navigation -->
+            <div class="sitemap__navigation">
+
+              <!-- sitemap block -->
+              <div class="sitemap__block">
+                <a href="/test-drayv" class="disabled" rel="nofollow">
+                  <span class="sitemap__navigation--icon key"></span>
+                  <span><?=$wordlist->{'test drive'}?></span>
+                </a>
+                <script>
+                    document.currentScript.parentNode.onclick = function() {
+                        openBox("test-dravy", "xhr/boxfather/test-drive/" + LANGUAGE);
+                    }
+                </script>
+              </div>
+
+              <!-- sitemap block -->
+              <div class="sitemap__block">
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 4'}?>">
+                  <span class="sitemap__navigation--icon special"></span>
+                  <span><?=$wordlist->{'special offers'}?></span>
+                </a>
+              </div>
+
+              <!-- sitemap block -->
+              <div class="sitemap__block">
+                <a href="/servis-avtomobiley-audi" class="disabled" rel="nofollow">
+                  <span class="sitemap__navigation--icon service"></span>
+                  <span><?=$wordlist->service?></span>
+                </a>
+                <script>
+                    document.currentScript.parentNode.onclick = function() {
+                        openBox("servis-avtomobiley-audi", "xhr/boxfather/service/" + LANGUAGE);
+                    }
+                </script>
+              </div>
+
+              <!-- sitemap block -->
+              <div class="sitemap__block">
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'contacts link'}?>">
+                  <span class="sitemap__navigation--icon contacts"></span>
+                  <span><?=$wordlist->сontacts?></span>
+                </a>
+              </div>
+            </div>
+
+            <!-- header substrate close -->
+            <div class="header__substrate--close"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- header cars -->
+      <form autocomplete="off" class="header__cars">
+        <?foreach($lineup as $family => $vehicles):?>
+        <input id="<?=$family?>" name="menu" type="radio" hidden>
+        <div>
+          <div class="container">
+
+            <!-- header car list -->
+            <ul class="header__cars--list">
+              <?foreach($vehicles as $vehicle):?>
+              <li>
+                <a href="<?=(LANG_INDEX.'/modelnyy-ryad/'.$vehicle['ModelID'])?>">
+                  <?=$vehicle['model']?>
+                  <img data-src="<?=$vehicle['profile']?>" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="<?=$vehicle['cover']?>">
+                  <div>
+                    <a href="<?=(LANG_INDEX.'/modelnyy-ryad/'.$vehicle['ModelID'])?>" class="btn text"><?=$vehicle['model']?></a>
+                    <?foreach(JSON::parse($vehicle['optionset']) as $key => $val):?>
+                    <p><?=$key?> <span><?=$val?></span></p>
+                    <?endforeach?>
+                  </div>
+                </div>
+              </li>
+              <?endforeach?>
+            </ul>
+          </div>
+        </div>
+        <?endforeach?>
+        <input id="RS" name="menu" type="radio" hidden>
+        <div>
+          <div class="container">
+
+            <!-- header car list -->
+            <ul class="header__cars--list">
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs3-sportback">
+                  RS 3 Sportback
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-rs3-sportback-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-rs3-sportback.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs3-sportback" class="btn text">RS 3 Sportback</a>
+                    <p>Ціна від: <span>1 865 543 грн.</span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs3-limousine">
+                  RS 3 Limousine
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-rs3-limousine-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-rs3-limousine.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs3-limousine" class="btn text">RS 3 Limousine</a>
+                    <p>Ціна від: <span>1 918 351 грн.</span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs4-avant">
+                  RS 4 Avant
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-rs4-avant-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-rs4-avant-home.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs4-avant" class="btn text">RS 4 Avant</a>
+                    <p><?=$wordlist->information?> <span></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs5-coupe">
+                  RS 5 Coupe
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-rs5-coupe-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-rs5-coupe-perfomance.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs5-coupe" class="btn text">RS 5 Coupe</a>
+                    <p><?=$wordlist->unavailable?> <span></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs5-sportback">
+                  RS 5 Sportback
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-rs5-sportback-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-rs5-sportback.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-rs5-sportback" class="btn text">RS 5 Sportback</a>
+                    <p><?=$wordlist->unavailable?> <span></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-tt-rs-coupe">
+                  TT RS Coupe
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-tt-rs-coupe-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-tt-rs-coupe.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-tt-rs-coupe" class="btn text">TT RS Coupe</a>
+                    <p> <span></span></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <input id="g-tron" name="menu" type="radio" hidden>
+        <div>
+          <div class="container">
+
+            <!-- header car list -->
+            <ul class="header__cars--list">
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a3-sportback-g-tron">
+                  A3 Sportback g-tron
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-a3-sportback-g-tron-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-a3-sportback-g-tron.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a3-sportback-g-tron" class="btn text">A3 Sportback g-tron</a>
+                    <p><?=$wordlist->information?> <span></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a4-avant-g-tron">
+                  A4 Avant g-tron
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-a4-avant-g-tron-2018-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-a4-avant-g-tron.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a4-avant-g-tron" class="btn text">A4 Avant g-tron</a>
+                    <p><?=$wordlist->information?> <span></span></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a5-sportback-g-tron">
+                  A5 Sportback g-tron
+                  <img data-src="https://img.audi-kiev.com.ua/data/catalog/audi-a5-sportback-g-tron-1.png" height="40" align="right" class="lazy">
+                </a>
+
+                <!-- header cars info -->
+                <div class="header__cars--info">
+                  <img src="https://img.audi-kiev.com.ua/data/main/audi-a5-sportback-g-tron.jpg">
+                  <div>
+                    <a href="<?=(LANG_INDEX)?>/modelnyy-ryad/audi-a5-sportback-g-tron" class="btn text">A5 Sportback g-tron</a>
+                    <p> <span></span></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- header substrate -->
+        <div class="header__substrate">
+          <div class="container">
+
+            <!-- header substrate close -->
+            <button class="header__substrate--close" type="reset"></button>
+          </div>
+        </div>
+      </form>
+
+      <!-- main -->
+      <main class="main">
+
+				<!-- include template -->
+				<?include_once("includes/".TEMPLATE.".html")?>
+			</main>
+
+			<!-- footer -->
+			<footer class="footer">
+
+				<!-- footer sitemap -->
+		    <div class="sitemap sitemap--footer">
+	        <div class="container">
+
+            <!-- sitemap block -->
+            <div class="sitemap__block">
+              <a href="<?=LANG_INDEX?>" class="sitemap__title"><?=$wordlist->home?></a>
+              <ul class="sitemap__list list">
+                <li class="review">
+                  <a href="/"><?=$wordlist->review?></a>
+                </li>
+                <li>
+                  <a href="/modelnyy-ryad"><?=$wordlist->lineup?></a>
+                </li>
+              </ul>
+            </div>
+
+            <?foreach($map['root'] as $root):?>
+            <div class="sitemap__block">
+              <a href="<?=(LANG_INDEX.'/'.$root['name'])?>" class="sitemap__title"><?=$root['header']?></a>
+              <ul class="sitemap__list list">
+                <li class="review">
+                  <a href="<?=(LANG_INDEX.'/'.$root['name'])?>"><?=$wordlist->review?></a>
+                </li>
+                <?foreach($map[$root['name']] as $item):?>
+                <li>
+                  <a href="<?=(LANG_INDEX.'/'.$item['name'])?>"><?=$item['header']?></a>
+                </li>
+                <?endforeach?>
+              </ul>
+            </div>
+            <?endforeach?>
+	        </div>
+		    </div>
+
+		   <!-- footer navigation -->
+		    <div class="footer__navigation">
+	        <div class="container">
+
+            <!-- blocks -->
+            <div class="footer__navigation--blocks">
+              <div>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'lineup link'}?>">
+                	<span class="icon model"></span>
+                  <span><?=$wordlist->{'lineup'}?></span>
+                </a>
+              </div>
+              <div>
+                <a href="/test-drayv" class="disabled" rel="nofollow">
+                  <span class="icon key"></span>
+                  <span><?=$wordlist->{'test drive'}?></span>
+                </a>
+                <script>
+                    document.currentScript.parentNode.onclick = function() {
+                        openBox("test-dravy", "xhr/boxfather/test-drive/" + LANGUAGE);
+                    }
+                </script>
+              </div>
+              <div>
+                <a href="/servis-avtomobiley-audi" class="disabled" rel="nofollow">
+                  <span class="icon service"></span>
+                  <span><?=$wordlist->service?></span>
+                </a>
+                <script>
+                    document.currentScript.parentNode.onclick = function() {
+                        openBox("servis-avtomobiley-audi", "xhr/boxfather/service/" + LANGUAGE);
+                    }
+                </script>
+              </div>
+              <div>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'client section link'}?>">
+                	<span class="icon user"></span>
+                  <span><?=$wordlist->{'client section'}?></span>
+                </a>
+              </div>
+              <div>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 4'}?>">
+                	<span class="icon tag"></span>
+                  <span><?=$wordlist->{'current promotions'}?></span>
+                </a>
+              </div>
+              <div>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'contacts link'}?>">
+                	<span class="icon mail"></span>
+                  <span><?=$wordlist->сontacts?></span>
+                </a>
+              </div>
+            </div>
+
+            <!-- navigation -->
+            <div class="navigation">
+
+              <!-- menu -->
+              <div class="navigation__menu">
+                <?foreach($page->languageset as $lang=>$lnk) if($lang==USER_LANG): continue; else:?>
+                  <a href="<?=$lnk?>"><?=["uk"=>"Украинская версия сайта", "ru"=>"Російська версія сайту"][$lang]?></a>
+                <?endif?>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 1'}?>"><?=$wordlist->news?></a>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 2'}?>">Audi exclusive</a>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 3'}?>"><?=$wordlist->career?></a>
+                <a href="pravova-informatsiya" class="disabled" rel="nofollow"><?=$wordlist->{'legal information'}?></a>
+                <script>
+                    document.currentScript.parentNode.onclick = function() {
+                        openBox("pravova-informatsiya", "xhr/boxfather/content/" + LANGUAGE);
+                    }
+                </script>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 4'}?>"><?=$wordlist->warranty?></a>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 5'}?>">Кредит</a>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 6'}?>"><?=$wordlist->leasing?></a>
+                <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'footer 7'}?>"><?=$wordlist->{'сorporate programs'}?></a>
+              </div>
+
+              <!-- social -->
+              <div class="navigation__social">
+                <a href="https://www.facebook.com/audiyug" target="_blank"></a>
+                <a href="https://www.youtube.com/user/audiyug" target="_blank"></a>
+                <a href="https://www.instagram.com/audi_kiev_yug/" target="_blank"></a>
+              </div>
+            </div>
+
+            <!-- copyright -->
+            <div class="copyright">© <?=date("Y")?> AUDI YUG. <span><?=$wordlist->rights?></span></div>
+
+            <!-- clock -->
+            <a href="https://clocklab.design" class="clock" target="_blank">
+              <svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="85" viewBox="0 0 254 98" style="enable-background:new 0 0 254 98;" xml:space="preserve">
+                <g>
+                  <path class="logo-letter" fill="#999" d="M54.2,40.2L49.7,43c-3.9-5.2-9.2-7.7-15.9-7.7c-5.4,0-9.8,1.7-13.4,5.2c-3.5,3.5-5.3,7.6-5.3,12.6
+                    c0,3.2,0.8,6.2,2.4,9.1c1.6,2.8,3.9,5,6.7,6.6c2.8,1.6,6,2.3,9.6,2.3c6.5,0,11.8-2.6,15.9-7.7l4.5,3c-2.1,3.2-4.9,5.6-8.5,7.4
+                    c-3.6,1.7-7.6,2.6-12.1,2.6c-7,0-12.8-2.2-17.3-6.6c-4.6-4.4-6.9-9.8-6.9-16.2c0-4.3,1.1-8.2,3.2-11.9c2.1-3.7,5.1-6.5,8.9-8.6
+                    c3.8-2.1,8-3.1,12.6-3.1c2.9,0,5.7,0.4,8.4,1.3c2.7,0.9,5,2.1,6.9,3.5C51.3,36.2,52.9,38,54.2,40.2z"/>
+                  <path class="logo-letter" fill="#999" d="M64.3,14H70v61.1h-5.7V14z"/>
+                  <path class="logo-letter scrolling-visible" fill="#999" d="M111.1,14c9,0,16.6,3,22.7,9c6.1,6,9.1,13.4,9.1,22.2c0,8.7-3,16.1-9.1,22.2c-6.1,6.1-13.5,9.1-22.2,9.1
+                    c-8.8,0-16.3-3-22.4-9.1c-6.1-6.1-9.1-13.4-9.1-22c0-5.7,1.4-11,4.2-15.9c2.8-4.9,6.5-8.7,11.3-11.5C100.3,15.4,105.5,14,111.1,14
+                    z M111.3,19.8c-4.4,0-8.6,1.1-12.5,3.4c-4,2.3-7,5.4-9.3,9.3c-2.2,3.9-3.3,8.2-3.3,13c0,7.1,2.5,13.1,7.4,17.9
+                    c4.9,4.9,10.8,7.3,17.8,7.3c4.6,0,8.9-1.1,12.8-3.4c3.9-2.2,7-5.3,9.2-9.2c2.2-3.9,3.3-8.2,3.3-13c0-4.7-1.1-9-3.3-12.8
+                    c-2.2-3.8-5.3-6.9-9.3-9.2C120.1,21,115.8,19.8,111.3,19.8z"/>
+                  <path class="logo-letter" fill="#999" d="M196.7,40.2l-4.5,2.8c-3.9-5.2-9.2-7.7-15.9-7.7c-5.4,0-9.8,1.7-13.4,5.2c-3.5,3.5-5.3,7.6-5.3,12.6
+                    c0,3.2,0.8,6.2,2.4,9.1c1.6,2.8,3.9,5,6.7,6.6c2.8,1.6,6,2.3,9.6,2.3c6.5,0,11.8-2.6,15.9-7.7l4.5,3c-2.1,3.2-4.9,5.6-8.5,7.4
+                    c-3.6,1.7-7.6,2.6-12.1,2.6c-7,0-12.8-2.2-17.3-6.6c-4.6-4.4-6.9-9.8-6.9-16.2c0-4.3,1.1-8.2,3.2-11.9c2.1-3.7,5.1-6.5,8.9-8.6
+                    c3.8-2.1,8-3.1,12.6-3.1c2.9,0,5.7,0.4,8.4,1.3c2.7,0.9,5,2.1,6.9,3.5C193.7,36.2,195.3,38,196.7,40.2z"/>
+                  <path class="logo-letter" fill="#999" d="M207.5,14h5.7v34.8L233.6,31h8.3l-24.2,21l25.6,23.1h-8l-22.2-19.8v19.8h-5.7V14z"/>
+                </g>
+                <g class="logo-arrows">
+                  <rect x="115.9" y="36.6" fill="#999" transform="matrix(0.6187 0.7857 -0.7857 0.6187 79.537 -75.394)" class="logo-arrow logo-arrow--hours" width="3" height="15.3"/>
+                  <rect x="102.9" y="22.9" fill="#999" transform="matrix(0.7857 -0.6187 0.6187 0.7857 -0.9224 72.6382)" class="logo-arrow logo-arrow--minutes" width="3" height="29.5"/>
+                </g>
+              </svg>
+              <span>Разработка сайта Clock Creative Lab</span>
+            </a>
+	        </div>
+		    </div>
+			</footer>
+    </div>
+  </body>
+</html>

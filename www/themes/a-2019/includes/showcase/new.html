@@ -1,0 +1,268 @@
+<style>
+body{
+	background-color:white;
+}
+article>h1{
+	font:bold 32px "audi type bold";
+}
+.not-available{
+	color:#C22;
+	font:24px/50px "audi type bold";
+}
+article>p{
+	margin:10px 0;
+	font-size:28px;
+	font-weight:bold;
+}
+article>form>ul>li{
+	margin:10px 0;
+	list-style:disc outside;
+}
+#properties{
+	font:14px "audi type normal";
+	padding:50px 0;
+	text-align:center;
+}
+.property{
+	margin:8px 0;
+	max-width:600px;
+	display:flex;
+	justify-content:space-between;
+}
+.property>span:first-child{
+	font-family:"audi type light";
+}
+.property>span:last-child{
+	font-family:"audi type normal";
+}
+
+#equipment+label,
+#additional+label{
+	margin:5px 0;
+	display:block;
+	cursor:pointer;
+	padding:0 2vw;
+	background-color:#E8E8E8;
+	font:15px/45px "audi type bold";
+}
+#equipment+label::after,
+#additional+label::after{
+	color:#C00;
+	content:"❬";
+	float:right;
+	width:45px;
+	height:45px;
+	text-align:center;
+	display:inline-block;
+	transform:rotate(-90deg);
+	transition:transform .3s;
+}
+#equipment+label+ul,
+#additional+label+ul{
+	height:0;
+	padding:0 30px;
+	overflow:hidden;
+	transition:height .6s;
+	font:15px "audi type normal";
+}
+
+#equipment:checked+label::after,
+#additional:checked+label::after{
+	transform:rotate(90deg);
+}
+.price{
+	font-size:20px;
+}
+.fullprice{
+	color:gray;
+	padding:0 4px;
+	margin-right:10px;
+	position:relative;
+}
+.fullprice::after{
+	content:"";
+	left:0;
+	top:50%;
+	width:100%;
+	height:1px;
+	position:absolute;
+	background-color:#888;
+}
+@media (max-width:768px){
+	.new {
+		padding-left: 4%;
+		padding-right: 4%;
+		width: 92% !important;
+	}
+}
+@media (max-width:824px){
+	#properties{
+		display:grid;
+		grid-template-columns:1fr 1fr 1fr;
+	}
+}
+@media (min-width:825px){
+	#properties{
+		display:flex;
+		justify-content:space-around;
+	}
+}
+</style>
+
+<article>
+	<div class="new container">
+	<div class="new-slider wow fade-in-up">
+		<div class="swiper-container gallery-top">
+			<div class="swiper-wrapper">
+				<?foreach($mediaset as $img):?>
+				<div class="swiper-slide">
+					<img src="<?=$img['url']?>" alt="<?=$img['alt']?>" title="<?=$img['alt']?> фото">
+				</div>
+				<?endforeach?>
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+		<div class="swiper-container gallery-thumbs">
+			<div class="swiper-wrapper">
+				<?foreach($mediaset as $img):?>
+				<div class="swiper-slide" style="background-image:url(<?=$img['url']?>)"></div>
+				<?endforeach?>
+			</div>
+		</div>
+	</div>
+	<h1><?=($showcase['named']." ".$showcase['articul'])?></h1>
+	<div><b><?=$showcase['engine']?></b> (<?=$showcase['horsepower']?> <?=$wordlist->horsepower?>)</div>
+	<br>
+	<br>
+	<?if($showcase['status']=="available"):?>
+	<!-- <div><b><?=$wordlist->{"selling price"}?>:</b> <?=substr_replace((INT)$showcase['price'], " ", -3, 0)?> <b><?=["EUR"=>"€","USD"=>"$","UAH"=>"₴"][$showcase['currency']]?></b></div> -->
+	<div>
+		<b><?=$wordlist->{"selling price"}?>:</b><br>
+		<?
+		//$currency = ["EUR"=>"€","USD"=>"$","UAH"=>"₴"][$showcase['currency']];
+
+		$discount = 0;
+		$fullprice = (INT)$showcase['price'];
+		if((INT)$showcase['DiscountID']>0){
+			$discount = $mySQL->getRow("SELECT discount FROM gb_discounts WHERE DiscountID={int} LIMIT 1", $showcase['DiscountID'])['discount'];
+			if((INT)$discount>0){
+				$discount = floor($fullprice * $discount / 100);
+			}
+		}
+		$price = $fullprice - $discount;
+
+		if($fullprice>$price):?>
+		<span class="fullprice"><?=($showcase['currency']." ".substr_replace( substr_replace($fullprice, " ", -6, 0), " ", -3, 0))?>,00</span><br>
+		<?endif?>
+		<b class="price"><?=($showcase['currency']." ".substr_replace( substr_replace($price, " ", -6, 0), " ", -3, 0))?>,00</b>
+	</div>
+	<?else:?>
+	<div class="not-available"><?=$wordlist->{"not-available"}?></div>
+	<?endif?>
+	<br>
+	<div><b><?=$wordlist->completion?>:</b> <?=$showcase['articul']?></div>
+	<br>
+	<div class="property"><span><?=$wordlist->{"body color"}?>:</span> <span><?=$showcase['body']?></span></div>
+	<div class="property"><span><?=$wordlist->{"interior color"}?>:</span> <span><?=$showcase['interior']?></span></div>
+	<div id="properties">
+		<div>
+			<!-- <img src="/themes/<?=THEME?>/images/showcase/fuel.png"> -->
+			<img src="https://img.audi-kiev.com.ua/data/detail_type_1.png" alt="">
+			<div><?=$wordlist->{"fuel type"}?></div>
+			<b><?=$optionset['fuel']?></b>
+		</div>
+		<div>
+			<!-- <img src="/themes/<?=THEME?>/images/showcase/horsepower.png"> -->
+			<img src="https://img.audi-kiev.com.ua/data/detail_type_2.png" alt="">
+			<div><?=$wordlist->{"power"}?></div>
+			<b><?=$showcase['horsepower']?> <?=$wordlist->horsepower?></b>
+		</div>
+		<div>
+			<!-- <img src="/themes/<?=THEME?>/images/showcase/drive.png"> -->
+			<img src="https://img.audi-kiev.com.ua/data/detail_type_3.png" alt="">
+			<div><?=$wordlist->{"gearbox type"}?></div>
+			<b><?=$wordlist->{$optionset['gearbox']}?></b>
+		</div>
+		<div>
+			<!-- <img src="/themes/<?=THEME?>/images/showcase/gearbox.png"> -->
+			<img src="https://img.audi-kiev.com.ua/data/detail_type_4.png" alt="">
+			<div><?=$wordlist->{"drive type"}?></div>
+			<b><?=$wordlist->{$optionset['drive']}?></b>
+		</div>
+		<div>
+			<!-- <img src="/themes/<?=THEME?>/images/showcase/consumption.png"> -->
+			<img src="https://img.audi-kiev.com.ua/data/detail_type_5.png" alt="">
+			<div><?=$wordlist->{"consumption"}?></div>
+			<b><?=$optionset['consumption']?> л/100 км</b>
+		</div>
+	</div>
+	<div class="property"><span><?=$wordlist->capacity?>:</span> <span><?=$optionset['capacity']?> см<sup>3</sup></span></div>
+	<div class="property"><span><?=$wordlist->power?>:</span> <span><?=$optionset['power']?>кВт/ <?=$showcase['horsepower']?> <?=$wordlist->horsepower?></span></div>
+	<div class="property"><span><?=$wordlist->torque?>:</span> <span><?=$optionset['torque']?> Нм</span></div>
+	<div class="property"><span><?=$wordlist->speed?>:</span> <span><?=$optionset['speed']?> км/<?=$wordlist->hour?></span></div>
+	<div class="property"><span><?=$wordlist->racing?>:</span> <span><?=$optionset['racing']?> с</span></div>
+	<div class="property"><span><?=$wordlist->fuel?>:</span> <span><?=$optionset['fuel']?></span></div>
+	<div class="property"><span><?=$wordlist->consumption?>:</span> <span><?=$optionset['consumption']?> л/100 км</span></div>
+
+	<br>
+
+	<form autocomplete="off">
+		<input id="equipment" type="checkbox" hidden>
+		<label for="equipment">Базове обладнання</label>
+		<ul><?=$showcase['equipment']?></ul>
+		<input id="additional" type="checkbox" hidden>
+		<label for="additional">Додаткове обладнання</label>
+		<ul><?=$showcase['additional']?></ul>
+		<br>
+		<script>
+		(function(form){
+			form.onchange=function(event){
+				form.querySelectorAll("input+label+ul").forEach(function(lst){
+					lst.style.height = "0px";
+				});
+				form.querySelectorAll("input:checked+label+ul").forEach(function(lst){
+					lst.style.height = lst.scrollHeight+"px";
+				});
+			}
+		})(document.currentScript.parentNode)
+		</script>
+	</form>
+	<br>
+  <div id="map"></div><br>
+	<a href="https://www.google.com.ua/maps/dir/''/ауди+центр+киев+юг/@50.399124,30.5445253,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x40d4ce5102781b5b:0xa4c9857c088021e7!2m2!1d30.6145649!2d50.399145" class="btn text s" target="_blank" rel="nofollow noopener"><?=$wordlist->route?></a>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpTfzEfoNeVlnJhNyZCHOlMSEl5BrFyUQ"></script>
+	<script src="https://audi-kiev.com.ua/themes/a-2019/scripts/map.min.js"></script>
+</div>
+<div class="container container--wide">
+	<!-- tiles -->
+  <div class="tiles lineup">
+    <div class="row row--grid">
+      <div class="column column--33">
+        <a href="#modal" data-name="test">
+          <img src="https://img.audi-kiev.com.ua/data/main/test-drive.jpg" alt="" title="" class="lazy">
+          <h3>Тест-драйв Audi</h3>
+          <span><?=$wordlist->{'description 1'}?></span>
+        </a>
+        <a href="#modal" data-name="test" class="btn text s"><?=$wordlist->{'test drive'}?></a>
+      </div>
+      <div class="column column--33">
+        <a href="<?=LANG_INDEX?>/novi-avtomobili-audi">
+					<img data-src="https://img.audi-kiev.com.ua/data/main/new-audi.jpg" class="lazy">
+          <h3><?=$wordlist->{'title 2'}?></h3>
+          <span><?=$wordlist->{'description 2'}?></span>
+        </a>
+        <a href="<?=LANG_INDEX?>/novi-avtomobili-audi" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+      </div>
+      <div class="column column--33">
+        <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 3'}?>">
+          <img data-src="https://img.audi-kiev.com.ua/data/preview/finansovye-uslugi-audi/main_slider.jpg" class="lazy">
+          <h3><?=$wordlist->{'title 3'}?></h3>
+          <span><?=$wordlist->{'description 3'}?></span>
+        </a>
+        <a href="<?=(LANG_INDEX)?>/<?=$wordlist->{'link 3'}?>" class="btn text s"><?=$wordlist->{'learn more'}?></a>
+      </div>
+    </div>
+  </div>
+</div>
+</article>

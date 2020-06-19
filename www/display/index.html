@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="<?=USER_LANG?>">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Оцінка якості обслуговування Audi Центр Київ Юг</title>
+		<link rel="stylesheet" id="style-css" href="https://audi-kiev.com.ua/content/display/substyle.css" type="text/css" media="all">
+		<script type="text/javascript" src="https://audi-kiev.com.ua/content/js/gbAPI.js"></script>
+		<script>
+			var form, timer, hSlider, vSlider;
+
+			window.onload=function(){
+				form = doc.querySelector("#mainform");
+			}
+			function resetForm(){
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					form.reset();
+					hSlider.current = 1;
+					hSlider.slideShot();
+					vSlider.current = 0;
+					vSlider.slideShot();
+				},30000);
+			}
+			function qualityOfService(form){
+
+				XHR.push({
+				"addressee":"/xhr/forms/quality-of-service",
+				"Content-Type":"application/json",
+				"body":JSON.stringify({
+					"client":"-//-",
+					"tel":((form.leftphone.value.length > 4) ? form.leftphone.value : form.rightphone.value),
+					"departament":form.departament.value,
+					"email":"-//-",
+					"evaluation":form.evaluation.value
+				}),
+				"onsuccess":function(response){
+					if(isNaN(response)){
+
+					}else{
+
+					}
+				}
+				});
+				return false;
+			}
+			function setSimbol(field, simbol){
+				form[field].value += simbol;
+			}
+			function sliceSimbol(field){
+				if(form[field].value.length > 4){
+					form[field].value = form[field].value.slice(0,-1);
+				}
+			}
+			function dropNumber(field){
+				form[field].value = "+380";
+			}
+		</script>
+	</head>
+	<body>
+		<form id="mainform" onchange="resetForm()" onsubmit="return qualityOfService(this)" autocomplete="off">
+
+			<div id="v-slider" class="slider">
+				<div id="first-slide" class="slide">
+					<div class="subslide right" align="center">
+						<h1>ОЦІНІТЬ ЯКІСТЬ</h1>
+						<h2>ОБСЛУГОВУВАННЯ</h2>
+						<br><br>
+						<div class="quality-of-service" onchange="vSlider.next()">
+							<label><input class="quality-evaluation btn" name="evaluation" value="1" type="radio" required><span>1</span></label>
+							<label><input class="quality-evaluation btn" name="evaluation" value="2" type="radio" required><span>2</span></label>
+							<label><input class="quality-evaluation btn" name="evaluation" value="3" type="radio" required><span>3</span></label>
+							<label><input class="quality-evaluation btn" name="evaluation" value="4" type="radio" required><span>4</span></label>
+							<label><input class="quality-evaluation btn" name="evaluation" value="5" type="radio" required><span>5</span></label>
+						</div>
+					</div>
+				</div>
+
+			<div id="h-slider" class="slide slider">
+				<div id="showroom" class="slide">
+					<div class="subslide">
+						<h1>БУДЬ-ЛАСКА ЗАЛИШТЕ<br> ВАШ НОМЕР ТЕЛЕФОНУ</h1>
+						<h2>ЩОБ МИ МОГЛИ ЗВ'ЯЗАТИСЯ З ВАМИ</h2>
+						<p id="right-phone" class="phone">
+							<input type="text" name="leftphone" value="+380" minlength="13"><br>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">7</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">8</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">9</span><br>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">4</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">5</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">6</span><br>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">1</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">2</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">3</span><br>
+							<span onclick="dropNumber('leftphone')" class="btn tel">&#xe117;</span>
+							<span onclick="setSimbol('leftphone',this.textContent)" class="btn tel">0</span>
+							<span onclick="sliceSimbol('leftphone')" class="btn tel">&#xe119;</span>
+						</p>
+						<button class="send btn" onclick="vSlider.next()">&#xe116; НАДІСЛАТИ</button>
+					</div>
+					<div class="subslide">
+
+					</div>
+				</div>
+				<div id="what-you-estimate" class="slide">
+					<div class="subslide">
+						<label><input name="departament" type="radio" value="САЛОН" onchange="hSlider.next(-1)" class="departament btn"><span>САЛОН</span></label>
+					</div>
+					<div class="subslide">
+						<h2>ЩО ВИ</h2>
+						<h1>ОЦІНЮЄТЕ?</h1>
+					</div>
+					<div class="subslide">
+						<label><input name="departament" type="radio" value="СТО" onchange="hSlider.next(1)" class="departament btn"><span>СТО</span></label>
+					</div>
+				</div>
+				<div id="maintenance" class="slide">
+					<div class="subslide">
+
+					</div>
+					<div class="subslide">
+						<h1>БУДЬ-ЛАСКА ЗАЛИШТЕ<br> ВАШ НОМЕР ТЕЛЕФОНУ</h1>
+						<h2>ЩОБ МИ МОГЛИ ЗВ'ЯЗАТИСЯ З ВАМИ</h2>
+						<p id="right-phone" class="phone">
+							<input type="text" name="rightphone" value="+380" minlength="13"><br>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">7</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">8</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">9</span><br>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">4</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">5</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">6</span><br>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">1</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">2</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">3</span><br>
+							<span onclick="dropNumber('rightphone')" class="btn tel">&#xe117;</span>
+							<span onclick="setSimbol('rightphone',this.textContent)" class="btn tel">0</span>
+							<span onclick="sliceSimbol('rightphone')" class="btn tel">&#xe119;</span>
+						</p>
+						<button class="send btn" onclick="vSlider.next()">&#xe116; НАДІСЛАТИ</button>
+					</div>
+				</div>
+
+				<script>
+					(function(slider){
+						var slides = slider.querySelectorAll(".slide");
+						hSlider = new function(){
+							var moveslide;
+							this.current = 1;
+							this.next = function(dir){
+								this.current += dir;
+								if(this.current >= slides.length){
+									this.current = 0;
+								}else if(this.current < 0) this.current = slides.length-1;
+								this.slideShot();
+							}
+							this.slideShot = function(){
+								var offset = (slides[this.current].offsetLeft - slider.offsetLeft);
+								switch(hSlider.current){
+									case 0: slider.style.backgroundPosition="left center"; break;
+									case 1: slider.style.backgroundPosition="center center"; break;
+									case 2: slider.style.backgroundPosition="right center"; break;
+									default: break;
+								}
+								cancelAnimationFrame(moveslide);
+								moveslide = requestAnimationFrame(function scrollSlide(){
+									if(((offset - slider.scrollLeft) > 16) || ((slider.scrollLeft - offset) > 16)){
+										slider.scrollLeft += (offset - slider.scrollLeft)/8;
+										moveslide = requestAnimationFrame(scrollSlide);
+									}else slider.scrollLeft = offset;
+								});
+							}
+							setTimeout(function(){ hSlider.slideShot(); }, 500);
+						}
+					})(doc.scripts[doc.scripts.length-1].parentNode);
+				</script>
+			</div>
+				<div id="last-slide" class="slide">
+					<div class="subslide right" align="center">
+						<h1>Дякуємо за Вашу оцінку.</h1>
+						<p>Найближчим часом адміністрація Audi Центру зв'яжеться з Вами. Ми врахуємо Ваші побажання і поліпшимо наш сервіс.</p>
+					</div>
+				</div>
+			</div>
+				<script>
+				vSlider = new function(){
+					var slider = doc.querySelector("#v-slider");
+					var slides = doc.querySelectorAll("#v-slider>.slide");
+					var moveslide;
+					this.current = 0;
+					this.next = function(){
+						if(++this.current >= slides.length) this.current = 0;
+						this.slideShot();
+					}
+					this.slideShot = function(){
+						var offset = slides[this.current].offsetTop - slider.offsetTop;
+
+						cancelAnimationFrame(moveslide);
+						moveslide = requestAnimationFrame(function scrollSlide(){
+							if(((offset - slider.scrollTop) > 10) || ((slider.scrollTop - offset) > 10)){
+								slider.scrollTop += (offset - slider.scrollTop)/8;
+								moveslide = requestAnimationFrame(scrollSlide);
+							}else slider.scrollTop = offset;
+						});
+					}
+					setTimeout(function(){
+						vSlider.slideShot();
+					}, 500);
+				}
+				</script>
+		</form>
+	</body>
+</html>

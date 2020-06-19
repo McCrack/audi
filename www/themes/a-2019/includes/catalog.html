@@ -1,0 +1,27 @@
+
+<div class="container">
+<div class="news">
+
+		<!-- all model -->
+		<div class="all-model">
+		<div class="all-model-content clearfix">
+	<h1 style="width: 100%"><?=$page->header?> <?=$page->context?></h1>
+	<div class="grids">
+	<?php
+	$catalog = $mySQL->get("SELECT * FROM gb_showcase WHERE CategoryID = {int} AND language LIKE {str} AND status LIKE 'available'", $page->PageID,USER_LANG);
+	foreach($catalog as $itm):?>
+		<a href="<?=LANG_INDEX?>/<?=$page->parent?>/<?=translite($itm['named'])?>-<?=$itm['articul']?>">
+			<img class="lazy loaded" src="<?=$itm['preview']?>">
+			<h3><?=($itm['named']." ".$itm['articul'])?></h3>
+			<div><b><?=$itm['engine']?></b> (<?=($itm['horsepower']." ".$wordlist->horsepower)?>)</div>
+			<div><?=$wordlist->{"selling price"}?>: <b><?=substr_replace((INT)$itm['price'], " ", -3, 0)?> <?=["EUR"=>"€","USD"=>"$","UAH"=>"₴"][$itm['currency']]?></b></div>
+			<div><?=$wordlist->completion?>: <b><?=$itm['articul']?></b></div>
+			<br>
+			<div><b><?=$wordlist->color?>:</b> <?=$itm['body']?></div>
+		</a>
+	<?endforeach?>
+	</div>
+	</div>
+</div>
+</div>
+</div>

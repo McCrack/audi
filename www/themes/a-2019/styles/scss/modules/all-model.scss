@@ -1,0 +1,582 @@
+.all-model {
+  &::after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+    content: '';
+    height: 0;
+	}
+
+  h1 {
+    font-family: $extended-bold;
+    margin-bottom: 20px;
+    line-height: 36px;
+    font-size: em(26);
+    width: 24%;
+
+    @include media(phone) {
+			font-size: em(18);
+    	line-height: 24px;
+    	width: 100%;
+    }
+	}
+
+	.all-model-content {
+		position: relative;
+		padding-top: 44px;
+		margin: 0 auto;
+
+		@include media(phone) {
+			width: 92%;
+		}
+	}
+}
+
+.tool-bar {
+	display: none;
+	overflow: hidden;
+	text-align: left;
+  position: absolute;
+  width: 73%;
+  top: 44px;
+  right: 0;
+
+  > a {
+		@include transition($time);
+		@include inline-block;
+		text-decoration: none;
+		font-family: $bold;
+	  padding-left: 12px;
+		position: absolute;
+		line-height: 15px;
+		text-align: left;
+		font-size: em(12);
+	  color: $black;
+	  top: 15px;
+	  left: 0;
+
+		&::before {
+			@extend %left-arrow;
+		}
+
+		&:hover {
+			color: $red;
+		}
+
+		@include media(phone) {
+			margin-left: 0;
+		}
+	}
+
+	&-toggle {
+		float: right;
+		display: flex;
+	  margin-top: 8px;
+
+	  > a {
+			@include inline-block;
+		  vertical-align: top;
+		  width: 40px;
+		  height: 40px;
+		}
+
+		&-list {
+			background-color: $grey-10;
+			position: relative;
+
+			&::after,
+			&::before {
+				opacity: .5;
+				transition: $time;
+				background-color: $red;
+				position: absolute;
+				content: '';
+				height: 4px;
+				width: 25px;
+				left: 7.5px;
+			}
+
+			&::before {
+				top: 12.5px;
+			}
+
+			&::after {
+				top: 23.5px;
+			}
+
+			&:hover,
+			&.active {
+				cursor: pointer;
+
+				&::after,
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+
+		&-grid {
+			margin-left: 10px;
+			background-color: $grey-10;
+			position: relative;
+
+			&::before {
+				opacity: .5;
+				transition: $time;
+				background-color: $red;
+				position: absolute;
+				content: '';
+				height: 20px;
+				width: 20px;
+				left: 10px;
+				top: 10px;
+			}
+
+			&:hover,
+			&.active {
+				cursor: pointer;
+
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.model-aside {
+  padding:0 0 48px 0;
+	position: relative;
+	max-width: 350px;
+  float: left;
+  width: 24%;
+	margin: 0;
+
+	&-filter-bar {
+		padding: 0 ;
+		display: block;
+	  overflow: hidden;
+		list-style: none;
+		box-shadow: 0 4px 9px rgba(0, 0, 0, .05);
+
+		&-accordeon {
+			background-color: $white;
+			padding-bottom: 20px;
+		  width: 100%;
+
+			&:hover a,
+			&.active a {
+				color: $red;
+			}
+
+			&:first-child {
+				> a:first-child {
+					border-top: 0;
+				}
+
+				ul {
+					display: block;
+				}
+			}
+
+			ul {
+				display: none;
+			}
+
+			> a {
+				@include transition($time);
+				text-align: left;
+			  display: block;
+			  margin-bottom: 1px;
+			  padding: 8px 12px;
+			  background: #fff;
+			  font-family: $bold;
+			  font-size: em(11);
+			  line-height: 14px;
+			  color: $black;
+				text-decoration: none;
+				border-bottom: 1px solid rgb(218,223,227);
+				border-top: 1px solid rgb(218,223,227);
+
+				> span {
+				  @extend %down-arrow;
+
+				  &::after {
+				  	margin-top: 5px;
+				  }
+				}
+			}
+
+			&.paddings > a > span {
+			  @extend %up-arrow;
+			}
+
+			&-panel {
+				list-style: none;
+				display: block;
+				padding: 0 5% 0 0px;
+				background: #fff;
+				text-align: left;
+
+				& > li {
+					width: 40%;
+					text-align: left;
+					height: 30px;
+					vertical-align: middle;
+					@include inline-block;
+					margin: 20px 0 0 8%;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+.paddings {
+  padding: 0;
+  margin: 0 0 -3px 0;
+}
+
+.model-aside-filter-bar-accordeon-panel > li > p {
+	@include inline-block;
+	font-size: 11px;
+	line-height: 30px;
+	font-family: $normal;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+
+.model-aside-filter-bar-accordeon-panel-box  {
+	@include inline-block;
+	margin-right: 10px;
+	border: 3px solid black;
+	background-color: white;
+	height: 24px;
+	width: 24px;
+	vertical-align: middle;
+}
+
+.model-aside-filter-bar-accordeon-panel-box.active {
+	border-color: $red;
+	position: relative;
+
+	&::after {
+		content: '';
+		background-color: $red;
+		position: absolute;
+		height: 15px;
+		width: 15px;
+		left: 4.5px;
+		top: 4.5px;
+	}
+}
+
+.model-aside-filter-bar-accordeon-type {
+	padding: 0 0 0 8%;
+	list-style: none;
+	background-color: white;
+	text-align: left;
+}
+
+.model-aside-filter-bar-accordeon-type > li {
+	cursor: pointer;
+	padding: 20px 0 0px 0;
+	display: block;
+	height: 30px;
+}
+
+.model-aside-filter-bar-accordeon-type > li > p {
+	@include inline-block;
+	vertical-align: middle;
+	font: 600 11px/28px AudiTypeExtendedBold,Verdana,sans-serif;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.model-aside-filter-bar-accordeon-price {
+	display: block;
+	margin: 20px 20px 0 20px;
+	width: calc(100% - 40px);
+}
+.model-aside-filter-bar-accordeon-price > span {
+	float: left;
+  font: 700 11px/15px Verdana,sans-serif;
+	padding: 6px 0;
+}
+
+.model-aside-filter-bar-accordeon-price > select {
+	float: right;
+	outline: 0;
+  padding: 6px 14px 5px 10px;
+  margin: 0;
+  font: 400 11px/15px Verdana,sans-serif;
+  height: 29px;
+	min-width: 100px;
+	background-image: url(https://audiyug.com/content/images/small-black-arrow-down.png);
+	background-position: 95% center;
+  background-repeat: no-repeat;
+	background-size: 8px 5px;
+  text-indent: .01px;
+  border: 1px solid #d0d3d4;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+
+.model-aside-filter-bar-accordeon-price > option {
+	padding: 0px 2px 1px;
+}
+
+.all-model-content-main {
+  padding-bottom: 48px;
+  position: relative;
+	margin-left: 28%;
+}
+
+.all-model-content-main > ul {
+	display: flow-root;
+	list-style: none;
+}
+
+.all-model-content-main-car-temporary {
+	position: relative;
+	float: left;
+	width: 29.333%;
+	margin: 0 2% 30px;
+	overflow: hidden;
+	font: 400 14px/20px AudiTypeExtendedBold,Verdana,sans-serif;
+	animation: appearAnimation;
+	animation-duration: 0.7s;
+}
+
+.all-model-content-main-car-temporary > a {
+	display: block;
+
+	&:first-child {
+		margin-bottom: 3px;
+	}
+
+	&:last-child {
+		margin-left: 18px;
+	}
+}
+
+.all-model-content-main-car-temporary > a > img {
+	width: 100%;
+}
+
+.all-model-content-main-car {
+	display: none;
+	position: relative;
+	float: left;
+  	width: 29.333%;
+	height: 163px;
+	margin: 0 2% 30px;
+	font: 400 14px/20px AudiTypeExtendedBold,Verdana,sans-serif;
+}
+.all-model-content-main-car-details-stats div { font-size: 11.75px; }
+.all-model-content-main-car.grid  .all-model-content-main-car-details-stats {
+	display: block;
+}
+
+.all-model-content-main-car > a {
+	display: block;
+	margin-bottom: 3px;
+}
+
+.all-model-content-main-car > a > img {
+	width: 100%;
+}
+
+.all-model-content-main-car-details > a,
+a.all-model-content-main-car-details {
+	@include transition($time);
+	font-family: $extended-bold;
+	text-decoration: none;
+  line-height: 20px;
+	text-align: left;
+	color: $black;
+
+	@include media(phone) {
+		line-height: 18px;
+		font-size: em(13);
+		display: initial;
+	}
+
+	&::after {
+    @extend %arrow--m;
+  	@extend %right-arrow;
+  	color: $red;
+	}
+
+	&:hover {
+		color: $red;
+	}
+}
+
+/**/
+.all-model-content-main-car-details-stats {
+	margin-top: 10px;
+	display: none;
+}
+
+.all-model-content-main-car-details-stats > p {
+	line-height: 15px;
+	font-size: 12px;
+	margin: 0;
+}
+
+.all-model-content-main-car-details-stats > .carline-price {
+	font-family: $bold;
+  color: $black;
+}
+
+.all-model-content-main-car.list {
+	width: 96%;
+}
+
+.all-model-content-main-car.list > a {
+	width: 50%;
+  margin: 0;
+}
+
+.all-model-content-main-car.list > .all-model-content-main-car-details {
+	position: absolute;
+  top: 32px;
+  left: 50%;
+  margin-left: 65px;
+}
+
+.all-model-content-main-car.list  .all-model-content-main-car-details-stats {
+	display: block;
+}
+
+.all-model-content-main-car.grid.display,
+.display {
+	display: block;
+	min-height: 0;
+}
+
+@media only screen and (max-width: 1023px),
+only screen and (max-device-width: 1023px) {
+
+	.all-model-content > h2 {
+		max-width: none;
+	}
+
+	.tool-bar {
+		width: 60%;
+	}
+
+	.model-aside {
+		width: 30%;
+	}
+
+	.model-aside-filter-bar-accordeon-panel-box {
+		margin-right: 4px;
+	}
+
+	.model-aside-filter-bar-accordeon-type > li {
+		padding: 10px 0 0 0;
+	}
+
+	.all-model-content-main {
+		margin-left: 34%;
+	}
+
+	.all-model-content-main-car {
+		width: 46%;
+		height: auto;
+	}
+
+	.all-model-content-main-car.list > a {
+		width: 90%;
+	}
+
+	.all-model-content-main-car.list > .all-model-content-main-car-details {
+		position: relative;
+    top: auto;
+    left: auto;
+    margin-left: 0;
+    margin-top: 10px;
+	}
+
+}
+
+
+@media only screen and (max-width: 600px),
+only screen and (max-device-width: 600px) {
+  .all-model-content-main-car-temporary {
+    width: 45%;
+  }
+
+	.tool-bar {
+		width: 100%;
+		position: relative;
+		top: auto;
+		right: auto;
+		left: 0;
+	}
+
+
+	.all-model-content > h2 {
+		width: 100%;
+		font-size: 18px;
+		line-height: 30px;
+    	margin-bottom: 20px;
+	}
+
+
+	.model-aside {
+		display: none;
+	}
+
+	.all-model-content-main {
+		margin-left: 0;
+	}
+
+	.all-model-content-main-car {
+		width: 46%;
+	}
+
+	.all-model-content-main-car.list > .all-model-content-main-car-details {
+		left: 2%;
+	}
+
+}
+
+.clearfix {
+	&::after {
+	  display: block;
+	  width: 100px;
+	  clear: both;
+	  height: 1px;
+	  content: '';
+	}
+
+	&-margin {
+		margin: 0 0 40px 0;
+	}
+}
+
+#listing {
+  width: 400px;
+  height: 500px !important;
+}
+
+.item {
+  @include inline-block;
+  border: 1px solid red;
+  height: 120px;
+  width: 120px;
+}
+

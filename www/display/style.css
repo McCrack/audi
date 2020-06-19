@@ -1,0 +1,250 @@
+@font-face{
+	font-family:'iconset';
+	src: local('iconset'), url(/content/display/icons/fonts/iconset.ttf);
+}
+@font-face {
+	font-family: AudiNormal;
+	src: url(/includes/fonts/audi-type-extended-normal.woff);
+}
+
+@font-face {
+	font-family: AudiBold;
+	src: url(/includes/fonts/audi-type-extended-bold.woff);
+}
+
+body{
+	margin:0;
+}
+
+
+.slideshow{
+	overflow:hidden;
+	scroll-snap-type:mandatory;
+    scroll-snap-points-x:repeat(100%);
+}
+.slide{
+	/*background-size:cover;
+	background-repeat:no-repeat*/;
+}
+.slide,
+.slideshow{
+	width:100%;
+	height:100vh;
+}
+#h-slider{
+	font-size:0px;
+	white-space:nowrap;
+	background-image:url(/content/display/subslide.jpg);
+}
+#h-slider>.slide{
+	vertical-align:top;
+	display:inline-block;
+}
+#center-screen{
+	background-image:url(/content/display/subslide.jpg);
+}
+#left-screen{
+	background-repeat:no-repeat;
+	background-image:url(/content/display/3_3.jpg);
+}
+#right-screen{
+	background-repeat:no-repeat;
+	background-position:right top;
+	background-image:url(/content/display/4_4.jpg);
+}
+
+/******************************/
+
+#center-screen>.subslide{
+	width:33%;
+}
+
+/******************************/
+
+.subslide{
+	height:100%;
+	padding-top:10%;
+	text-align:center;
+	vertical-align:top;
+	display:inline-block;
+	box-sizing:border-box;
+}
+#right,
+#left{
+	padding-top:18%;
+}
+
+/******************************/
+
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.center{
+	margin:0 auto;
+}
+
+/******************************/
+
+
+
+#first-screen{
+	width:42%;
+	padding-top:10%;
+}
+#second-screen{
+	width:34%;
+	padding-top:16%;
+}
+#last-screen{
+	width:43%;
+	padding-top:18%;
+}
+
+/******************************/
+
+#first-screen>h1{
+	margin:0;
+	font:bold 3.4vw AudiBold;
+}
+#first-screen>h2{
+	margin:0;
+	letter-spacing:2px;
+	font:normal 3.1vw AudiNormal;
+}
+#second-screen>h1{
+	margin:0;
+	letter-spacing:4px;
+	font:bold 2vw AudiBold;
+}
+#second-screen>h2{
+	margin:0;
+	font:normal 4.2vw AudiNormal;
+}
+
+#left-screen h1,
+#right-screen h1{
+	margin:0 8%;
+	text-align:justify;
+	text-align-last:justify;
+	font:bold 2vw AudiBold;
+}
+#left-screen h2,
+#right-screen h2{
+	margin:10px 8%;
+	text-align:justify;
+	text-align-last:justify;
+	font:normal 1.4vw AudiNormal;
+}
+
+#last-screen>h1{
+	margin:0;
+	letter-spacing:2px;
+	font:bold 2.1vw AudiBold;
+}
+#last-screen>p{
+	margin:0;
+	text-align:justify;
+	text-align-last:justify;
+	padding:15px 55px;
+	font:normal 1.4vw AudiNormal;
+}
+
+/*******************************/
+
+.btn{
+	visibility:hidden;
+}
+.btn+span{
+	color:#444;
+	width:200px;
+	margin:20px;
+	cursor:pointer;
+	
+	border-radius:3px;
+	display:inline-block;
+	background-color:#F0F0F0;
+	font:bold 1.5vw/2.8 AudiNormal;
+	background:linear-gradient(to top, #EAEAEA, #FFF);
+	box-shadow:10px 10px 4px -8px rgba(0,0,0,0.5);
+}
+.btn:hover+span{
+	color:white;
+	background:linear-gradient(to top, #D01550, #F43B60);
+}
+.btn:checked+span{
+	visibility:hidden;
+}
+
+/*******************************/
+
+.phone{
+	margin-top:4%;
+}
+.phone>input{
+	width:276px;
+	margin:10px 0;
+	padding:10px;
+	text-align:center;
+	box-sizing:border-box;
+	background-color:#FFF;
+	border:1px solid #888;
+	font:normal 1vw AudiNormal;
+}
+.phone-btn{
+	margin:3px;
+	color:white;
+	width:88px;
+	height:72px;
+	cursor:pointer;
+	display:inline-block;
+	background-color:#444;
+	font:normal 20px/3.8 iconset, AudiNormal;
+	background:linear-gradient(to top, #222, #444);
+	box-shadow:8px 8px 4px -8px rgba(0,0,0,0.5);
+}
+.send-btn{
+	color:white;
+	width:276px;
+	margin:8px 0;
+	cursor:pointer;
+	padding:16px 0;
+	border-width:0;
+	box-sizing:border-box;
+	font:normal 15px iconset, AudiNormal;
+	box-shadow:8px 8px 4px -7px rgba(0,0,0,0.6);
+	background:linear-gradient(to top, #15B050, #3BD460);
+}
+.send-btn:hover,
+.phone-btn:hover{
+	background:linear-gradient(to top, #D01550, #F43B60);
+}
+
+/***********************************/
+
+.quality-of-service{
+	padding:20px 0;
+	text-align:center;
+}
+.quality-evaluation{
+	visibility:hidden;
+	margin-right:-14px;
+}
+.quality-evaluation+span{
+	width:6vw;
+	cursor:pointer;
+	display:inline-block;
+	text-align-last:center;
+	font:32px/3.0 AudiBold;
+	border-radius:5px;
+	color:white;
+	margin:1px;
+	box-shadow:10px 10px 4px -10px rgba(0,0,0,0.5);
+	background:linear-gradient(to top, #555, #AAA);
+}
+.quality-evaluation:hover+span,
+.quality-evaluation:checked+span{
+	background:linear-gradient(to top, #D01550, #F43B60);
+}
